@@ -3,262 +3,1574 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>WeAreParty — Natural Connection</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <meta
+    name="description"
+    content="WeAreParty conecta personas, DJs y espacios a través de la música. Natural Connection."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* =========================================================
+       WEAREPARTY — HOME V2
+       Natural Connection
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     :root {
-      --cyan: #00C8FF; --violet: #8B00FF; --magenta: #E8005A;
-      --bg: #080808; --surface: #0d0d0d; --border: rgba(255,255,255,0.07);
-      --text: #FFFFFF; --muted: rgba(255,255,255,0.35);
+      --bg: #060606;
+      --surface: #0b0b0c;
+      --surface-2: #101011;
+
+      --white: #ffffff;
+      --text: rgba(255,255,255,.88);
+      --muted: rgba(255,255,255,.45);
+      --faint: rgba(255,255,255,.20);
+
+      --cyan: #00c8ff;
+      --violet: #7b2cff;
+      --magenta: #e8005a;
+
+      --border: rgba(255,255,255,.08);
+
+      --max: 1440px;
     }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    .pulse-bar { height: 2px; background: linear-gradient(90deg, var(--cyan), var(--violet), var(--magenta)); }
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; border-bottom: 0.5px solid var(--border); }
-    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
-    .nav-links a { font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--text); }
-    .btn-booking { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 9px 20px; border: 0.5px solid rgba(0,200,255,0.5); color: var(--cyan); border-radius: 2px; cursor: pointer; background: transparent; font-family: 'Inter', sans-serif; text-decoration: none; }
-    .btn-booking:hover { background: rgba(0,200,255,0.08); }
-    .hero { position: relative; min-height: 480px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 24px; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(139,0,255,0.2) 0%, transparent 70%), radial-gradient(ellipse 40% 30% at 15% 50%, rgba(0,200,255,0.07) 0%, transparent 60%), radial-gradient(ellipse 40% 30% at 85% 40%, rgba(232,0,90,0.07) 0%, transparent 60%); pointer-events: none; }
-    .hero-eyebrow { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; position: relative; }
-    .hero-title { font-size: clamp(42px, 8vw, 80px); font-weight: 700; line-height: 1; letter-spacing: -0.02em; margin-bottom: 20px; position: relative; }
-    .hero-title .gradient-text { background: linear-gradient(90deg, var(--cyan) 0%, var(--violet) 50%, var(--magenta) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .hero-sub { font-size: 15px; color: var(--muted); max-width: 420px; line-height: 1.8; position: relative; margin-bottom: 36px; }
-    .waveform { display: flex; align-items: center; gap: 3px; height: 40px; }
-    .waveform-bar { width: 3px; border-radius: 2px; background: linear-gradient(180deg, var(--cyan), var(--violet)); opacity: 0.5; animation: wave 1.6s ease-in-out infinite; }
-    @keyframes wave { 0%, 100% { transform: scaleY(0.25); } 50% { transform: scaleY(1); } }
-    .section { padding: 40px; border-top: 0.5px solid var(--border); }
-    .section-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 24px; }
-    .section-title { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
-    .section-link { font-size: 11px; color: var(--cyan); text-decoration: none; }
-    .novedades-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; }
-    .card { border-radius: 3px; overflow: hidden; cursor: pointer; border: 0.5px solid var(--border); background: var(--surface); transition: border-color 0.2s; }
-    .card:hover { border-color: rgba(139,0,255,0.4); }
-    .card-main { border-color: rgba(139,0,255,0.25); background: linear-gradient(160deg, #120820 0%, #080810 100%); }
-    .card-accent-line { height: 2px; background: linear-gradient(90deg, var(--violet), var(--magenta)); }
-    .card-body { padding: 20px; min-height: 180px; display: flex; flex-direction: column; justify-content: flex-end; }
-    .card-tag { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cyan); margin-bottom: 8px; }
-    .card-title { font-size: 16px; font-weight: 600; line-height: 1.25; margin-bottom: 6px; }
-    .card-meta { font-size: 11px; color: var(--muted); }
-    .card-sm .card-title { font-size: 14px; }
-    .sets-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-    .set-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 3px; padding: 14px; cursor: pointer; transition: border-color 0.2s; }
-    .set-card:hover { border-color: rgba(0,200,255,0.3); }
-    .set-thumb { width: 100%; height: 70px; border-radius: 2px; margin-bottom: 12px; background: #0a0a14; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8px; position: relative; overflow: hidden; }
-    .set-bars { display: flex; align-items: flex-end; gap: 2px; }
-    .set-bar { width: 4px; border-radius: 2px 2px 0 0; opacity: 0.75; }
-    .play-btn { position: absolute; right: 8px; bottom: 8px; width: 26px; height: 26px; border-radius: 50%; border: 0.5px solid rgba(0,200,255,0.5); display: flex; align-items: center; justify-content: center; }
-    .play-triangle { width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 7px solid var(--cyan); margin-left: 2px; }
-    .set-platform { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
-    .set-name { font-size: 12px; font-weight: 600; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .set-meta { font-size: 10px; color: var(--muted); }
-    .filosofia { border-top: 0.5px solid var(--border); display: grid; grid-template-columns: repeat(3, 1fr); }
-    .pilar { padding: 48px 40px; text-align: center; border-right: 0.5px solid var(--border); }
-    .pilar:last-child { border-right: none; }
-    .pilar-icon { font-size: 28px; margin-bottom: 16px; display: block; }
-    .pilar-name { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
-    .pilar-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; }
-    footer { padding: 20px 40px; border-top: 0.5px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-    .footer-copy { font-size: 10px; color: rgba(255,255,255,0.18); letter-spacing: 0.08em; }
-    .socials { display: flex; gap: 20px; }
-    .socials a { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.22); text-decoration: none; transition: color 0.2s; }
-    .socials a:hover { color: rgba(255,255,255,0.7); }
-    @media (max-width: 768px) {
-      nav { padding: 16px 20px; }
-      .nav-links { display: none; }
-      .section { padding: 32px 20px; }
-      .novedades-grid { grid-template-columns: 1fr; }
-      .sets-grid { grid-template-columns: repeat(2, 1fr); }
-      .filosofia { grid-template-columns: 1fr; }
-      .pilar { border-right: none; border-bottom: 0.5px solid var(--border); }
-      footer { flex-direction: column; gap: 12px; text-align: center; }
+
+    html {
+      scroll-behavior: smooth;
     }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    .container {
+      width: min(var(--max), calc(100% - 80px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .gradient-text {
+      background: linear-gradient(
+        90deg,
+        var(--cyan),
+        var(--violet),
+        var(--magenta)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .pulse-line {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      z-index: 1000;
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--violet),
+          var(--magenta)
+        );
+    }
+
+    /* =========================================================
+       NAV
+    ========================================================= */
+
+    nav {
+      position: relative;
+      z-index: 20;
+      width: 100%;
+      padding: 26px 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border-bottom: 1px solid var(--border);
+
+      background: rgba(6,6,6,.65);
+      backdrop-filter: blur(14px);
+    }
+
+    .logo img {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color .25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-button {
+      padding: 10px 18px;
+      border: 1px solid rgba(0,200,255,.45);
+      color: var(--cyan);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      transition: all .25s ease;
+    }
+
+    .nav-button:hover {
+      background: rgba(0,200,255,.08);
+      border-color: var(--cyan);
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 91px);
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+    }
+
+    .hero-background {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .glow-1 {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      right: -200px;
+      top: 0;
+
+      background: radial-gradient(
+        circle,
+        rgba(123,44,255,.17),
+        transparent 68%
+      );
+
+      filter: blur(20px);
+    }
+
+    .glow-2 {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      left: -300px;
+      bottom: -200px;
+
+      background: radial-gradient(
+        circle,
+        rgba(0,200,255,.10),
+        transparent 68%
+      );
+
+      filter: blur(20px);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        );
+
+      background-size: 80px 80px;
+
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 80%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 100px 0 120px;
+      max-width: 950px;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 30px;
+    }
+
+    .hero-title {
+      font-size: clamp(58px, 9vw, 132px);
+      line-height: .90;
+      letter-spacing: -.065em;
+      font-weight: 600;
+      max-width: 1000px;
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-description {
+      max-width: 560px;
+      margin-top: 42px;
+
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 42px;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 14px 22px;
+
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+
+      transition: all .25s ease;
+    }
+
+    .button-primary {
+      color: #050505;
+      background: var(--white);
+    }
+
+    .button-primary:hover {
+      background: var(--cyan);
+    }
+
+    .button-secondary {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(255,255,255,.3);
+    }
+
+    /* =========================================================
+       LIVE INDICATOR
+    ========================================================= */
+
+    .live-indicator {
+      position: absolute;
+      right: 40px;
+      bottom: 70px;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 9px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--magenta);
+      box-shadow: 0 0 15px rgba(232,0,90,.7);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% {
+        opacity: .4;
+        transform: scale(.8);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* =========================================================
+       MANIFESTO
+    ========================================================= */
+
+    .manifesto {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 110px 0;
+    }
+
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+    }
+
+    .manifesto-label {
+      padding-top: 10px;
+    }
+
+    .manifesto-text {
+      font-size: clamp(30px, 4vw, 58px);
+      line-height: 1.15;
+      letter-spacing: -.035em;
+      color: rgba(255,255,255,.82);
+    }
+
+    .manifesto-text strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    /* =========================================================
+       ECOSYSTEM
+    ========================================================= */
+
+    .ecosystem {
+      padding: 110px 0;
+    }
+
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      margin-bottom: 50px;
+    }
+
+    .section-heading {
+      font-size: clamp(34px, 5vw, 62px);
+      letter-spacing: -.045em;
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .section-intro {
+      max-width: 330px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .ecosystem-card {
+      min-height: 340px;
+      padding: 36px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      background: var(--bg);
+
+      transition: background .3s ease;
+    }
+
+    .ecosystem-card:hover {
+      background: var(--surface);
+    }
+
+    .card-number {
+      font-size: 10px;
+      color: var(--faint);
+      letter-spacing: .15em;
+    }
+
+    .card-title {
+      font-size: 28px;
+      letter-spacing: -.03em;
+      margin-bottom: 16px;
+    }
+
+    .card-description {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 320px;
+    }
+
+    .card-arrow {
+      font-size: 20px;
+      color: var(--cyan);
+    }
+
+    /* =========================================================
+       NATURAL CONNECTION
+    ========================================================= */
+
+    .connection {
+      position: relative;
+      overflow: hidden;
+
+      padding: 140px 0;
+
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .connection-bg {
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          ellipse at 50% 100%,
+          rgba(123,44,255,.22),
+          transparent 55%
+        ),
+        radial-gradient(
+          ellipse at 15% 50%,
+          rgba(0,200,255,.08),
+          transparent 40%
+        ),
+        radial-gradient(
+          ellipse at 85% 30%,
+          rgba(232,0,90,.07),
+          transparent 40%
+        );
+    }
+
+    .connection-content {
+      position: relative;
+      text-align: center;
+    }
+
+    .connection-title {
+      margin-top: 25px;
+
+      font-size: clamp(50px, 9vw, 120px);
+      line-height: .9;
+      letter-spacing: -.065em;
+      font-weight: 600;
+    }
+
+    .connection-description {
+      max-width: 540px;
+      margin: 38px auto 0;
+
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .frequency {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+
+      height: 50px;
+      margin-top: 55px;
+    }
+
+    .frequency span {
+      width: 3px;
+      border-radius: 4px;
+
+      background: linear-gradient(
+        to top,
+        var(--cyan),
+        var(--violet),
+        var(--magenta)
+      );
+
+      animation: frequency 1.8s ease-in-out infinite;
+    }
+
+    .frequency span:nth-child(1) { height: 15px; animation-delay: .0s; }
+    .frequency span:nth-child(2) { height: 30px; animation-delay: .1s; }
+    .frequency span:nth-child(3) { height: 42px; animation-delay: .2s; }
+    .frequency span:nth-child(4) { height: 24px; animation-delay: .3s; }
+    .frequency span:nth-child(5) { height: 50px; animation-delay: .4s; }
+    .frequency span:nth-child(6) { height: 32px; animation-delay: .5s; }
+    .frequency span:nth-child(7) { height: 44px; animation-delay: .6s; }
+    .frequency span:nth-child(8) { height: 20px; animation-delay: .7s; }
+    .frequency span:nth-child(9) { height: 38px; animation-delay: .8s; }
+    .frequency span:nth-child(10) { height: 48px; animation-delay: .9s; }
+    .frequency span:nth-child(11) { height: 26px; animation-delay: 1s; }
+    .frequency span:nth-child(12) { height: 40px; animation-delay: 1.1s; }
+    .frequency span:nth-child(13) { height: 18px; animation-delay: 1.2s; }
+
+    @keyframes frequency {
+      0%,100% { transform: scaleY(.45); opacity: .4; }
+      50% { transform: scaleY(1); opacity: .9; }
+    }
+
+    /* =========================================================
+       SETS
+    ========================================================= */
+
+    .sets {
+      padding: 110px 0;
+    }
+
+    .sets-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .sets-title {
+      font-size: 32px;
+      letter-spacing: -.035em;
+      font-weight: 500;
+    }
+
+    .sets-link {
+      font-size: 10px;
+      color: var(--cyan);
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .sets-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .set-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease;
+    }
+
+    .set-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(123,44,255,.45);
+    }
+
+    .set-visual {
+      position: relative;
+      height: 210px;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+
+      padding-bottom: 28px;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(123,44,255,.25),
+          transparent 60%
+        ),
+        #09090d;
+    }
+
+    .bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+    }
+
+    .bars span {
+      width: 4px;
+      border-radius: 3px 3px 0 0;
+
+      background: linear-gradient(
+        to top,
+        var(--cyan),
+        var(--violet)
+      );
+
+      opacity: .7;
+    }
+
+    .play {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+
+      width: 36px;
+      height: 36px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50%;
+    }
+
+    .play::after {
+      content: "";
+      width: 0;
+      height: 0;
+
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 8px solid var(--white);
+
+      margin-left: 2px;
+    }
+
+    .set-info {
+      padding: 18px;
+    }
+
+    .set-platform {
+      font-size: 9px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 8px;
+    }
+
+    .set-name {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .set-meta {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    /* =========================================================
+       EVENTS
+    ========================================================= */
+
+    .events {
+      padding: 110px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .event {
+      display: grid;
+      grid-template-columns: 110px 1fr auto;
+      align-items: center;
+      gap: 35px;
+
+      padding: 30px 0;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .event:first-of-type {
+      border-top: 1px solid var(--border);
+    }
+
+    .event-date {
+      font-size: 11px;
+      color: var(--cyan);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .event-name {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .event-location {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .event-arrow {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    /* =========================================================
+       FINAL CTA
+    ========================================================= */
+
+    .cta {
+      padding: 150px 0;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: clamp(48px, 8vw, 110px);
+      line-height: .95;
+      letter-spacing: -.06em;
+      font-weight: 500;
+    }
+
+    .cta-text {
+      max-width: 500px;
+      margin: 30px auto 40px;
+
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      padding: 30px 40px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-brand {
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    .socials {
+      display: flex;
+      gap: 22px;
+    }
+
+    .socials a {
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color .2s ease;
+    }
+
+    .socials a:hover {
+      color: var(--white);
+    }
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .container {
+        width: min(100% - 40px, var(--max));
+      }
+
+      nav {
+        padding: 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-right {
+        gap: 0;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 110px 0 130px;
+      }
+
+      .hero-title {
+        font-size: clamp(52px, 16vw, 88px);
+      }
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+      .live-indicator {
+        right: 20px;
+        bottom: 30px;
+      }
+
+      .manifesto {
+        padding: 80px 0;
+      }
+
+      .manifesto-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .ecosystem {
+        padding: 80px 0;
+      }
+
+      .section-top {
+        display: block;
+      }
+
+      .section-intro {
+        margin-top: 25px;
+      }
+
+      .ecosystem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ecosystem-card {
+        min-height: 280px;
+      }
+
+      .connection {
+        padding: 100px 0;
+      }
+
+      .sets {
+        padding: 80px 0;
+      }
+
+      .sets-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .set-visual {
+        height: 160px;
+      }
+
+      .events {
+        padding: 80px 0;
+      }
+
+      .event {
+        grid-template-columns: 70px 1fr auto;
+        gap: 15px;
+      }
+
+      .event-name {
+        font-size: 16px;
+      }
+
+      .cta {
+        padding: 110px 0;
+      }
+
+      footer {
+        padding: 25px 20px;
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 520px) {
+
+      .nav-button {
+        padding: 9px 13px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button-primary,
+      .button-secondary {
+        width: 100%;
+      }
+
+      .sets-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .set-visual {
+        height: 190px;
+      }
+
+      .event {
+        grid-template-columns: 1fr auto;
+      }
+
+      .event-date {
+        grid-column: 1 / -1;
+      }
+
+      .event-arrow {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .socials {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
-  <div class="pulse-bar"></div>
+  <div class="pulse-line"></div>
+
+  <!-- =======================================================
+       NAVIGATION
+  ======================================================== -->
 
   <nav>
-    <a href="#"><img src="logo.png" alt="WeAreParty" style="height:38px;width:auto;display:block;" /></a>
-    <ul class="nav-links">
-      <li><a href="#">Sets</a></li>
-      <li><a href="#">Eventos</a></li>
-      <li><a href="#">Comunidad</a></li>
-      <li><a href="#">Filosofía</a></li>
-      <li><a href="mailto:contacto@weareparty.com" class="btn-booking">Booking</a></li>
-    </ul>
+    <a href="#" class="logo">
+      <img src="logo.png" alt="WeAreParty">
+    </a>
+
+    <div class="nav-right">
+
+      <ul class="nav-links">
+        <li><a href="#sets">Sets</a></li>
+        <li><a href="#events">Eventos</a></li>
+        <li><a href="#community">Comunidad</a></li>
+        <li><a href="#philosophy">Filosofía</a></li>
+      </ul>
+
+      <a href="mailto:contacto@weareparty.com" class="nav-button">
+        Booking
+      </a>
+
+    </div>
   </nav>
 
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <p class="hero-eyebrow">Natural Connection</p>
-    <h1 class="hero-title">
-      Música.<br>
-      <span class="gradient-text">Naturaleza.</span><br>
-      Conexión.
-    </h1>
-    <p class="hero-sub">Eventos de música electrónica.<br>DJ sets. Noticias.</p>
-    <div class="waveform">
-      <div class="waveform-bar" style="height:14px;animation-delay:0s"></div>
-      <div class="waveform-bar" style="height:24px;animation-delay:0.1s"></div>
-      <div class="waveform-bar" style="height:36px;animation-delay:0.2s"></div>
-      <div class="waveform-bar" style="height:20px;animation-delay:0.3s"></div>
-      <div class="waveform-bar" style="height:30px;animation-delay:0.4s"></div>
-      <div class="waveform-bar" style="height:36px;animation-delay:0.5s"></div>
-      <div class="waveform-bar" style="height:22px;animation-delay:0.6s"></div>
-      <div class="waveform-bar" style="height:16px;animation-delay:0.7s"></div>
-      <div class="waveform-bar" style="height:28px;animation-delay:0.8s"></div>
-      <div class="waveform-bar" style="height:36px;animation-delay:0.9s"></div>
-      <div class="waveform-bar" style="height:18px;animation-delay:1.0s"></div>
-      <div class="waveform-bar" style="height:26px;animation-delay:1.1s"></div>
-      <div class="waveform-bar" style="height:36px;animation-delay:1.2s"></div>
-      <div class="waveform-bar" style="height:20px;animation-delay:1.3s"></div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="section-header">
-      <span class="section-title">Novedades</span>
-      <a href="#" class="section-link">Ver todo →</a>
-    </div>
-    <div class="novedades-grid">
-      <div class="card card-main">
-        <div class="card-accent-line"></div>
-        <div class="card-body" style="min-height:220px;">
-          <div class="card-tag">Live Set · SoundCloud</div>
-          <div class="card-title">OLIVA — Boiler Room Session Vol.3</div>
-          <div class="card-meta">Tech House · 1h 42min · hace 3 días</div>
-        </div>
-      </div>
-      <div class="card card-sm">
-        <div class="card-body">
-          <div class="card-tag">Evento</div>
-          <div class="card-title">Rooftop Nocturno<br>Barcelona</div>
-          <div class="card-meta">Sáb 24 Ago · 23:00</div>
-        </div>
-      </div>
-      <div class="card card-sm">
-        <div class="card-body">
-          <div class="card-tag">Mixcloud</div>
-          <div class="card-title">Minimal Monday<br>Vol.12</div>
-          <div class="card-meta">Minimal House · 58min</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
 
-  <section class="section">
-    <div class="section-header">
-      <span class="section-title">Últimos sets</span>
-      <a href="#" class="section-link">Explorar →</a>
-    </div>
-    <div class="sets-grid">
-      <div class="set-card">
-        <div class="set-thumb">
-          <div class="set-bars">
-            <div class="set-bar" style="height:18px;background:#00C8FF;"></div>
-            <div class="set-bar" style="height:32px;background:#8B00FF;"></div>
-            <div class="set-bar" style="height:24px;background:#00C8FF;"></div>
-            <div class="set-bar" style="height:40px;background:#8B00FF;"></div>
-            <div class="set-bar" style="height:28px;background:#E8005A;"></div>
-            <div class="set-bar" style="height:36px;background:#8B00FF;"></div>
-            <div class="set-bar" style="height:20px;background:#00C8FF;"></div>
-            <div class="set-bar" style="height:30px;background:#E8005A;"></div>
-          </div>
-          <div class="play-btn"><div class="play-triangle"></div></div>
-        </div>
-        <div class="set-platform" style="color:#FF5500;">SoundCloud</div>
-        <div class="set-name">Acid Sunrise Session</div>
-        <div class="set-meta">Acid House · 1h 20min</div>
-      </div>
-      <div class="set-card">
-        <div class="set-thumb">
-          <div class="set-bars">
-            <div class="set-bar" style="height:28px;background:#E8005A;"></div>
-            <div class="set-bar" style="height:16px;background:#8B00FF;"></div>
-            <div class="set-bar" style="height:38px;background:#E8005A;"></div>
-            <div class="set-bar" style="height:24px;background:#00C8FF;"></div>
-            <div class="set-bar" style="height:32px;background:#8B00FF;"></div>
-            <div class="set-bar" style="height:18px;background:#E8005A;"></div>
-            <div class="set-bar" style="height:36px;background:#8B00FF;"></div>
-            <div class="set-bar" style="height:22px;background:#00C8FF;"></div>
-          </div>
-          <div class="play-btn"><div class="play-triangle"></div></div>
-        </div>
-        <div class="set-platform" style="color:#52aad8;">Mixcloud</div>
-        <div class="set-name">Deep Roots Vol.7</div>
-        <div class="set-meta">Tech House · 2h 05min</div>
-      </div>
-      <div class="set-card">
-        <div class="set-thumb">
-          <div class="set-bars">
-            <div class="set-bar" style="height:36px;background:#8B00FF;"></div>
-            <div class="set-bar" style="height:20px;background:#E8005A;"></div>
-            <div class="set-bar" style="height:30px;background:#00C8FF;"></div>
-            <div class="set-bar" style="height:40px;background:#8B00FF;"></div>
-            <div class="set-bar" style="height:18px;background:#E8005A;"></div>
-            <div class="set-bar" style="height:28px;background:#00C8FF;"></div>
-            <div class="set-bar" style="height:34px;background:#8B00FF;"></div>
-            <div class="set-bar" style="height:24px;background:#E8005A;"></div>
-          </div>
-          <div class="play-btn"><div class="play-triangle"></div></div>
-        </div>
-        <div class="set-platform" style="color:#FF0000;">YouTube</div>
-        <div class="set-name">Natural Connection Live</div>
-        <div class="set-meta">Minimal House · 58min</div>
-      </div>
-      <div class="set-card">
-        <div class="set-thumb">
-          <div class="set-bars">
-            <div class="set-bar" style="height:22px;background:#00C8FF;"></div>
-            <div class="set-bar" style="height:38px;background:#8B00FF;"></div>
-            <div class="set-bar" style="height:16px;background:#E8005A;"></div>
-            <div class="set-bar" style="height:32px;background:#00C8FF;"></div>
-            <div class="set-bar" style="height:26px;background:#8B00FF;"></div>
-            <div class="set-bar" style="height:40px;background:#E8005A;"></div>
-            <div class="set-bar" style="height:20px;background:#8B00FF;"></div>
-            <div class="set-bar" style="height:30px;background:#00C8FF;"></div>
-          </div>
-          <div class="play-btn"><div class="play-triangle"></div></div>
-        </div>
-        <div class="set-platform" style="color:#1DA0C3;">Bandcamp</div>
-        <div class="set-name">Forest Frequencies</div>
-        <div class="set-meta">Techno · 1h 34min</div>
-      </div>
-    </div>
-  </section>
+  <main>
 
-  <div class="filosofia">
-    <div class="pilar">
-      <span class="pilar-icon">🌿</span>
-      <div class="pilar-name">Naturaleza</div>
-      <p class="pilar-desc">Eventos conscientes y sostenibles que respetan el entorno y la energía del lugar.</p>
-    </div>
-    <div class="pilar">
-      <span class="pilar-icon">🤝</span>
-      <div class="pilar-name">Comunidad</div>
-      <p class="pilar-desc">Comunidad antes que algoritmo. Conexión real entre DJs, bares y personas.</p>
-    </div>
-    <div class="pilar">
-      <span class="pilar-icon">🎵</span>
-      <div class="pilar-name">Música</div>
-      <p class="pilar-desc">Sets hipnóticos que conectan mente, cuerpo y alma. Cada sesión es un viaje.</p>
-    </div>
-  </div>
+    <section class="hero">
+
+      <div class="hero-background">
+        <div class="hero-grid"></div>
+        <div class="glow-1"></div>
+        <div class="glow-2"></div>
+      </div>
+
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div class="hero-eyebrow eyebrow">
+            Natural Connection
+          </div>
+
+          <h1 class="hero-title">
+            <span>Música.</span>
+            <span class="gradient-text">Personas.</span>
+            <span>Conexión.</span>
+          </h1>
+
+          <p class="hero-description">
+            WeAreParty es una comunidad que conecta personas,
+            DJs y espacios a través de la música.
+            Experiencias reales. Música real. Conexiones reales.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#community" class="button-primary">
+              Descubrir WeAreParty
+            </a>
+
+            <a href="#sets" class="button-secondary">
+              Escuchar sets
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="live-indicator">
+        <span class="live-dot"></span>
+        Música en movimiento
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MANIFESTO
+    ====================================================== -->
+
+    <section class="manifesto" id="philosophy">
+
+      <div class="container">
+
+        <div class="manifesto-grid">
+
+          <div class="manifesto-label eyebrow">
+            Lo que creemos
+          </div>
+
+          <div class="manifesto-text">
+            No creemos en una música diseñada para el algoritmo.
+            Creemos en <strong>personas que se encuentran</strong>,
+            DJs que cuentan historias y espacios donde la música
+            vuelve a ser una experiencia.
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ECOSYSTEM
+    ====================================================== -->
+
+    <section class="ecosystem" id="community">
+
+      <div class="container">
+
+        <div class="section-top">
+
+          <h2 class="section-heading">
+            Un ecosistema.<br>
+            <span class="gradient-text">Una comunidad.</span>
+          </h2>
+
+          <p class="section-intro">
+            WeAreParty conecta las piezas que hacen posible
+            una experiencia musical auténtica.
+          </p>
+
+        </div>
+
+        <div class="ecosystem-grid">
+
+          <a href="#" class="ecosystem-card">
+
+            <div class="card-number">01 / DJs</div>
+
+            <div>
+              <h3 class="card-title">
+                El talento<br>
+                primero.
+              </h3>
+
+              <p class="card-description">
+                Una comunidad donde el talento, el compromiso
+                y la música tienen más valor que el número
+                de seguidores.
+              </p>
+            </div>
+
+            <div class="card-arrow">↗</div>
+
+          </a>
+
+
+          <a href="#" class="ecosystem-card">
+
+            <div class="card-number">02 / ESPACIOS</div>
+
+            <div>
+              <h3 class="card-title">
+                Lugares<br>
+                con identidad.
+              </h3>
+
+              <p class="card-description">
+                Conectamos bares y espacios con DJs y una
+                comunidad que comparte su visión musical.
+              </p>
+            </div>
+
+            <div class="card-arrow">↗</div>
+
+          </a>
+
+
+          <a href="#" class="ecosystem-card">
+
+            <div class="card-number">03 / PERSONAS</div>
+
+            <div>
+              <h3 class="card-title">
+                La música<br>
+                nos encuentra.
+              </h3>
+
+              <p class="card-description">
+                Porque detrás de cada sesión hay personas,
+                historias y momentos que no se pueden
+                reproducir dos veces.
+              </p>
+            </div>
+
+            <div class="card-arrow">↗</div>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         NATURAL CONNECTION
+    ====================================================== -->
+
+    <section class="connection">
+
+      <div class="connection-bg"></div>
+
+      <div class="container">
+
+        <div class="connection-content">
+
+          <div class="eyebrow">
+            Nuestra filosofía
+          </div>
+
+          <h2 class="connection-title">
+            Natural<br>
+            <span class="gradient-text">Connection.</span>
+          </h2>
+
+          <p class="connection-description">
+            La tecnología conecta.
+            La música transforma.
+            Pero son las personas las que crean la conexión.
+          </p>
+
+          <div class="frequency">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SETS
+    ====================================================== -->
+
+    <section class="sets" id="sets">
+
+      <div class="container">
+
+        <div class="sets-header">
+
+          <h2 class="sets-title">
+            Últimos sets
+          </h2>
+
+          <a href="#" class="sets-link">
+            Explorar todos →
+          </a>
+
+        </div>
+
+
+        <div class="sets-grid">
+
+          <a href="#" class="set-card">
+
+            <div class="set-visual">
+
+              <div class="bars">
+                <span style="height:25px"></span>
+                <span style="height:55px"></span>
+                <span style="height:38px"></span>
+                <span style="height:72px"></span>
+                <span style="height:45px"></span>
+                <span style="height:64px"></span>
+                <span style="height:34px"></span>
+                <span style="height:58px"></span>
+              </div>
+
+              <div class="play"></div>
+
+            </div>
+
+            <div class="set-info">
+
+              <div class="set-platform">
+                SoundCloud
+              </div>
+
+              <div class="set-name">
+                Acid Sunrise Session
+              </div>
+
+              <div class="set-meta">
+                OLIVA · Acid House · 1h 20min
+              </div>
+
+            </div>
+
+          </a>
+
+
+          <a href="#" class="set-card">
+
+            <div class="set-visual">
+
+              <div class="bars">
+                <span style="height:48px"></span>
+                <span style="height:28px"></span>
+                <span style="height:70px"></span>
+                <span style="height:40px"></span>
+                <span style="height:62px"></span>
+                <span style="height:35px"></span>
+                <span style="height:68px"></span>
+                <span style="height:45px"></span>
+              </div>
+
+              <div class="play"></div>
+
+            </div>
+
+            <div class="set-info">
+
+              <div class="set-platform">
+                Mixcloud
+              </div>
+
+              <div class="set-name">
+                Deep Roots Vol.7
+              </div>
+
+              <div class="set-meta">
+                Tech House · 2h 05min
+              </div>
+
+            </div>
+
+          </a>
+
+
+          <a href="#" class="set-card">
+
+            <div class="set-visual">
+
+              <div class="bars">
+                <span style="height:65px"></span>
+                <span style="height:34px"></span>
+                <span style="height:50px"></span>
+                <span style="height:75px"></span>
+                <span style="height:30px"></span>
+                <span style="height:58px"></span>
+                <span style="height:68px"></span>
+                <span style="height:42px"></span>
+              </div>
+
+              <div class="play"></div>
+
+            </div>
+
+            <div class="set-info">
+
+              <div class="set-platform">
+                YouTube
+              </div>
+
+              <div class="set-name">
+                Natural Connection Live
+              </div>
+
+              <div class="set-meta">
+                Minimal House · 58min
+              </div>
+
+            </div>
+
+          </a>
+
+
+          <a href="#" class="set-card">
+
+            <div class="set-visual">
+
+              <div class="bars">
+                <span style="height:32px"></span>
+                <span style="height:68px"></span>
+                <span style="height:25px"></span>
+                <span style="height:55px"></span>
+                <span style="height:42px"></span>
+                <span style="height:75px"></span>
+                <span style="height:34px"></span>
+                <span style="height:60px"></span>
+              </div>
+
+              <div class="play"></div>
+
+            </div>
+
+            <div class="set-info">
+
+              <div class="set-platform">
+                Bandcamp
+              </div>
+
+              <div class="set-name">
+                Forest Frequencies
+              </div>
+
+              <div class="set-meta">
+                Techno · 1h 34min
+              </div>
+
+            </div>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EVENTS
+    ====================================================== -->
+
+    <section class="events" id="events">
+
+      <div class="container">
+
+        <div class="section-top">
+
+          <h2 class="section-heading">
+            Próximos<br>
+            <span class="gradient-text">encuentros.</span>
+          </h2>
+
+          <p class="section-intro">
+            No son simplemente eventos.
+            Son lugares donde la comunidad se encuentra.
+          </p>
+
+        </div>
+
+
+        <a href="#" class="event">
+
+          <div class="event-date">
+            24 AGO
+          </div>
+
+          <div>
+            <div class="event-name">
+              Natural Connection
+            </div>
+
+            <div class="event-location">
+              Barcelona · Rooftop · 23:00
+            </div>
+          </div>
+
+          <div class="event-arrow">
+            ↗
+          </div>
+
+        </a>
+
+
+        <a href="#" class="event">
+
+          <div class="event-date">
+            30 AGO
+          </div>
+
+          <div>
+            <div class="event-name">
+              WeAreParty Session
+            </div>
+
+            <div class="event-location">
+              Catalunya · TBA
+            </div>
+          </div>
+
+          <div class="event-arrow">
+            ↗
+          </div>
+
+        </a>
+
+
+        <a href="#" class="event">
+
+          <div class="event-date">
+            06 SEP
+          </div>
+
+          <div>
+            <div class="event-name">
+              Community Session
+            </div>
+
+            <div class="event-location">
+              Barcelona · TBA
+            </div>
+          </div>
+
+          <div class="event-arrow">
+            ↗
+          </div>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <section class="cta">
+
+      <div class="container">
+
+        <div class="eyebrow">
+          Forma parte
+        </div>
+
+        <h2 class="cta-title">
+          La música<br>
+          <span class="gradient-text">nos conecta.</span>
+        </h2>
+
+        <p class="cta-text">
+          Si eres DJ, tienes un espacio o simplemente
+          crees que la música puede crear algo más,
+          este es tu lugar.
+        </p>
+
+        <a href="mailto:contacto@weareparty.com" class="button-primary">
+          Entrar en WeAreParty
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
 
   <footer>
-    <span class="footer-copy">© 2026 WeAreParty · OLIVA · Natural Connection</span>
+
+    <div class="footer-brand">
+      © 2026 WeAreParty · Natural Connection
+    </div>
+
     <div class="socials">
-      <a href="#">SoundCloud</a>
       <a href="#">Instagram</a>
+      <a href="#">SoundCloud</a>
       <a href="#">YouTube</a>
       <a href="#">Mixcloud</a>
       <a href="#">Kick</a>
     </div>
+
   </footer>
 
 </body>
