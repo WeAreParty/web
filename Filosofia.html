@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Filosofía — WeAreParty · Natural Connection</title>
+
+  <meta
+    name="description"
+    content="Natural Connection. La filosofía de WeAreParty: música, naturaleza, personas y experiencias conectadas."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+
+    /* =========================================================
+       WEAREPARTY — FILOSOFÍA
+       Natural Connection
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #060606;
+      --surface: #0b0b0c;
+
+      --white: #ffffff;
+      --text: rgba(255,255,255,.86);
+      --muted: rgba(255,255,255,.43);
+      --faint: rgba(255,255,255,.20);
+
+      --cyan: #00c8ff;
+      --violet: #7b2cff;
+      --magenta: #e8005a;
+
+      --border: rgba(255,255,255,.08);
+
+      --max: 1280px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+
+      min-height: 100vh;
+
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(
+        var(--max),
+        calc(100% - 80px)
+      );
+
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .gradient-text {
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--violet),
+          var(--magenta)
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+    }
+
+
+    /* =========================================================
+       TOP LINE
+    ========================================================= */
+
+    .pulse-line {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 2px;
+
+      z-index: 1000;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--violet),
+          var(--magenta)
+        );
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
+    nav {
+      position: relative;
+      z-index: 20;
+
+      width: 100%;
+
+      padding: 26px 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border-bottom:
+        1px solid var(--border);
+
+      background:
+        rgba(6,6,6,.72);
+
+      backdrop-filter:
+        blur(14px);
+    }
+
+    .logo img {
+      height: 38px;
+      width: auto;
+
+      display: block;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+
+      gap: 28px;
+
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 10px;
+
+      letter-spacing: .14em;
+
+      text-transform: uppercase;
+
+      color: var(--muted);
+
+      transition:
+        color .25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-links .active {
+      color: var(--white);
+    }
+
+    .nav-button {
+      padding: 10px 18px;
+
+      border:
+        1px solid rgba(0,200,255,.45);
+
+      color: var(--cyan);
+
+      font-size: 10px;
+      font-weight: 600;
+
+      letter-spacing: .14em;
+
+      text-transform: uppercase;
+
+      transition:
+        all .25s ease;
+    }
+
+    .nav-button:hover {
+      background:
+        rgba(0,200,255,.08);
+
+      border-color:
+        var(--cyan);
+    }
+
+
+    /* =========================================================
+       HERO FILOSOFÍA
+    ========================================================= */
+
+    .philosophy-hero {
+      position: relative;
+
+      min-height: 78vh;
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+
+      background-image:
+
+        linear-gradient(
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        );
+
+      background-size: 80px 80px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent 85%
+        );
+    }
+
+    .hero-glow-purple {
+      position: absolute;
+
+      width: 800px;
+      height: 800px;
+
+      right: -280px;
+      bottom: -350px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(123,44,255,.22),
+          transparent 68%
+        );
+
+      filter: blur(20px);
+    }
+
+    .hero-glow-cyan {
+      position: absolute;
+
+      width: 600px;
+      height: 600px;
+
+      left: -350px;
+      top: -150px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(0,200,255,.09),
+          transparent 68%
+        );
+
+      filter: blur(25px);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      padding:
+        130px 0
+        120px;
+
+      max-width: 1050px;
+    }
+
+    .hero-label {
+      margin-bottom: 35px;
+    }
+
+    .hero-title {
+
+      font-size:
+        clamp(
+          70px,
+          12vw,
+          165px
+        );
+
+      line-height: .84;
+
+      letter-spacing:
+        -.075em;
+
+      font-weight: 600;
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-intro {
+
+      max-width: 650px;
+
+      margin-top: 55px;
+
+      font-size:
+        clamp(
+          18px,
+          2vw,
+          23px
+        );
+
+      line-height: 1.65;
+
+      letter-spacing: -.015em;
+
+      color:
+        rgba(255,255,255,.65);
+    }
+
+
+    /* =========================================================
+       INTRO MANIFESTO
+    ========================================================= */
+
+    .manifesto {
+
+      padding:
+        130px 0;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .manifesto-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 2fr;
+
+      gap: 100px;
+    }
+
+    .manifesto-label {
+      padding-top: 10px;
+    }
+
+    .manifesto-label span {
+      display: block;
+
+      margin-top: 12px;
+
+      color: var(--faint);
+    }
+
+    .manifesto-text {
+
+      max-width: 780px;
+
+      font-size:
+        clamp(
+          27px,
+          3.6vw,
+          50px
+        );
+
+      line-height: 1.22;
+
+      letter-spacing:
+        -.035em;
+
+      color:
+        rgba(255,255,255,.78);
+    }
+
+    .manifesto-text strong {
+
+      color: var(--white);
+
+      font-weight: 500;
+    }
+
+    .manifesto-text .accent {
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--violet),
+          var(--magenta)
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+
+      font-weight: 500;
+    }
+
+
+    /* =========================================================
+       PRINCIPIOS
+    ========================================================= */
+
+    .principles {
+
+      padding:
+        130px 0;
+    }
+
+    .principles-header {
+
+      display: flex;
+
+      align-items: flex-end;
+
+      justify-content: space-between;
+
+      margin-bottom: 70px;
+    }
+
+    .principles-title {
+
+      font-size:
+        clamp(
+          42px,
+          6vw,
+          75px
+        );
+
+      line-height: .95;
+
+      letter-spacing:
+        -.055em;
+
+      font-weight: 500;
+    }
+
+    .principles-intro {
+
+      max-width: 330px;
+
+      font-size: 13px;
+
+      line-height: 1.8;
+
+      color: var(--muted);
+    }
+
+    .principles-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 1px;
+
+      background:
+        var(--border);
+
+      border:
+        1px solid var(--border);
+    }
+
+    .principle {
+
+      position: relative;
+
+      min-height: 390px;
+
+      padding: 38px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: space-between;
+
+      background:
+        var(--bg);
+
+      overflow: hidden;
+
+      transition:
+        background .3s ease;
+    }
+
+    .principle:hover {
+      background:
+        var(--surface);
+    }
+
+    .principle-number {
+
+      font-size: 10px;
+
+      letter-spacing: .15em;
+
+      color: var(--faint);
+    }
+
+    .principle-number::first-letter {
+      color: var(--cyan);
+    }
+
+    .principle-content {
+      max-width: 430px;
+    }
+
+    .principle-title {
+
+      font-size:
+        clamp(
+          27px,
+          3vw,
+          42px
+        );
+
+      letter-spacing:
+        -.035em;
+
+      line-height: 1;
+
+      margin-bottom: 22px;
+
+      font-weight: 500;
+    }
+
+    .principle-text {
+
+      font-size: 14px;
+
+      line-height: 1.9;
+
+      color: var(--muted);
+    }
+
+    .principle-mark {
+
+      position: absolute;
+
+      right: 30px;
+      top: 30px;
+
+      width: 90px;
+      height: 90px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.07);
+
+      border-radius: 50%;
+
+      opacity: .55;
+    }
+
+    .principle-mark::after {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 17px;
+
+      border:
+        1px solid
+        rgba(123,44,255,.35);
+
+      border-radius: 50%;
+    }
+
+
+    /* =========================================================
+       TEXTO CENTRAL
+    ========================================================= */
+
+    .statement {
+
+      position: relative;
+
+      padding:
+        150px 0;
+
+      overflow: hidden;
+
+      border-top:
+        1px solid var(--border);
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .statement-bg {
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+
+        radial-gradient(
+          ellipse at 50% 100%,
+          rgba(123,44,255,.20),
+          transparent 58%
+        ),
+
+        radial-gradient(
+          ellipse at 20% 20%,
+          rgba(0,200,255,.06),
+          transparent 40%
+        ),
+
+        radial-gradient(
+          ellipse at 80% 30%,
+          rgba(232,0,90,.05),
+          transparent 40%
+        );
+    }
+
+    .statement-content {
+
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 950px;
+
+      margin: 0 auto;
+
+      text-align: center;
+    }
+
+    .statement-text {
+
+      margin-top: 28px;
+
+      font-size:
+        clamp(
+          40px,
+          6vw,
+          82px
+        );
+
+      line-height: 1;
+
+      letter-spacing:
+        -.06em;
+
+      font-weight: 500;
+    }
+
+    .statement-sub {
+
+      max-width: 600px;
+
+      margin:
+        40px auto 0;
+
+      font-size: 14px;
+
+      line-height: 1.8;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       CIERRE
+    ========================================================= */
+
+    .closing {
+
+      padding:
+        150px 0;
+
+      text-align: center;
+    }
+
+    .closing-title {
+
+      font-size:
+        clamp(
+          55px,
+          9vw,
+          120px
+        );
+
+      line-height: .9;
+
+      letter-spacing:
+        -.07em;
+
+      font-weight: 600;
+    }
+
+    .closing-text {
+
+      max-width: 560px;
+
+      margin:
+        35px auto 45px;
+
+      font-size: 14px;
+
+      line-height: 1.8;
+
+      color: var(--muted);
+    }
+
+    .button {
+
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        14px 24px;
+
+      background:
+        var(--white);
+
+      color:
+        #050505;
+
+      font-size: 10px;
+
+      font-weight: 600;
+
+      letter-spacing:
+        .15em;
+
+      text-transform: uppercase;
+
+      transition:
+        all .25s ease;
+    }
+
+    .button:hover {
+
+      background:
+        var(--cyan);
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+
+      padding:
+        30px 40px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      border-top:
+        1px solid var(--border);
+    }
+
+    .footer-brand {
+
+      font-size: 10px;
+
+      letter-spacing: .14em;
+
+      text-transform: uppercase;
+
+      color: var(--faint);
+    }
+
+    .socials {
+
+      display: flex;
+
+      gap: 22px;
+    }
+
+    .socials a {
+
+      font-size: 9px;
+
+      letter-spacing: .12em;
+
+      text-transform: uppercase;
+
+      color: var(--muted);
+
+      transition:
+        color .2s ease;
+    }
+
+    .socials a:hover {
+
+      color:
+        var(--white);
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .container {
+
+        width:
+          calc(100% - 40px);
+      }
+
+      nav {
+
+        padding:
+          20px;
+      }
+
+      .nav-links {
+
+        display: none;
+      }
+
+      .nav-right {
+
+        gap: 0;
+      }
+
+      .philosophy-hero {
+
+        min-height:
+          auto;
+      }
+
+      .hero-content {
+
+        padding:
+          110px 0
+          120px;
+      }
+
+      .hero-title {
+
+        font-size:
+          clamp(
+            65px,
+            17vw,
+            110px
+          );
+      }
+
+      .hero-intro {
+
+        font-size:
+          17px;
+
+        margin-top:
+          40px;
+      }
+
+      .manifesto {
+
+        padding:
+          90px 0;
+      }
+
+      .manifesto-grid {
+
+        grid-template-columns:
+          1fr;
+
+        gap:
+          35px;
+      }
+
+      .principles {
+
+        padding:
+          90px 0;
+      }
+
+      .principles-header {
+
+        display: block;
+
+        margin-bottom:
+          45px;
+      }
+
+      .principles-intro {
+
+        margin-top:
+          25px;
+      }
+
+      .principles-grid {
+
+        grid-template-columns:
+          1fr;
+      }
+
+      .principle {
+
+        min-height:
+          320px;
+      }
+
+      .statement {
+
+        padding:
+          100px 0;
+      }
+
+      .closing {
+
+        padding:
+          110px 0;
+      }
+
+      footer {
+
+        padding:
+          25px 20px;
+
+        flex-direction:
+          column;
+
+        gap:
+          20px;
+
+        text-align:
+          center;
+      }
+
+      .socials {
+
+        flex-wrap:
+          wrap;
+
+        justify-content:
+          center;
+      }
+
+    }
+
+
+    @media (max-width: 520px) {
+
+      .nav-button {
+
+        padding:
+          9px 13px;
+      }
+
+      .hero-title {
+
+        font-size:
+          58px;
+      }
+
+      .hero-intro {
+
+        font-size:
+          16px;
+      }
+
+      .manifesto-text {
+
+        font-size:
+          29px;
+      }
+
+      .principle {
+
+        min-height:
+          300px;
+
+        padding:
+          28px;
+      }
+
+      .principle-mark {
+
+        width:
+          65px;
+
+        height:
+          65px;
+
+        right:
+          20px;
+
+        top:
+          20px;
+      }
+
+      .principle-mark::after {
+
+        inset:
+          12px;
+      }
+
+      .statement-text {
+
+        font-size:
+          43px;
+      }
+
+      .closing-title {
+
+        font-size:
+          58px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =======================================================
+       TOP LINE
+  ======================================================== -->
+
+  <div class="pulse-line"></div>
+
+
+  <!-- =======================================================
+       NAVIGATION
+  ======================================================== -->
+
+  <nav>
+
+    <a
+      href="index.html"
+      class="logo"
+    >
+
+      <img
+        src="logo.png"
+        alt="WeAreParty"
+      />
+
+    </a>
+
+
+    <div class="nav-right">
+
+      <ul class="nav-links">
+
+        <li>
+          <a href="index.html#sets">
+            Sets
+          </a>
+        </li>
+
+        <li>
+          <a href="index.html#events">
+            Eventos
+          </a>
+        </li>
+
+        <li>
+          <a href="index.html#community">
+            Comunidad
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="filosofia.html"
+            class="active"
+          >
+            Filosofía
+          </a>
+        </li>
+
+      </ul>
+
+
+      <a
+        href="mailto:contacto@weareparty.com"
+        class="nav-button"
+      >
+        Booking
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <main>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="philosophy-hero">
+
+
+      <div class="hero-grid"></div>
+
+      <div class="hero-glow-purple"></div>
+
+      <div class="hero-glow-cyan"></div>
+
+
+      <div class="container">
+
+        <div class="hero-content">
+
+
+          <div class="hero-label eyebrow">
+
+            Nuestra filosofía
+
+          </div>
+
+
+          <h1 class="hero-title">
+
+            <span>
+              Natural
+            </span>
+
+            <span class="gradient-text">
+              Connection.
+            </span>
+
+          </h1>
+
+
+          <p class="hero-intro">
+
+            Una forma de entender la música,
+            la naturaleza y las personas.
+
+            <br>
+
+            Una experiencia que comienza con
+            un beat y puede convertirse en conexión.
+
+          </p>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MANIFIESTO
+    ====================================================== -->
+
+    <section class="manifesto">
+
+      <div class="container">
+
+        <div class="manifesto-grid">
+
+
+          <div class="manifesto-label eyebrow">
+
+            WeAreParty
+
+            <span>
+              Natural Connection
+            </span>
+
+          </div>
+
+
+          <div class="manifesto-text">
+
+            Somos WeAreParty.
+
+            <br><br>
+
+            Una comunidad de personas unidas
+            por una forma de entender la música:
+            como una herramienta para
+            <strong>conectar, descubrir y vivir.</strong>
+
+            <br><br>
+
+            Creemos en experiencias sonoras
+            que van más allá de la pista de baile
+            y en momentos que permanecen
+            mucho después de que termine la música.
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PRINCIPIOS
+    ====================================================== -->
+
+    <section class="principles">
+
+      <div class="container">
+
+
+        <div class="principles-header">
+
+
+          <h2 class="principles-title">
+
+            Cuatro formas
+            <br>
+
+            de vivir
+            <span class="gradient-text">
+              la conexión.
+            </span>
+
+          </h2>
+
+
+          <p class="principles-intro">
+
+            Natural Connection está presente
+            en cada parte de lo que hacemos:
+            desde la música hasta las personas
+            que forman parte de ella.
+
+          </p>
+
+        </div>
+
+
+        <div class="principles-grid">
+
+
+          <!-- =================================================
+               01 MÚSICA
+          ================================================== -->
+
+          <article class="principle">
+
+            <div class="principle-number">
+              01 / MÚSICA
+            </div>
+
+
+            <div class="principle-mark"></div>
+
+
+            <div class="principle-content">
+
+              <h3 class="principle-title">
+
+                La música
+                <br>
+                es el punto
+                <br>
+                de encuentro.
+
+              </h3>
+
+
+              <p class="principle-text">
+
+                La música e
