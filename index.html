@@ -12,7 +12,7 @@
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
@@ -20,9 +20,10 @@
   />
 
   <style>
+
     /* =========================================================
        WEAREPARTY
-       Natural Connection
+       NATURAL CONNECTION
     ========================================================= */
 
     * {
@@ -112,6 +113,7 @@
         );
     }
 
+
     /* =========================================================
        NAVIGATION
     ========================================================= */
@@ -183,6 +185,7 @@
       background: rgba(0,200,255,.08);
       border-color: var(--cyan);
     }
+
 
     /* =========================================================
        HERO
@@ -394,8 +397,9 @@
 
     }
 
+
     /* =========================================================
-       MANIFIESTO
+       NUESTRA VISIÓN
     ========================================================= */
 
     .manifesto {
@@ -436,6 +440,7 @@
 
       font-weight: 500;
     }
+
 
     /* =========================================================
        ECOSYSTEM
@@ -548,6 +553,7 @@
 
       color: var(--cyan);
     }
+
 
     /* =========================================================
        NATURAL CONNECTION
@@ -684,63 +690,93 @@
 
     }
 
+
     /* =========================================================
        SETS
     ========================================================= */
 
     .sets {
+
       padding: 110px 0;
     }
 
     .sets-header {
+
       display: flex;
+
       justify-content: space-between;
       align-items: center;
+
       margin-bottom: 40px;
     }
 
     .sets-title {
+
       font-size: 32px;
+
       letter-spacing: -.035em;
+
       font-weight: 500;
     }
 
     .sets-link {
+
       font-size: 10px;
+
       color: var(--cyan);
+
       letter-spacing: .15em;
+
       text-transform: uppercase;
     }
 
     .sets-grid {
+
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
       gap: 12px;
     }
 
     .set-card {
+
       background: var(--surface);
+
       border: 1px solid var(--border);
+
       transition:
         transform .25s ease,
         border-color .25s ease;
     }
 
     .set-card:hover {
+
       transform: translateY(-4px);
-      border-color: rgba(123,44,255,.45);
+
+      border-color:
+        rgba(123,44,255,.45);
     }
 
     .set-visual {
+
       position: relative;
+
       height: 210px;
+
       display: flex;
+
       align-items: flex-end;
+
       justify-content: center;
+
       padding-bottom: 28px;
+
       overflow: hidden;
 
       background:
+
         radial-gradient(
           circle at 50% 100%,
           rgba(123,44,255,.25),
@@ -751,13 +787,18 @@
     }
 
     .bars {
+
       display: flex;
+
       align-items: flex-end;
+
       gap: 3px;
     }
 
     .bars span {
+
       width: 4px;
+
       border-radius: 3px 3px 0 0;
 
       background:
@@ -771,7 +812,9 @@
     }
 
     .play {
+
       position: absolute;
+
       right: 14px;
       bottom: 14px;
 
@@ -779,324 +822,476 @@
       height: 36px;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
-      border: 1px solid rgba(255,255,255,.2);
+      border:
+        1px solid rgba(255,255,255,.2);
+
       border-radius: 50%;
     }
 
     .play::after {
+
       content: "";
 
       width: 0;
       height: 0;
 
-      border-top: 5px solid transparent;
-      border-bottom: 5px solid transparent;
-      border-left: 8px solid var(--white);
+      border-top:
+        5px solid transparent;
+
+      border-bottom:
+        5px solid transparent;
+
+      border-left:
+        8px solid var(--white);
 
       margin-left: 2px;
     }
 
     .set-info {
+
       padding: 18px;
     }
 
     .set-platform {
+
       font-size: 9px;
+
       letter-spacing: .15em;
+
       text-transform: uppercase;
+
       color: var(--cyan);
+
       margin-bottom: 8px;
     }
 
     .set-name {
+
       font-size: 14px;
+
       font-weight: 600;
+
       margin-bottom: 6px;
     }
 
     .set-meta {
+
       font-size: 10px;
+
       color: var(--muted);
     }
+
 
     /* =========================================================
        EVENTS
     ========================================================= */
 
     .events {
+
       padding: 110px 0;
-      border-top: 1px solid var(--border);
+
+      border-top:
+        1px solid var(--border);
     }
 
     .event {
+
       display: grid;
-      grid-template-columns: 110px 1fr auto;
+
+      grid-template-columns:
+        110px 1fr auto;
+
       align-items: center;
+
       gap: 35px;
 
       padding: 30px 0;
 
-      border-bottom: 1px solid var(--border);
+      border-bottom:
+        1px solid var(--border);
     }
 
     .event:first-of-type {
-      border-top: 1px solid var(--border);
+
+      border-top:
+        1px solid var(--border);
     }
 
     .event-date {
+
       font-size: 11px;
+
       color: var(--cyan);
+
       letter-spacing: .1em;
+
       text-transform: uppercase;
     }
 
     .event-name {
+
       font-size: 20px;
+
       margin-bottom: 6px;
     }
 
     .event-location {
+
       font-size: 11px;
+
       color: var(--muted);
     }
 
     .event-arrow {
+
       color: var(--muted);
+
       font-size: 18px;
     }
+
+    .event-status {
+
+      display: inline-block;
+
+      margin-top: 8px;
+
+      font-size: 9px;
+
+      letter-spacing: .14em;
+
+      text-transform: uppercase;
+
+      color: var(--faint);
+    }
+
 
     /* =========================================================
        CTA
     ========================================================= */
 
     .cta {
+
       padding: 150px 0;
+
       text-align: center;
     }
 
     .cta-title {
+
       font-size: clamp(48px, 8vw, 110px);
+
       line-height: .95;
+
       letter-spacing: -.06em;
+
       font-weight: 500;
     }
 
     .cta-text {
+
       max-width: 560px;
+
       margin: 30px auto 40px;
 
       font-size: 14px;
+
       line-height: 1.8;
+
       color: var(--muted);
     }
+
 
     /* =========================================================
        FOOTER
     ========================================================= */
 
     footer {
+
       padding: 30px 40px;
 
       display: flex;
+
       justify-content: space-between;
       align-items: center;
 
-      border-top: 1px solid var(--border);
+      border-top:
+        1px solid var(--border);
     }
 
     .footer-brand {
+
       font-size: 10px;
+
       letter-spacing: .14em;
+
       text-transform: uppercase;
+
       color: var(--faint);
     }
 
     .socials {
+
       display: flex;
+
       gap: 22px;
     }
 
     .socials a {
+
       font-size: 9px;
+
       letter-spacing: .12em;
+
       text-transform: uppercase;
+
       color: var(--muted);
 
-      transition: color .2s ease;
+      transition:
+        color .2s ease;
     }
 
     .socials a:hover {
+
       color: var(--white);
     }
 
+
     /* =========================================================
-       TABLET / MOBILE
+       TABLET
     ========================================================= */
 
     @media (max-width: 900px) {
 
       .container {
-        width: min(100% - 40px, var(--max));
+
+        width:
+          min(
+            100% - 40px,
+            var(--max)
+          );
       }
 
       nav {
+
         padding: 20px;
       }
 
       .nav-links {
+
         display: none;
       }
 
       .nav-right {
+
         gap: 0;
       }
 
       .hero {
+
         min-height: auto;
       }
 
       .hero-content {
-        padding: 110px 0 130px;
+
+        padding:
+          110px 0 130px;
       }
 
       .hero-title {
-        font-size: clamp(52px, 16vw, 88px);
+
+        font-size:
+          clamp(
+            52px,
+            16vw,
+            88px
+          );
       }
 
       .hero-description {
+
         font-size: 14px;
       }
 
       .live-indicator {
+
         right: 20px;
         bottom: 30px;
       }
 
       .manifesto {
+
         padding: 80px 0;
       }
 
       .manifesto-grid {
+
         grid-template-columns: 1fr;
+
         gap: 35px;
       }
 
       .ecosystem {
+
         padding: 80px 0;
       }
 
       .section-top {
+
         display: block;
       }
 
       .section-intro {
+
         margin-top: 25px;
       }
 
       .ecosystem-grid {
+
         grid-template-columns: 1fr;
       }
 
       .ecosystem-card {
+
         min-height: 280px;
       }
 
       .connection {
+
         padding: 100px 0;
       }
 
       .sets {
+
         padding: 80px 0;
       }
 
       .sets-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-columns:
+          repeat(2, 1fr);
       }
 
       .set-visual {
+
         height: 160px;
       }
 
       .events {
+
         padding: 80px 0;
       }
 
       .event {
-        grid-template-columns: 70px 1fr auto;
+
+        grid-template-columns:
+          70px 1fr auto;
+
         gap: 15px;
       }
 
       .event-name {
+
         font-size: 16px;
       }
 
       .cta {
+
         padding: 110px 0;
       }
 
       footer {
+
         padding: 25px 20px;
+
         flex-direction: column;
+
         gap: 20px;
       }
     }
 
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
     @media (max-width: 520px) {
 
       .nav-button {
-        padding: 9px 13px;
+
+        padding:
+          9px 13px;
       }
 
       .hero-actions {
+
         flex-direction: column;
+
         align-items: stretch;
       }
 
       .button-primary,
       .button-secondary {
+
         width: 100%;
       }
 
       .sets-grid {
+
         grid-template-columns: 1fr;
       }
 
       .set-visual {
+
         height: 190px;
       }
 
       .event {
-        grid-template-columns: 1fr auto;
+
+        grid-template-columns:
+          1fr auto;
       }
 
       .event-date {
-        grid-column: 1 / -1;
+
+        grid-column:
+          1 / -1;
       }
 
       .event-arrow {
+
         grid-column: 2;
         grid-row: 2;
       }
 
       .socials {
+
         flex-wrap: wrap;
+
         justify-content: center;
       }
+
     }
 
   </style>
 </head>
 
+
 <body>
 
   <div class="pulse-line"></div>
 
+
+  <!-- =======================================================
+       NAVIGATION
+  ======================================================== -->
+
   <nav>
 
-    <a href="#" class="logo">
+    <a href="index.html" class="logo">
       <img
         src="logo.png"
         alt="WeAreParty"
@@ -1108,39 +1303,822 @@
       <ul class="nav-links">
 
         <li>
-          <a href="#sets">Sets</a>
-        </li>
-
-        <li>
-          <a href="#eventos">Eventos</a>
-        </li>
-
-        <li>
-          <a href="#ecosistema">Comunidad</a>
+          <a href="#vision">Nuestra visión</a>
         </li>
 
         <li>
           <a href="filosofia.html">Filosofía</a>
         </li>
 
+        <li>
+          <a href="#ecosistema">Ecosistema</a>
+        </li>
+
+        <li>
+          <a href="#sets">Sets</a>
+        </li>
+
+        <li>
+          <a href="#encuentros">Encuentros</a>
+        </li>
+
       </ul>
 
-      <a
-        href="mailto:contacto@weareparty.com"
-        class="nav-button"
-      >
-        Booking
+      <a href="#contacto" class="nav-button">
+        Entrar
       </a>
 
     </div>
 
   </nav>
 
-  <main>
 
-    <section class="hero">
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
 
-      <div class="hero-background">
+  <section class="hero">
 
-        <div class="glow-1"></div>
- 
+    <div class="hero-background">
+
+      <div class="glow-1"></div>
+
+      <div class="glow-2"></div>
+
+      <div class="hero-grid"></div>
+
+    </div>
+
+
+    <div class="container">
+
+      <div class="hero-content">
+
+        <div class="eyebrow hero-eyebrow">
+          Natural Connection
+        </div>
+
+
+        <h1 class="hero-title">
+
+          <span>
+            La música
+          </span>
+
+          <span class="gradient-text">
+            nos conecta.
+          </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+          WeAreParty es una comunidad que conecta personas,
+          DJs y espacios a través de la música.
+          Creamos encuentros donde la identidad,
+          el talento y las experiencias reales
+          son el centro.
+        </p>
+
+
+        <div class="hero-actions">
+
+          <a
+            href="#sets"
+            class="button-primary"
+          >
+            Descubrir sesiones
+          </a>
+
+          <a
+            href="filosofia.html"
+            class="button-secondary"
+          >
+            Nuestra filosofía
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="live-indicator">
+
+      <span class="live-dot"></span>
+
+      Natural Connection
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       NUESTRA VISIÓN
+  ======================================================== -->
+
+  <section
+    class="manifesto"
+    id="vision"
+  >
+
+    <div class="container">
+
+      <div class="manifesto-grid">
+
+        <div class="manifesto-label">
+
+          <div class="eyebrow">
+            Nuestra visión
+          </div>
+
+        </div>
+
+
+        <div class="manifesto-text">
+
+          <strong>
+            Cuando se crea un ambiente adecuado,
+          </strong>
+          las conexiones fluyen naturalmente
+          para generar experiencias únicas.
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       ECOSYSTEM
+  ======================================================== -->
+
+  <section
+    class="ecosystem"
+    id="ecosistema"
+  >
+
+    <div class="container">
+
+
+      <div class="section-top">
+
+        <div>
+
+          <div class="eyebrow">
+            El ecosistema
+          </div>
+
+          <h2 class="section-heading">
+            Personas.<br>
+            Música.<br>
+            Espacios.
+          </h2>
+
+        </div>
+
+
+        <p class="section-intro">
+
+          Tres elementos que se encuentran
+          para crear una experiencia común.
+          Cada uno aporta su identidad.
+          Juntos crean la conexión.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="ecosystem-grid">
+
+
+        <!-- DJ -->
+
+        <article class="ecosystem-card">
+
+          <div class="card-number">
+            01
+          </div>
+
+
+          <div>
+
+            <h3 class="card-title">
+              DJs
+            </h3>
+
+            <p class="card-description">
+
+              Selección, identidad y sensibilidad.
+              DJs que entienden la música como
+              una forma de expresión y conexión.
+
+            </p>
+
+          </div>
+
+
+          <div class="card-arrow">
+            →
+          </div>
+
+        </article>
+
+
+
+        <!-- PERSONAS -->
+
+        <article class="ecosystem-card">
+
+          <div class="card-number">
+            02
+          </div>
+
+
+          <div>
+
+            <h3 class="card-title">
+              Personas
+            </h3>
+
+            <p class="card-description">
+
+              El público forma parte de la experiencia.
+              Cada persona aporta su energía,
+              su presencia y su manera de vivir
+              la música.
+
+            </p>
+
+          </div>
+
+
+          <div class="card-arrow">
+            →
+          </div>
+
+        </article>
+
+
+
+        <!-- ESPACIOS -->
+
+        <article class="ecosystem-card">
+
+          <div class="card-number">
+            03
+          </div>
+
+
+          <div>
+
+            <h3 class="card-title">
+              Espacios
+            </h3>
+
+            <p class="card-description">
+
+              Lugares preparados para crear
+              el ambiente adecuado y favorecer
+              encuentros alrededor de la música.
+
+            </p>
+
+          </div>
+
+
+          <div class="card-arrow">
+            →
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       NATURAL CONNECTION
+  ======================================================== -->
+
+  <section class="connection">
+
+    <div class="connection-bg"></div>
+
+
+    <div class="container">
+
+      <div class="connection-content">
+
+        <div class="eyebrow">
+          The experience
+        </div>
+
+
+        <h2 class="connection-title">
+
+          <span class="gradient-text">
+            Natural
+          </span>
+
+          <br>
+
+          Connection
+
+        </h2>
+
+
+        <p class="connection-description">
+
+          La música crea el ambiente.
+          Las personas crean el momento.
+          Y cuando todo encuentra su lugar,
+          la conexión sucede de forma natural.
+
+        </p>
+
+
+        <div class="frequency">
+
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       SETS
+  ======================================================== -->
+
+  <section
+    class="sets"
+    id="sets"
+  >
+
+    <div class="container">
+
+
+      <div class="sets-header">
+
+        <h2 class="sets-title">
+          Sesiones
+        </h2>
+
+        <a
+          href="#"
+          class="sets-link"
+        >
+          Ver todas →
+        </a>
+
+      </div>
+
+
+
+      <div class="sets-grid">
+
+
+        <!-- SET 01 -->
+
+        <article class="set-card">
+
+          <div class="set-visual">
+
+            <div class="bars">
+
+              <span style="height:28px"></span>
+              <span style="height:45px"></span>
+              <span style="height:35px"></span>
+              <span style="height:60px"></span>
+              <span style="height:42px"></span>
+              <span style="height:72px"></span>
+              <span style="height:48px"></span>
+              <span style="height:82px"></span>
+              <span style="height:55px"></span>
+              <span style="height:68px"></span>
+              <span style="height:40px"></span>
+              <span style="height:90px"></span>
+              <span style="height:58px"></span>
+              <span style="height:75px"></span>
+              <span style="height:46px"></span>
+              <span style="height:65px"></span>
+              <span style="height:38px"></span>
+              <span style="height:78px"></span>
+              <span style="height:52px"></span>
+              <span style="height:70px"></span>
+
+            </div>
+
+
+            <div class="play"></div>
+
+          </div>
+
+
+          <div class="set-info">
+
+            <div class="set-platform">
+              WeAreParty
+            </div>
+
+            <div class="set-name">
+              Natural Connection #01
+            </div>
+
+            <div class="set-meta">
+              House / Minimal
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- SET 02 -->
+
+        <article class="set-card">
+
+          <div class="set-visual">
+
+            <div class="bars">
+
+              <span style="height:42px"></span>
+              <span style="height:60px"></span>
+              <span style="height:30px"></span>
+              <span style="height:75px"></span>
+              <span style="height:52px"></span>
+              <span style="height:85px"></span>
+              <span style="height:45px"></span>
+              <span style="height:68px"></span>
+              <span style="height:90px"></span>
+              <span style="height:55px"></span>
+              <span style="height:72px"></span>
+              <span style="height:38px"></span>
+              <span style="height:82px"></span>
+              <span style="height:48px"></span>
+              <span style="height:65px"></span>
+              <span style="height:35px"></span>
+              <span style="height:76px"></span>
+              <span style="height:50px"></span>
+
+            </div>
+
+
+            <div class="play"></div>
+
+          </div>
+
+
+          <div class="set-info">
+
+            <div class="set-platform">
+              WeAreParty
+            </div>
+
+            <div class="set-name">
+              Natural Connection #02
+            </div>
+
+            <div class="set-meta">
+              Tech House / Minimal
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- SET 03 -->
+
+        <article class="set-card">
+
+          <div class="set-visual">
+
+            <div class="bars">
+
+              <span style="height:35px"></span>
+              <span style="height:65px"></span>
+              <span style="height:48px"></span>
+              <span style="height:80px"></span>
+              <span style="height:55px"></span>
+              <span style="height:92px"></span>
+              <span style="height:45px"></span>
+              <span style="height:70px"></span>
+              <span style="height:52px"></span>
+              <span style="height:85px"></span>
+              <span style="height:40px"></span>
+              <span style="height:72px"></span>
+              <span style="height:60px"></span>
+              <span style="height:88px"></span>
+              <span style="height:50px"></span>
+              <span style="height:76px"></span>
+              <span style="height:42px"></span>
+
+            </div>
+
+
+            <div class="play"></div>
+
+          </div>
+
+
+          <div class="set-info">
+
+            <div class="set-platform">
+              WeAreParty
+            </div>
+
+            <div class="set-name">
+              Natural Connection #03
+            </div>
+
+            <div class="set-meta">
+              Techno / House
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- SET 04 -->
+
+        <article class="set-card">
+
+          <div class="set-visual">
+
+            <div class="bars">
+
+              <span style="height:50px"></span>
+              <span style="height:35px"></span>
+              <span style="height:75px"></span>
+              <span style="height:45px"></span>
+              <span style="height:88px"></span>
+              <span style="height:55px"></span>
+              <span style="height:70px"></span>
+              <span style="height:40px"></span>
+              <span style="height:95px"></span>
+              <span style="height:58px"></span>
+              <span style="height:80px"></span>
+              <span style="height:46px"></span>
+              <span style="height:68px"></span>
+              <span style="height:52px"></span>
+              <span style="height:84px"></span>
+              <span style="height:42px"></span>
+              <span style="height:74px"></span>
+
+            </div>
+
+
+            <div class="play"></div>
+
+          </div>
+
+
+          <div class="set-info">
+
+            <div class="set-platform">
+              WeAreParty
+            </div>
+
+            <div class="set-name">
+              Natural Connection #04
+            </div>
+
+            <div class="set-meta">
+              Minimal / Techno
+            </div>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       PRÓXIMOS ENCUENTROS
+  ======================================================== -->
+
+  <section
+    class="events"
+    id="encuentros"
+  >
+
+    <div class="container">
+
+
+      <div class="section-top">
+
+        <div>
+
+          <div class="eyebrow">
+            Agenda
+          </div>
+
+          <h2 class="section-heading">
+            Próximos<br>
+            encuentros.
+          </h2>
+
+        </div>
+
+
+        <p class="section-intro">
+
+          La música también se vive
+          cuando compartimos el mismo espacio.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="event">
+
+
+        <div class="event-date">
+          12 SEP
+        </div>
+
+
+        <div>
+
+          <div class="event-name">
+            WeAreParty Sessions
+          </div>
+
+          <div class="event-location">
+            Barcelona
+          </div>
+
+          <div class="event-status">
+            TBA
+          </div>
+
+        </div>
+
+
+        <div class="event-arrow">
+          →
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       CTA
+  ======================================================== -->
+
+  <section
+    class="cta"
+    id="contacto"
+  >
+
+    <div class="container">
+
+      <div class="eyebrow">
+        WeAreParty
+      </div>
+
+
+      <h2 class="cta-title">
+
+        <span class="gradient-text">
+          Natural
+        </span>
+
+        Connection.
+
+      </h2>
+
+
+      <p class="cta-text">
+
+        Un espacio para quienes entienden
+        la música como una forma de conectar,
+        compartir y crear experiencias.
+
+      </p>
+
+
+      <a
+        href="filosofia.html"
+        class="button-primary"
+      >
+        Conoce nuestra filosofía
+      </a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+
+    <div class="footer-brand">
+
+      WeAreParty — Natural Connection
+
+    </div>
+
+
+    <div class="socials">
+
+      <a
+        href="https://www.instagram.com/we.are.party?igsi=MTFtbm51NGxpZHlwdg=="
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+
+
+      <a
+        href="https://on.soundcloud.com/1fzaZHNLJa3kJYFUAt"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        SoundCloud
+      </a>
+
+
+      <a
+        href="https://youtube.com/@we_are_party?si=O0rQbu32ImPsSfvb"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        YouTube
+      </a>
+
+
+      <a
+        href="https://kick.com/weareparty"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Kick
+      </a>
+
+    </div>
+
+
+  </footer>
+
+
+</body>
+</html>
