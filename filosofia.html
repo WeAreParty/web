@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Filosofía — WeAreParty · Natural Connection</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Filosofía — WeAreParty</title>
 
   <meta
     name="description"
-    content="Natural Connection. La filosofía de WeAreParty: música, naturaleza, personas y experiencias conectadas."
-  />
+    content="La filosofía de WeAreParty. Natural Connection."
+  >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,14 +18,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet"
-  />
+  >
 
   <style>
-
-    /* =========================================================
-       WEAREPARTY — FILOSOFÍA
-       Natural Connection
-    ========================================================= */
 
     * {
       box-sizing: border-box;
@@ -37,8 +33,8 @@
       --surface: #0b0b0c;
 
       --white: #ffffff;
-      --text: rgba(255,255,255,.86);
-      --muted: rgba(255,255,255,.43);
+      --text: rgba(255,255,255,.88);
+      --muted: rgba(255,255,255,.45);
       --faint: rgba(255,255,255,.20);
 
       --cyan: #00c8ff;
@@ -47,7 +43,7 @@
 
       --border: rgba(255,255,255,.08);
 
-      --max: 1280px;
+      --max: 1440px;
     }
 
     html {
@@ -56,13 +52,13 @@
 
     body {
       font-family: 'Inter', sans-serif;
+
       background: var(--bg);
       color: var(--white);
 
       min-height: 100vh;
 
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
 
       overflow-x: hidden;
     }
@@ -73,18 +69,17 @@
     }
 
     .container {
-      width: min(
-        var(--max),
-        calc(100% - 80px)
-      );
-
+      width: min(var(--max), calc(100% - 80px));
       margin: 0 auto;
     }
 
     .eyebrow {
       font-size: 10px;
+
       letter-spacing: .24em;
+
       text-transform: uppercase;
+
       color: var(--muted);
     }
 
@@ -102,11 +97,6 @@
 
       color: transparent;
     }
-
-
-    /* =========================================================
-       TOP LINE
-    ========================================================= */
 
     .pulse-line {
       position: fixed;
@@ -139,10 +129,12 @@
 
       width: 100%;
 
-      padding: 26px 40px;
+      padding: 22px 40px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
 
       border-bottom:
@@ -157,6 +149,7 @@
 
     .logo img {
       height: 38px;
+
       width: auto;
 
       display: block;
@@ -164,12 +157,15 @@
 
     .nav-right {
       display: flex;
+
       align-items: center;
-      gap: 34px;
+
+      gap: 28px;
     }
 
     .nav-links {
       display: flex;
+
       align-items: center;
 
       gap: 28px;
@@ -190,11 +186,8 @@
         color .25s ease;
     }
 
-    .nav-links a:hover {
-      color: var(--white);
-    }
-
-    .nav-links .active {
+    .nav-links a:hover,
+    .nav-links a.active {
       color: var(--white);
     }
 
@@ -207,7 +200,6 @@
       color: var(--cyan);
 
       font-size: 10px;
-      font-weight: 600;
 
       letter-spacing: .14em;
 
@@ -233,28 +225,46 @@
     .philosophy-hero {
       position: relative;
 
-      min-height: 78vh;
-
-      display: flex;
-      align-items: center;
-
       overflow: hidden;
+
+      padding: 150px 0 120px;
 
       border-bottom:
         1px solid var(--border);
     }
 
-    .hero-grid {
+    .philosophy-glow {
       position: absolute;
+
+      width: 800px;
+      height: 800px;
+
+      right: -300px;
+      top: -300px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(123,44,255,.18),
+          transparent 68%
+        );
+
+      filter:
+        blur(20px);
+
+      pointer-events: none;
+    }
+
+    .philosophy-grid {
+      position: absolute;
+
       inset: 0;
 
       background-image:
-
         linear-gradient(
           rgba(255,255,255,.018) 1px,
           transparent 1px
         ),
-
         linear-gradient(
           90deg,
           rgba(255,255,255,.018) 1px,
@@ -269,182 +279,130 @@
           black,
           transparent 85%
         );
+
+      pointer-events: none;
     }
 
-    .hero-glow-purple {
-      position: absolute;
-
-      width: 800px;
-      height: 800px;
-
-      right: -280px;
-      bottom: -350px;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(123,44,255,.22),
-          transparent 68%
-        );
-
-      filter: blur(20px);
-    }
-
-    .hero-glow-cyan {
-      position: absolute;
-
-      width: 600px;
-      height: 600px;
-
-      left: -350px;
-      top: -150px;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(0,200,255,.09),
-          transparent 68%
-        );
-
-      filter: blur(25px);
-    }
-
-    .hero-content {
+    .philosophy-hero-content {
       position: relative;
+
       z-index: 2;
 
-      padding:
-        130px 0
-        120px;
-
-      max-width: 1050px;
+      max-width: 1000px;
     }
 
-    .hero-label {
-      margin-bottom: 35px;
-    }
-
-    .hero-title {
+    .philosophy-title {
+      margin-top: 28px;
 
       font-size:
         clamp(
-          70px,
-          12vw,
-          165px
+          60px,
+          10vw,
+          145px
         );
 
-      line-height: .84;
+      line-height: .88;
 
-      letter-spacing:
-        -.075em;
+      letter-spacing: -.07em;
 
       font-weight: 600;
     }
 
-    .hero-title span {
-      display: block;
-    }
-
-    .hero-intro {
-
-      max-width: 650px;
-
-      margin-top: 55px;
-
-      font-size:
-        clamp(
-          18px,
-          2vw,
-          23px
-        );
-
-      line-height: 1.65;
-
-      letter-spacing: -.015em;
-
-      color:
-        rgba(255,255,255,.65);
-    }
-
 
     /* =========================================================
-       INTRO MANIFESTO
+       TEXTO
     ========================================================= */
 
-    .manifesto {
-
-      padding:
-        130px 0;
-
-      border-bottom:
-        1px solid var(--border);
+    .philosophy-content {
+      padding: 120px 0;
     }
 
-    .manifesto-grid {
-
+    .philosophy-layout {
       display: grid;
 
       grid-template-columns:
         1fr 2fr;
 
-      gap: 100px;
+      gap: 80px;
     }
 
-    .manifesto-label {
-      padding-top: 10px;
+    .philosophy-side {
+      padding-top: 8px;
     }
 
-    .manifesto-label span {
-      display: block;
+    .philosophy-side-title {
+      font-size: 11px;
 
-      margin-top: 12px;
+      letter-spacing: .18em;
 
-      color: var(--faint);
+      text-transform: uppercase;
+
+      color: var(--muted);
     }
 
-    .manifesto-text {
-
-      max-width: 780px;
-
-      font-size:
-        clamp(
-          27px,
-          3.6vw,
-          50px
-        );
-
-      line-height: 1.22;
-
-      letter-spacing:
-        -.035em;
-
-      color:
-        rgba(255,255,255,.78);
+    .philosophy-text {
+      max-width: 760px;
     }
 
-    .manifesto-text strong {
+    .philosophy-text p {
+      font-size: 18px;
+
+      line-height: 1.9;
+
+      color: rgba(255,255,255,.70);
+
+      margin-bottom: 30px;
+    }
+
+    .philosophy-text p:first-child {
+      font-size: 27px;
+
+      line-height: 1.45;
+
+      letter-spacing: -.025em;
 
       color: var(--white);
-
-      font-weight: 500;
     }
 
-    .manifesto-text .accent {
+    .philosophy-highlight {
+      margin: 80px 0;
 
-      background:
-        linear-gradient(
-          90deg,
-          var(--cyan),
-          var(--violet),
-          var(--magenta)
+      padding: 65px 0;
+
+      border-top:
+        1px solid var(--border);
+
+      border-bottom:
+        1px solid var(--border);
+
+      text-align: center;
+    }
+
+    .philosophy-highlight-title {
+      font-size:
+        clamp(
+          45px,
+          8vw,
+          105px
         );
 
-      -webkit-background-clip: text;
-      background-clip: text;
+      line-height: .9;
 
-      color: transparent;
+      letter-spacing: -.065em;
 
-      font-weight: 500;
+      font-weight: 600;
+    }
+
+    .philosophy-highlight-text {
+      max-width: 540px;
+
+      margin: 30px auto 0;
+
+      font-size: 14px;
+
+      line-height: 1.8;
+
+      color: var(--muted);
     }
 
 
@@ -453,56 +411,38 @@
     ========================================================= */
 
     .principles {
+      padding: 110px 0;
 
-      padding:
-        130px 0;
+      border-top:
+        1px solid var(--border);
     }
 
     .principles-header {
-
-      display: flex;
-
-      align-items: flex-end;
-
-      justify-content: space-between;
-
-      margin-bottom: 70px;
+      margin-bottom: 55px;
     }
 
     .principles-title {
+      margin-top: 20px;
 
       font-size:
         clamp(
-          42px,
+          38px,
           6vw,
-          75px
+          72px
         );
 
       line-height: .95;
 
-      letter-spacing:
-        -.055em;
+      letter-spacing: -.055em;
 
       font-weight: 500;
     }
 
-    .principles-intro {
-
-      max-width: 330px;
-
-      font-size: 13px;
-
-      line-height: 1.8;
-
-      color: var(--muted);
-    }
-
     .principles-grid {
-
       display: grid;
 
       grid-template-columns:
-        repeat(2, 1fr);
+        repeat(3, 1fr);
 
       gap: 1px;
 
@@ -514,23 +454,18 @@
     }
 
     .principle {
+      min-height: 280px;
 
-      position: relative;
+      padding: 34px;
 
-      min-height: 390px;
-
-      padding: 38px;
+      background:
+        var(--bg);
 
       display: flex;
 
       flex-direction: column;
 
       justify-content: space-between;
-
-      background:
-        var(--bg);
-
-      overflow: hidden;
 
       transition:
         background .3s ease;
@@ -542,7 +477,6 @@
     }
 
     .principle-number {
-
       font-size: 10px;
 
       letter-spacing: .15em;
@@ -550,164 +484,18 @@
       color: var(--faint);
     }
 
-    .principle-number::first-letter {
-      color: var(--cyan);
+    .principle h3 {
+      font-size: 25px;
+
+      letter-spacing: -.03em;
+
+      margin-bottom: 14px;
     }
 
-    .principle-content {
-      max-width: 430px;
-    }
+    .principle p {
+      max-width: 310px;
 
-    .principle-title {
-
-      font-size:
-        clamp(
-          27px,
-          3vw,
-          42px
-        );
-
-      letter-spacing:
-        -.035em;
-
-      line-height: 1;
-
-      margin-bottom: 22px;
-
-      font-weight: 500;
-    }
-
-    .principle-text {
-
-      font-size: 14px;
-
-      line-height: 1.9;
-
-      color: var(--muted);
-    }
-
-    .principle-mark {
-
-      position: absolute;
-
-      right: 30px;
-      top: 30px;
-
-      width: 90px;
-      height: 90px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.07);
-
-      border-radius: 50%;
-
-      opacity: .55;
-    }
-
-    .principle-mark::after {
-
-      content: "";
-
-      position: absolute;
-
-      inset: 17px;
-
-      border:
-        1px solid
-        rgba(123,44,255,.35);
-
-      border-radius: 50%;
-    }
-
-
-    /* =========================================================
-       TEXTO CENTRAL
-    ========================================================= */
-
-    .statement {
-
-      position: relative;
-
-      padding:
-        150px 0;
-
-      overflow: hidden;
-
-      border-top:
-        1px solid var(--border);
-
-      border-bottom:
-        1px solid var(--border);
-    }
-
-    .statement-bg {
-
-      position: absolute;
-
-      inset: 0;
-
-      background:
-
-        radial-gradient(
-          ellipse at 50% 100%,
-          rgba(123,44,255,.20),
-          transparent 58%
-        ),
-
-        radial-gradient(
-          ellipse at 20% 20%,
-          rgba(0,200,255,.06),
-          transparent 40%
-        ),
-
-        radial-gradient(
-          ellipse at 80% 30%,
-          rgba(232,0,90,.05),
-          transparent 40%
-        );
-    }
-
-    .statement-content {
-
-      position: relative;
-
-      z-index: 2;
-
-      max-width: 950px;
-
-      margin: 0 auto;
-
-      text-align: center;
-    }
-
-    .statement-text {
-
-      margin-top: 28px;
-
-      font-size:
-        clamp(
-          40px,
-          6vw,
-          82px
-        );
-
-      line-height: 1;
-
-      letter-spacing:
-        -.06em;
-
-      font-weight: 500;
-    }
-
-    .statement-sub {
-
-      max-width: 600px;
-
-      margin:
-        40px auto 0;
-
-      font-size: 14px;
+      font-size: 13px;
 
       line-height: 1.8;
 
@@ -719,39 +507,61 @@
        CIERRE
     ========================================================= */
 
-    .closing {
+    .philosophy-end {
+      position: relative;
 
-      padding:
-        150px 0;
+      overflow: hidden;
+
+      padding: 150px 0;
 
       text-align: center;
+
+      border-top:
+        1px solid var(--border);
     }
 
-    .closing-title {
+    .philosophy-end-bg {
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        radial-gradient(
+          ellipse at 50% 100%,
+          rgba(123,44,255,.20),
+          transparent 60%
+        );
+    }
+
+    .philosophy-end-content {
+      position: relative;
+
+      z-index: 2;
+    }
+
+    .philosophy-end-title {
+      margin-top: 25px;
 
       font-size:
         clamp(
-          55px,
+          50px,
           9vw,
           120px
         );
 
       line-height: .9;
 
-      letter-spacing:
-        -.07em;
+      letter-spacing: -.065em;
 
       font-weight: 600;
     }
 
-    .closing-text {
+    .philosophy-end-text {
+      max-width: 570px;
 
-      max-width: 560px;
+      margin: 35px auto 40px;
 
-      margin:
-        35px auto 45px;
-
-      font-size: 14px;
+      font-size: 15px;
 
       line-height: 1.8;
 
@@ -759,36 +569,31 @@
     }
 
     .button {
-
       display: inline-flex;
 
       align-items: center;
+
       justify-content: center;
 
-      padding:
-        14px 24px;
+      padding: 14px 22px;
 
-      background:
-        var(--white);
+      background: var(--white);
 
-      color:
-        #050505;
+      color: #050505;
 
       font-size: 10px;
 
       font-weight: 600;
 
-      letter-spacing:
-        .15em;
+      letter-spacing: .15em;
 
       text-transform: uppercase;
 
       transition:
-        all .25s ease;
+        background .25s ease;
     }
 
     .button:hover {
-
       background:
         var(--cyan);
     }
@@ -799,22 +604,19 @@
     ========================================================= */
 
     footer {
-
-      padding:
-        30px 40px;
+      padding: 30px 40px;
 
       display: flex;
 
-      align-items: center;
-
       justify-content: space-between;
+
+      align-items: center;
 
       border-top:
         1px solid var(--border);
     }
 
     .footer-brand {
-
       font-size: 10px;
 
       letter-spacing: .14em;
@@ -825,14 +627,12 @@
     }
 
     .socials {
-
       display: flex;
 
       gap: 22px;
     }
 
     .socials a {
-
       font-size: 9px;
 
       letter-spacing: .12em;
@@ -846,9 +646,7 @@
     }
 
     .socials a:hover {
-
-      color:
-        var(--white);
+      color: var(--white);
     }
 
 
@@ -859,225 +657,104 @@
     @media (max-width: 900px) {
 
       .container {
-
         width:
-          calc(100% - 40px);
+          min(
+            100% - 40px,
+            var(--max)
+          );
       }
 
       nav {
+        padding: 20px;
+      }
 
-        padding:
-          20px;
+      .logo img {
+        height: 32px;
       }
 
       .nav-links {
-
         display: none;
       }
 
       .nav-right {
-
         gap: 0;
       }
 
       .philosophy-hero {
-
-        min-height:
-          auto;
-      }
-
-      .hero-content {
-
         padding:
-          110px 0
-          120px;
+          110px 0 90px;
       }
 
-      .hero-title {
-
+      .philosophy-title {
         font-size:
           clamp(
-            65px,
-            17vw,
-            110px
+            54px,
+            16vw,
+            90px
           );
       }
 
-      .hero-intro {
-
-        font-size:
-          17px;
-
-        margin-top:
-          40px;
+      .philosophy-content {
+        padding: 80px 0;
       }
 
-      .manifesto {
+      .philosophy-layout {
+        grid-template-columns: 1fr;
 
-        padding:
-          90px 0;
+        gap: 35px;
       }
 
-      .manifesto-grid {
-
-        grid-template-columns:
-          1fr;
-
-        gap:
-          35px;
+      .philosophy-text p:first-child {
+        font-size: 23px;
       }
 
       .principles {
-
-        padding:
-          90px 0;
-      }
-
-      .principles-header {
-
-        display: block;
-
-        margin-bottom:
-          45px;
-      }
-
-      .principles-intro {
-
-        margin-top:
-          25px;
+        padding: 80px 0;
       }
 
       .principles-grid {
-
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
       }
 
       .principle {
-
-        min-height:
-          320px;
+        min-height: 240px;
       }
 
-      .statement {
-
-        padding:
-          100px 0;
-      }
-
-      .closing {
-
-        padding:
-          110px 0;
+      .philosophy-end {
+        padding: 110px 0;
       }
 
       footer {
+        padding: 25px 20px;
 
-        padding:
-          25px 20px;
+        flex-direction: column;
 
-        flex-direction:
-          column;
-
-        gap:
-          20px;
-
-        text-align:
-          center;
-      }
-
-      .socials {
-
-        flex-wrap:
-          wrap;
-
-        justify-content:
-          center;
+        gap: 20px;
       }
 
     }
 
-
     @media (max-width: 520px) {
 
       .nav-button {
-
         padding:
           9px 13px;
       }
 
-      .hero-title {
+      .socials {
+        flex-wrap: wrap;
 
-        font-size:
-          58px;
-      }
-
-      .hero-intro {
-
-        font-size:
-          16px;
-      }
-
-      .manifesto-text {
-
-        font-size:
-          29px;
-      }
-
-      .principle {
-
-        min-height:
-          300px;
-
-        padding:
-          28px;
-      }
-
-      .principle-mark {
-
-        width:
-          65px;
-
-        height:
-          65px;
-
-        right:
-          20px;
-
-        top:
-          20px;
-      }
-
-      .principle-mark::after {
-
-        inset:
-          12px;
-      }
-
-      .statement-text {
-
-        font-size:
-          43px;
-      }
-
-      .closing-title {
-
-        font-size:
-          58px;
+        justify-content: center;
       }
 
     }
 
   </style>
+
 </head>
 
 
 <body>
-
-
-  <!-- =======================================================
-       TOP LINE
-  ======================================================== -->
 
   <div class="pulse-line"></div>
 
@@ -1096,7 +773,7 @@
       <img
         src="logo.png"
         alt="WeAreParty"
-      />
+      >
 
     </a>
 
@@ -1112,13 +789,13 @@
         </li>
 
         <li>
-          <a href="index.html#events">
+          <a href="index.html#eventos">
             Eventos
           </a>
         </li>
 
         <li>
-          <a href="index.html#community">
+          <a href="index.html#comunidad">
             Comunidad
           </a>
         </li>
@@ -1132,14 +809,20 @@
           </a>
         </li>
 
+        <li>
+          <a href="index.html#contacto">
+            Contacto
+          </a>
+        </li>
+
       </ul>
 
 
       <a
-        href="mailto:contacto@weareparty.com"
+        href="entrar.html"
         class="nav-button"
       >
-        Booking
+        Entrar
       </a>
 
     </div>
@@ -1147,184 +830,405 @@
   </nav>
 
 
-  <main>
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <section class="philosophy-hero">
+
+    <div class="philosophy-glow"></div>
+
+    <div class="philosophy-grid"></div>
+
+    <div class="container">
+
+      <div class="philosophy-hero-content">
+
+        <div class="eyebrow">
+          WeAreParty
+        </div>
+
+        <h1 class="philosophy-title">
+
+          Nuestra<br>
+
+          <span class="gradient-text">
+            filosofía.
+          </span>
+
+        </h1>
+
+      </div>
+
+    </div>
+
+  </section>
 
 
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
+  <!-- =======================================================
+       FILOSOFÍA
+  ======================================================== -->
 
-    <section class="philosophy-hero">
+  <section class="philosophy-content">
 
+    <div class="container">
 
-      <div class="hero-grid"></div>
-
-      <div class="hero-glow-purple"></div>
-
-      <div class="hero-glow-cyan"></div>
+      <div class="philosophy-layout">
 
 
-      <div class="container">
+        <div class="philosophy-side">
 
-        <div class="hero-content">
-
-
-          <div class="hero-label eyebrow">
-
-            Nuestra filosofía
-
+          <div class="philosophy-side-title">
+            Natural Connection
           </div>
 
-
-          <h1 class="hero-title">
-
-            <span>
-              Natural
-            </span>
-
-            <span class="gradient-text">
-              Connection.
-            </span>
-
-          </h1>
+        </div>
 
 
-          <p class="hero-intro">
+        <div class="philosophy-text">
 
-            Una forma de entender la música,
-            la naturaleza y las personas.
-
-            <br>
-
-            Una experiencia que comienza con
-            un beat y puede convertirse en conexión.
-
+          <p>
+            Somos WeAreParty, un grupo de personas unidas
+            por una filosofía común: conectar con la naturaleza
+            a través de la música y crear experiencias sonoras
+            que van más allá de la pista de baile.
           </p>
 
+          <p>
+            “Natural Connection” es nuestro mantra,
+            la esencia que late en el corazón de cada beat.
+            Representa la energía de las conexiones reales,
+            la libertad de expresarnos a través de la música
+            y la posibilidad de compartir momentos que
+            permanecen en nosotros.
+          </p>
+
+          <p>
+            Imaginamos lugares donde la música electrónica
+            se fusiona con la esencia de la naturaleza,
+            donde los beats son pulsaciones que resuenan
+            con el ritmo de la tierra y donde cada persona
+            puede encontrar su propia frecuencia.
+          </p>
+
+          <p>
+            En WeAreParty construimos experiencias donde
+            la música y las personas ocupan el centro.
+            Cada encuentro es una oportunidad para descubrir
+            nuevos sonidos, compartir energía y crear
+            recuerdos junto a personas afines.
+          </p>
+
+          <p>
+            Creemos en una comunidad viva, construida alrededor
+            del respeto, la música, la solidaridad y la conexión
+            entre personas que comparten una misma sensibilidad.
+          </p>
+
+          <p>
+            La música se convierte así en un puente:
+            una forma de encontrarnos, de expresarnos
+            y de formar parte de algo que continúa creciendo.
+          </p>
 
         </div>
 
       </div>
 
-    </section>
 
+      <!-- =====================================================
+           HIGHLIGHT
+      ====================================================== -->
 
-    <!-- =====================================================
-         MANIFIESTO
-    ====================================================== -->
+      <div class="philosophy-highlight">
 
-    <section class="manifesto">
-
-      <div class="container">
-
-        <div class="manifesto-grid">
-
-
-          <div class="manifesto-label eyebrow">
-
-            WeAreParty
-
-            <span>
-              Natural Connection
-            </span>
-
-          </div>
-
-
-          <div class="manifesto-text">
-
-            Somos WeAreParty.
-
-            <br><br>
-
-            Una comunidad de personas unidas
-            por una forma de entender la música:
-            como una herramienta para
-            <strong>conectar, descubrir y vivir.</strong>
-
-            <br><br>
-
-            Creemos en experiencias sonoras
-            que van más allá de la pista de baile
-            y en momentos que permanecen
-            mucho después de que termine la música.
-
-          </div>
-
+        <div class="eyebrow">
+          Our mantra
         </div>
+
+        <h2 class="philosophy-highlight-title">
+
+          <span class="gradient-text">
+            Natural Connection
+          </span>
+
+        </h2>
+
+        <p class="philosophy-highlight-text">
+          La música crea el espacio.
+          Las personas crean la experiencia.
+          La conexión sucede de forma natural.
+        </p>
 
       </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <!-- =====================================================
-         PRINCIPIOS
-    ====================================================== -->
+  <!-- =======================================================
+       PRINCIPIOS
+  ======================================================== -->
 
-    <section class="principles">
+  <section class="principles">
 
-      <div class="container">
+    <div class="container">
 
+      <div class="principles-header">
 
-        <div class="principles-header">
-
-
-          <h2 class="principles-title">
-
-            Cuatro formas
-            <br>
-
-            de vivir
-            <span class="gradient-text">
-              la conexión.
-            </span>
-
-          </h2>
-
-
-          <p class="principles-intro">
-
-            Natural Connection está presente
-            en cada parte de lo que hacemos:
-            desde la música hasta las personas
-            que forman parte de ella.
-
-          </p>
-
+        <div class="eyebrow">
+          Lo que nos mueve
         </div>
 
+        <h2 class="principles-title">
+          Una comunidad<br>
+          con identidad.
+        </h2>
 
-        <div class="principles-grid">
-
-
-          <!-- =================================================
-               01 MÚSICA
-          ================================================== -->
-
-          <article class="principle">
-
-            <div class="principle-number">
-              01 / MÚSICA
-            </div>
+      </div>
 
 
-            <div class="principle-mark"></div>
+      <div class="principles-grid">
 
 
-            <div class="principle-content">
+        <article class="principle">
 
-              <h3 class="principle-title">
+          <div class="principle-number">
+            01
+          </div>
 
-                La música
-                <br>
-                es el punto
-                <br>
-                de encuentro.
+          <div>
 
-              </h3>
+            <h3>
+              Música
+            </h3>
+
+            <p>
+              La música es nuestro lenguaje común,
+              nuestra forma de expresión y el punto
+              de partida de cada encuentro.
+            </p>
+
+          </div>
+
+        </article>
 
 
-              <p class="principle-text">
+        <article class="principle">
 
-                La música e
+          <div class="principle-number">
+            02
+          </div>
+
+          <div>
+
+            <h3>
+              Identidad
+            </h3>
+
+            <p>
+              Cada DJ tiene una personalidad,
+              una sensibilidad y una manera
+              propia de entender la música.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="principle">
+
+          <div class="principle-number">
+            03
+          </div>
+
+          <div>
+
+            <h3>
+              Conexión
+            </h3>
+
+            <p>
+              Creamos espacios donde personas
+              con sensibilidades similares pueden
+              encontrarse de forma natural.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="principle">
+
+          <div class="principle-number">
+            04
+          </div>
+
+          <div>
+
+            <h3>
+              Respeto
+            </h3>
+
+            <p>
+              La comunidad crece cuando existe
+              respeto por la música, por las personas
+              y por los espacios que compartimos.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="principle">
+
+          <div class="principle-number">
+            05
+          </div>
+
+          <div>
+
+            <h3>
+              Naturaleza
+            </h3>
+
+            <p>
+              La naturaleza inspira nuestra forma
+              de entender la energía, el equilibrio
+              y la conexión entre las personas.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="principle">
+
+          <div class="principle-number">
+            06
+          </div>
+
+          <div>
+
+            <h3>
+              Experiencia
+            </h3>
+
+            <p>
+              Cada sesión, cada encuentro y cada
+              momento compartido forma parte de
+              una experiencia que continúa creciendo.
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       CIERRE
+  ======================================================== -->
+
+  <section class="philosophy-end">
+
+    <div class="philosophy-end-bg"></div>
+
+    <div class="container">
+
+      <div class="philosophy-end-content">
+
+        <div class="eyebrow">
+          WeAreParty
+        </div>
+
+        <h2 class="philosophy-end-title">
+
+          <span class="gradient-text">
+            Natural Connection
+          </span>
+
+        </h2>
+
+        <p class="philosophy-end-text">
+          La música electrónica se escucha,
+          se siente y se comparte.
+          Ese es nuestro punto de encuentro.
+        </p>
+
+        <a
+          href="index.html#sets"
+          class="button"
+        >
+          Descubrir WeAreParty →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="footer-brand">
+      WeAreParty — Natural Connection
+    </div>
+
+    <div class="socials">
+
+      <a
+        href="https://www.instagram.com/we.are.party"
+        target="_blank"
+        rel="noopener"
+      >
+        Instagram
+      </a>
+
+      <a
+        href="https://on.soundcloud.com/1fzaZHNLJa3kJYFUAt"
+        target="_blank"
+        rel="noopener"
+      >
+        SoundCloud
+      </a>
+
+      <a
+        href="https://youtube.com/@we_are_party"
+        target="_blank"
+        rel="noopener"
+      >
+        YouTube
+      </a>
+
+      <a
+        href="https://kick.com/weareparty"
+        target="_blank"
+        rel="noopener"
+      >
+        Kick
+      </a>
+
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
