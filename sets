@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Sets de WeAreParty. Música, sesiones y conexiones a través del sonido."
+    content="Escucha los sets de WeAreParty. Música electrónica, sesiones y Natural Connection."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -166,10 +166,7 @@
       transition: color .25s ease;
     }
 
-    .nav-links a:hover {
-      color: var(--white);
-    }
-
+    .nav-links a:hover,
     .nav-links a.active {
       color: var(--white);
     }
@@ -194,10 +191,10 @@
     }
 
     /* =========================================================
-       HERO
+       PAGE HEADER
     ========================================================= */
 
-    .sets-hero {
+    .page-header {
       position: relative;
       overflow: hidden;
 
@@ -206,135 +203,27 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .hero-glow {
+    .page-header-background {
       position: absolute;
-      width: 800px;
-      height: 500px;
-
-      right: -180px;
-      top: -120px;
-
-      background:
-        radial-gradient(
-          ellipse,
-          rgba(123,44,255,.18),
-          transparent 68%
-        );
-
-      filter: blur(30px);
+      inset: 0;
 
       pointer-events: none;
-    }
-
-    .hero-glow-left {
-      position: absolute;
-      width: 600px;
-      height: 500px;
-
-      left: -300px;
-      bottom: -250px;
 
       background:
         radial-gradient(
-          ellipse,
-          rgba(0,200,255,.09),
-          transparent 68%
+          circle at 80% 20%,
+          rgba(123,44,255,.16),
+          transparent 38%
+        ),
+
+        radial-gradient(
+          circle at 15% 80%,
+          rgba(0,200,255,.08),
+          transparent 35%
         );
-
-      filter: blur(30px);
-
-      pointer-events: none;
     }
 
-    .sets-hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .sets-hero h1 {
-      margin-top: 25px;
-
-      font-size: clamp(60px, 10vw, 140px);
-
-      line-height: .88;
-
-      letter-spacing: -.07em;
-
-      font-weight: 600;
-    }
-
-    .sets-hero h1 span {
-      display: block;
-    }
-
-    .sets-hero-description {
-      max-width: 620px;
-
-      margin-top: 42px;
-
-      color: var(--muted);
-
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    /* =========================================================
-       FEATURED SET
-    ========================================================= */
-
-    .featured {
-      padding: 100px 0 120px;
-    }
-
-    .featured-label {
-      margin-bottom: 30px;
-    }
-
-    .featured-grid {
-      display: grid;
-
-      grid-template-columns: 1fr 1.4fr;
-
-      gap: 70px;
-
-      align-items: center;
-    }
-
-    /* =========================================================
-       VISUAL
-    ========================================================= */
-
-    .set-art {
-      position: relative;
-
-      min-height: 460px;
-
-      overflow: hidden;
-
-      border: 1px solid var(--border);
-
-      background:
-        radial-gradient(
-          circle at 50% 100%,
-          rgba(123,44,255,.28),
-          transparent 55%
-        ),
-        radial-gradient(
-          circle at 20% 20%,
-          rgba(0,200,255,.10),
-          transparent 40%
-        ),
-        radial-gradient(
-          circle at 80% 30%,
-          rgba(232,0,90,.08),
-          transparent 40%
-        ),
-        #09090d;
-    }
-
-    .set-art::before {
-      content: "";
-
+    .page-header-grid {
       position: absolute;
       inset: 0;
 
@@ -349,264 +238,344 @@
           transparent 1px
         );
 
-      background-size: 55px 55px;
+      background-size: 80px 80px;
 
       mask-image:
         linear-gradient(
           to bottom,
           black,
-          transparent
+          transparent 90%
         );
     }
 
-    .art-number {
-      position: absolute;
-
-      top: 30px;
-      left: 30px;
-
-      font-size: 10px;
-
-      color: var(--faint);
-
-      letter-spacing: .18em;
+    .page-header-content {
+      position: relative;
+      z-index: 2;
     }
 
-    .art-title {
-      position: absolute;
+    .page-title {
+      margin-top: 25px;
 
-      left: 30px;
-      bottom: 30px;
+      font-size: clamp(64px, 10vw, 150px);
 
-      font-size: clamp(42px, 5vw, 72px);
+      line-height: .88;
 
-      line-height: .9;
-
-      letter-spacing: -.065em;
+      letter-spacing: -.07em;
 
       font-weight: 600;
     }
 
-    .waveform {
-      position: absolute;
+    .page-description {
+      max-width: 620px;
 
-      left: 30px;
-      right: 30px;
+      margin-top: 35px;
 
-      top: 50%;
+      font-size: 15px;
 
-      height: 90px;
+      line-height: 1.8;
 
-      transform: translateY(-50%);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      gap: 4px;
-    }
-
-    .waveform span {
-      width: 3px;
-
-      border-radius: 3px;
-
-      background:
-        linear-gradient(
-          to top,
-          var(--cyan),
-          var(--violet),
-          var(--magenta)
-        );
-
-      opacity: .75;
-
-      animation: wave 1.7s ease-in-out infinite;
-    }
-
-    .waveform span:nth-child(1)  { height: 18px; animation-delay: 0s; }
-    .waveform span:nth-child(2)  { height: 34px; animation-delay: .08s; }
-    .waveform span:nth-child(3)  { height: 52px; animation-delay: .16s; }
-    .waveform span:nth-child(4)  { height: 27px; animation-delay: .24s; }
-    .waveform span:nth-child(5)  { height: 68px; animation-delay: .32s; }
-    .waveform span:nth-child(6)  { height: 42px; animation-delay: .40s; }
-    .waveform span:nth-child(7)  { height: 76px; animation-delay: .48s; }
-    .waveform span:nth-child(8)  { height: 48px; animation-delay: .56s; }
-    .waveform span:nth-child(9)  { height: 64px; animation-delay: .64s; }
-    .waveform span:nth-child(10) { height: 34px; animation-delay: .72s; }
-    .waveform span:nth-child(11) { height: 72px; animation-delay: .80s; }
-    .waveform span:nth-child(12) { height: 44px; animation-delay: .88s; }
-    .waveform span:nth-child(13) { height: 58px; animation-delay: .96s; }
-    .waveform span:nth-child(14) { height: 30px; animation-delay: 1.04s; }
-    .waveform span:nth-child(15) { height: 68px; animation-delay: 1.12s; }
-    .waveform span:nth-child(16) { height: 40px; animation-delay: 1.20s; }
-    .waveform span:nth-child(17) { height: 54px; animation-delay: 1.28s; }
-    .waveform span:nth-child(18) { height: 28px; animation-delay: 1.36s; }
-
-    @keyframes wave {
-      0%,100% {
-        transform: scaleY(.45);
-        opacity: .35;
-      }
-
-      50% {
-        transform: scaleY(1);
-        opacity: .9;
-      }
+      color: var(--muted);
     }
 
     /* =========================================================
-       SET INFORMATION
+       SETS
     ========================================================= */
 
-    .set-content {
-      max-width: 650px;
+    .sets {
+      padding: 100px 0 140px;
     }
 
-    .set-type {
-      font-size: 10px;
+    .sets-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
 
-      letter-spacing: .20em;
-
-      text-transform: uppercase;
-
-      color: var(--cyan);
-
-      margin-bottom: 18px;
+      margin-bottom: 45px;
     }
 
-    .set-content h2 {
-      font-size: clamp(38px, 5vw, 68px);
+    .sets-heading {
+      font-size: 32px;
 
-      line-height: .95;
-
-      letter-spacing: -.055em;
+      letter-spacing: -.035em;
 
       font-weight: 500;
     }
 
-    .set-content h2 span {
-      display: block;
-    }
+    .sets-count {
+      font-size: 10px;
 
-    .set-description {
-      margin-top: 30px;
-
-      max-width: 520px;
-
-      color: var(--muted);
-
-      font-size: 14px;
-
-      line-height: 1.9;
-    }
-
-    .set-meta {
-      display: flex;
-
-      gap: 35px;
-
-      margin-top: 35px;
-
-      padding-top: 25px;
-
-      border-top: 1px solid var(--border);
-    }
-
-    .meta-item {
-      display: flex;
-      flex-direction: column;
-
-      gap: 7px;
-    }
-
-    .meta-label {
-      font-size: 9px;
-
-      text-transform: uppercase;
+      color: var(--faint);
 
       letter-spacing: .16em;
 
-      color: var(--faint);
-    }
-
-    .meta-value {
-      font-size: 12px;
-
-      color: var(--text);
+      text-transform: uppercase;
     }
 
     /* =========================================================
-       SOUNDCLOUD
+       FEATURED SET
     ========================================================= */
 
-    .player-wrapper {
-      margin-top: 45px;
+    .featured-set {
+      position: relative;
 
       border: 1px solid var(--border);
 
       background: var(--surface);
 
-      padding: 1px;
+      overflow: hidden;
     }
 
-    .player-wrapper iframe {
-      display: block;
+    .featured-set::before {
+      content: "";
 
-      width: 100%;
+      position: absolute;
 
-      min-height: 166px;
+      width: 500px;
+      height: 500px;
 
-      border: 0;
+      right: -180px;
+      bottom: -250px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(123,44,255,.20),
+          transparent 70%
+        );
+
+      pointer-events: none;
     }
 
-    .soundcloud-link {
-      display: inline-flex;
+    .set-top-line {
+      padding: 20px 24px;
+
+      display: flex;
+      justify-content: space-between;
       align-items: center;
 
-      margin-top: 20px;
+      border-bottom: 1px solid var(--border);
+    }
 
-      font-size: 10px;
+    .set-category {
+      font-size: 9px;
 
-      letter-spacing: .15em;
+      letter-spacing: .18em;
 
       text-transform: uppercase;
 
       color: var(--cyan);
+    }
 
-      transition: color .25s ease;
+    .set-index {
+      font-size: 9px;
+
+      letter-spacing: .15em;
+
+      color: var(--faint);
+    }
+
+    .player-wrapper {
+      position: relative;
+
+      padding: 34px;
+
+      background:
+        radial-gradient(
+          ellipse at 50% 100%,
+          rgba(123,44,255,.12),
+          transparent 60%
+        );
+    }
+
+    .player-frame {
+      width: 100%;
+
+      border: 1px solid rgba(255,255,255,.06);
+
+      background: #080808;
+
+      overflow: hidden;
+    }
+
+    .player-frame iframe {
+      display: block;
+
+      width: 100%;
+
+      height: 166px;
+
+      border: 0;
+    }
+
+    .set-details {
+      padding: 0 34px 34px;
+
+      display: grid;
+
+      grid-template-columns: 1fr auto;
+
+      gap: 30px;
+
+      align-items: end;
+    }
+
+    .set-title {
+      font-size: clamp(28px, 4vw, 48px);
+
+      letter-spacing: -.045em;
+
+      line-height: 1;
+    }
+
+    .set-meta {
+      margin-top: 14px;
+
+      font-size: 11px;
+
+      color: var(--muted);
+
+      letter-spacing: .04em;
+    }
+
+    .soundcloud-link {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 13px 18px;
+
+      border: 1px solid var(--border);
+
+      font-size: 9px;
+
+      letter-spacing: .14em;
+
+      text-transform: uppercase;
+
+      color: var(--muted);
+
+      transition:
+        border-color .25s ease,
+        color .25s ease,
+        background .25s ease;
     }
 
     .soundcloud-link:hover {
-      color: var(--white);
-    }
+      border-color: rgba(0,200,255,.5);
 
-    .soundcloud-link::after {
-      content: "↗";
+      color: var(--cyan);
 
-      margin-left: 8px;
-
-      font-size: 14px;
+      background: rgba(0,200,255,.04);
     }
 
     /* =========================================================
-       PHILOSOPHY STRIP
+       FUTURE SETS
     ========================================================= */
 
-    .connection-strip {
+    .future-section {
+      margin-top: 100px;
+    }
+
+    .future-header {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding-bottom: 20px;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .future-title {
+      font-size: 24px;
+
+      letter-spacing: -.03em;
+
+      font-weight: 500;
+    }
+
+    .future-label {
+      font-size: 9px;
+
+      color: var(--faint);
+
+      letter-spacing: .15em;
+
+      text-transform: uppercase;
+    }
+
+    .future-card {
+      min-height: 180px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding: 35px 0;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .future-number {
+      font-size: 10px;
+
+      color: var(--faint);
+
+      letter-spacing: .15em;
+    }
+
+    .future-main {
+      flex: 1;
+
+      margin-left: 50px;
+    }
+
+    .future-main h3 {
+      font-size: 22px;
+
+      font-weight: 500;
+
+      margin-bottom: 8px;
+    }
+
+    .future-main p {
+      font-size: 12px;
+
+      color: var(--muted);
+    }
+
+    .future-status {
+      font-size: 9px;
+
+      letter-spacing: .14em;
+
+      text-transform: uppercase;
+
+      color: var(--cyan);
+    }
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .cta {
       position: relative;
 
       overflow: hidden;
 
-      padding: 110px 0;
-
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      padding: 140px 0;
 
       text-align: center;
+
+      border-top: 1px solid var(--border);
     }
 
-    .connection-strip-bg {
+    .cta-background {
       position: absolute;
       inset: 0;
 
@@ -614,47 +583,60 @@
         radial-gradient(
           ellipse at 50% 100%,
           rgba(123,44,255,.18),
-          transparent 55%
-        ),
-        radial-gradient(
-          ellipse at 15% 50%,
-          rgba(0,200,255,.07),
-          transparent 40%
-        ),
-        radial-gradient(
-          ellipse at 85% 40%,
-          rgba(232,0,90,.06),
-          transparent 40%
+          transparent 60%
         );
     }
 
-    .connection-strip-content {
+    .cta-content {
       position: relative;
       z-index: 2;
     }
 
-    .connection-strip h2 {
-      margin-top: 25px;
-
+    .cta-title {
       font-size: clamp(48px, 8vw, 110px);
 
-      line-height: .9;
+      line-height: .92;
 
-      letter-spacing: -.065em;
+      letter-spacing: -.06em;
 
-      font-weight: 600;
+      font-weight: 500;
     }
 
-    .connection-strip p {
+    .cta-text {
       max-width: 560px;
 
-      margin: 30px auto 0;
-
-      color: var(--muted);
+      margin: 30px auto 40px;
 
       font-size: 14px;
 
       line-height: 1.8;
+
+      color: var(--muted);
+    }
+
+    .cta-button {
+      display: inline-flex;
+
+      padding: 14px 24px;
+
+      background: var(--white);
+
+      color: #050505;
+
+      font-size: 10px;
+
+      font-weight: 600;
+
+      letter-spacing: .15em;
+
+      text-transform: uppercase;
+
+      transition:
+        background .25s ease;
+    }
+
+    .cta-button:hover {
+      background: var(--cyan);
     }
 
     /* =========================================================
@@ -667,6 +649,7 @@
       display: flex;
 
       justify-content: space-between;
+
       align-items: center;
 
       border-top: 1px solid var(--border);
@@ -705,16 +688,13 @@
     }
 
     /* =========================================================
-       RESPONSIVE
+       MOBILE
     ========================================================= */
 
     @media (max-width: 900px) {
 
       .container {
-        width: min(
-          calc(100% - 40px),
-          var(--max)
-        );
+        width: min(100% - 40px, var(--max));
       }
 
       nav {
@@ -729,34 +709,46 @@
         gap: 0;
       }
 
-      .sets-hero {
-        padding: 90px 0 70px;
+      .page-header {
+        padding: 100px 0 70px;
       }
 
-      .sets-hero h1 {
-        font-size: clamp(
-          58px,
-          16vw,
-          90px
-        );
+      .page-title {
+        font-size: clamp(58px, 17vw, 100px);
       }
 
-      .featured {
-        padding: 80px 0 90px;
+      .sets {
+        padding: 80px 0 100px;
       }
 
-      .featured-grid {
+      .player-wrapper {
+        padding: 18px;
+      }
+
+      .set-details {
         grid-template-columns: 1fr;
 
-        gap: 50px;
+        padding: 0 18px 24px;
       }
 
-      .set-art {
-        min-height: 380px;
+      .soundcloud-link {
+        width: 100%;
       }
 
-      .connection-strip {
-        padding: 90px 0;
+      .future-section {
+        margin-top: 70px;
+      }
+
+      .future-card {
+        min-height: 150px;
+      }
+
+      .future-main {
+        margin-left: 25px;
+      }
+
+      .cta {
+        padding: 100px 0;
       }
 
       footer {
@@ -770,42 +762,57 @@
 
     @media (max-width: 520px) {
 
-      .logo img {
-        height: 32px;
-      }
-
       .nav-button {
         padding: 9px 13px;
       }
 
-      .sets-hero {
-        padding: 80px 0 60px;
-      }
-
-      .sets-hero-description {
+      .page-description {
         font-size: 14px;
       }
 
-      .set-art {
-        min-height: 330px;
+      .sets-top {
+        display: block;
       }
 
-      .art-title {
-        font-size: 42px;
+      .sets-count {
+        display: block;
+
+        margin-top: 12px;
       }
 
-      .set-content h2 {
-        font-size: 42px;
+      .set-top-line {
+        padding: 17px;
       }
 
-      .set-meta {
-        flex-wrap: wrap;
-
-        gap: 22px;
+      .player-wrapper {
+        padding: 10px;
       }
 
-      .player-wrapper iframe {
-        min-height: 166px;
+      .player-frame iframe {
+        height: 166px;
+      }
+
+      .set-title {
+        font-size: 30px;
+      }
+
+      .future-card {
+        display: grid;
+
+        grid-template-columns: 35px 1fr;
+
+        gap: 10px;
+
+        padding: 28px 0;
+      }
+
+      .future-status {
+        grid-column: 2;
+        margin-top: 8px;
+      }
+
+      .future-main {
+        margin-left: 0;
       }
 
       .socials {
@@ -818,9 +825,11 @@
   </style>
 </head>
 
+
 <body>
 
   <div class="pulse-line"></div>
+
 
   <!-- =======================================================
        NAVIGATION
@@ -866,7 +875,7 @@
       </ul>
 
       <a
-        href="entrar.html"
+        href="contacto.html"
         class="nav-button"
       >
         Entrar
@@ -878,219 +887,232 @@
 
 
   <!-- =======================================================
-       HERO
+       PAGE HEADER
   ======================================================== -->
 
-  <section class="sets-hero">
+  <header class="page-header">
 
-    <div class="hero-glow"></div>
-    <div class="hero-glow-left"></div>
+    <div class="page-header-background"></div>
+
+    <div class="page-header-grid"></div>
 
     <div class="container">
 
-      <div class="sets-hero-content">
+      <div class="page-header-content">
 
         <div class="eyebrow">
-          WeAreParty / Sets
+          WeAreParty / Audio
         </div>
 
-        <h1>
-          <span>SONIDO.</span>
-          <span class="gradient-text">
-            CONEXIÓN.
-          </span>
+        <h1 class="page-title">
+          <span>SETS</span>
         </h1>
 
-        <p class="sets-hero-description">
-          Una selección de sesiones nacidas desde la música,
-          la identidad y el momento. Cada set representa una
-          forma de entender la pista y de conectar a través
-          del sonido.
+        <p class="page-description">
+          Sesiones, sonidos y momentos compartidos.
+          Una selección de música electrónica que forma parte
+          del universo WeAreParty.
         </p>
 
       </div>
 
     </div>
 
-  </section>
+  </header>
 
 
   <!-- =======================================================
-       FEATURED SET
+       SETS
   ======================================================== -->
 
-  <section class="featured">
+  <main class="sets">
 
     <div class="container">
 
-      <div class="featured-label eyebrow">
-        Featured Set / 001
+      <div class="sets-top">
+
+        <h2 class="sets-heading">
+          Sesiones
+        </h2>
+
+        <div class="sets-count">
+          01 / Featured Set
+        </div>
+
       </div>
 
-      <div class="featured-grid">
 
-        <!-- VISUAL -->
+      <!-- FEATURED SET -->
 
-        <div class="set-art">
+      <article class="featured-set">
 
-          <div class="art-number">
-            WAP / 001
+        <div class="set-top-line">
+
+          <div class="set-category">
+            WeAreParty Sessions
           </div>
 
-          <div class="waveform">
-
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-
-          </div>
-
-          <div class="art-title">
-            MINIMAL
+          <div class="set-index">
+            001
           </div>
 
         </div>
 
 
-        <!-- INFORMATION -->
+        <div class="player-wrapper">
 
-        <div class="set-content">
-
-          <div class="set-type">
-            WeAreParty Session
-          </div>
-
-          <h2>
-            Minimal
-            <span class="gradient-text">
-              Session
-            </span>
-          </h2>
-
-          <p class="set-description">
-            Una sesión de prueba para presentar el espacio
-            sonoro de WeAreParty. Minimal, groove y energía
-            construida progresivamente para dejar que la
-            música encuentre su propio camino.
-          </p>
-
-
-          <div class="set-meta">
-
-            <div class="meta-item">
-
-              <span class="meta-label">
-                Estilo
-              </span>
-
-              <span class="meta-value">
-                Minimal
-              </span>
-
-            </div>
-
-            <div class="meta-item">
-
-              <span class="meta-label">
-                Formato
-              </span>
-
-              <span class="meta-value">
-                DJ Set
-              </span>
-
-            </div>
-
-            <div class="meta-item">
-
-              <span class="meta-label">
-                Plataforma
-              </span>
-
-              <span class="meta-value">
-                SoundCloud
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <!-- SOUNDCLOUD PLAYER -->
-
-          <div class="player-wrapper">
+          <div class="player-frame">
 
             <iframe
               scrolling="no"
               frameborder="no"
               allow="autoplay"
-              src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/weareparty/set-minimal-31-04-23&color=%2300c8ff&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true">
-            </iframe>
+              src="https://w.soundcloud.com/player/?url=https%3A//on.soundcloud.com/QMzVAg8aw8zVDrjbqt&color=%2300c8ff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+            ></iframe>
+
+          </div>
+
+        </div>
+
+
+        <div class="set-details">
+
+          <div>
+
+            <h2 class="set-title">
+              Minimal Session
+            </h2>
+
+            <p class="set-meta">
+              WeAreParty · Minimal / House / Tech
+            </p>
 
           </div>
 
 
           <a
-            href="https://soundcloud.com/weareparty/set-minimal-31-04-23"
+            href="https://on.soundcloud.com/QMzVAg8aw8zVDrjbqt"
             target="_blank"
             rel="noopener noreferrer"
             class="soundcloud-link"
           >
-            Escuchar en SoundCloud
+            Abrir en SoundCloud
           </a>
 
         </div>
 
-      </div>
+      </article>
+
+
+      <!-- ===================================================
+           FUTURE SETS
+      ==================================================== -->
+
+      <section class="future-section">
+
+        <div class="future-header">
+
+          <h2 class="future-title">
+            Próximas sesiones
+          </h2>
+
+          <span class="future-label">
+            Coming soon
+          </span>
+
+        </div>
+
+
+        <div class="future-card">
+
+          <span class="future-number">
+            002
+          </span>
+
+          <div class="future-main">
+
+            <h3>
+              WeAreParty Session
+            </h3>
+
+            <p>
+              Barcelona · Próximamente
+            </p>
+
+          </div>
+
+          <span class="future-status">
+            Próximamente
+          </span>
+
+        </div>
+
+
+        <div class="future-card">
+
+          <span class="future-number">
+            003
+          </span>
+
+          <div class="future-main">
+
+            <h3>
+              WeAreParty Session
+            </h3>
+
+            <p>
+              Natural Connection
+            </p>
+
+          </div>
+
+          <span class="future-status">
+            Próximamente
+          </span>
+
+        </div>
+
+      </section>
 
     </div>
 
-  </section>
+  </main>
 
 
   <!-- =======================================================
-       NATURAL CONNECTION
+       CTA
   ======================================================== -->
 
-  <section class="connection-strip">
+  <section class="cta">
 
-    <div class="connection-strip-bg"></div>
+    <div class="cta-background"></div>
 
     <div class="container">
 
-      <div class="connection-strip-content">
+      <div class="cta-content">
 
         <div class="eyebrow">
           Natural Connection
         </div>
 
-        <h2>
-          MUSIC
-          <span class="gradient-text">
-            CONNECTS.
-          </span>
+        <h2 class="cta-title">
+          La música
+          <br>
+          nos conecta.
         </h2>
 
-        <p>
-          Cuando se crea un ambiente adecuado,
-          las conexiones fluyen naturalmente
-          para generar experiencias únicas.
+        <p class="cta-text">
+          Compartimos música para crear conexiones,
+          descubrir nuevos sonidos y construir una comunidad
+          alrededor de experiencias reales.
         </p>
+
+        <a
+          href="contacto.html"
+          class="cta-button"
+        >
+          Formar parte
+        </a>
 
       </div>
 
@@ -1146,6 +1168,7 @@
     </div>
 
   </footer>
+
 
 </body>
 </html>
