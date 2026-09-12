@@ -54,13 +54,9 @@
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--white);
-
       min-height: 100vh;
-
       -webkit-font-smoothing: antialiased;
-
       overflow-x: hidden;
-
       padding-bottom: 100px;
     }
 
@@ -78,7 +74,6 @@
         var(--max),
         calc(100% - 80px)
       );
-
       margin: 0 auto;
     }
 
@@ -100,19 +95,15 @@
 
       -webkit-background-clip: text;
       background-clip: text;
-
       color: transparent;
     }
 
     .pulse-line {
       position: fixed;
-
       top: 0;
       left: 0;
-
       width: 100%;
       height: 2px;
-
       z-index: 1500;
 
       background:
@@ -125,15 +116,14 @@
     }
 
 
-    /* NAVIGATION */
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
 
     nav {
       position: relative;
-
       z-index: 20;
-
       width: 100%;
-
       padding: 22px 40px;
 
       display: flex;
@@ -165,19 +155,14 @@
     .nav-links {
       display: flex;
       align-items: center;
-
       gap: 28px;
-
       list-style: none;
     }
 
     .nav-links a {
       font-size: 10px;
-
       letter-spacing: .14em;
-
       text-transform: uppercase;
-
       color: var(--muted);
 
       transition:
@@ -198,9 +183,7 @@
       color: var(--cyan);
 
       font-size: 10px;
-
       letter-spacing: .14em;
-
       text-transform: uppercase;
 
       transition:
@@ -216,11 +199,12 @@
     }
 
 
-    /* HERO */
+    /* =========================================================
+       HERO
+    ========================================================= */
 
     .hero {
       position: relative;
-
       min-height: 62vh;
 
       display: flex;
@@ -235,7 +219,6 @@
     .hero-background {
       position: absolute;
       inset: 0;
-
       pointer-events: none;
     }
 
@@ -281,7 +264,6 @@
 
     .hero-grid {
       position: absolute;
-
       inset: 0;
 
       background-image:
@@ -308,7 +290,6 @@
 
     .hero-content {
       position: relative;
-
       z-index: 2;
 
       padding:
@@ -328,9 +309,7 @@
         );
 
       line-height: .87;
-
       letter-spacing: -.07em;
-
       font-weight: 600;
     }
 
@@ -340,18 +319,18 @@
 
     .hero-description {
       max-width: 620px;
-
       margin-top: 40px;
 
       font-size: 15px;
-
       line-height: 1.8;
 
       color: var(--muted);
     }
 
 
-    /* SETS */
+    /* =========================================================
+       SETS
+    ========================================================= */
 
     .sets {
       padding:
@@ -360,9 +339,7 @@
 
     .section-top {
       display: flex;
-
       justify-content: space-between;
-
       align-items: flex-end;
 
       margin-bottom: 55px;
@@ -377,9 +354,7 @@
         );
 
       letter-spacing: -.045em;
-
       line-height: 1;
-
       font-weight: 500;
     }
 
@@ -387,14 +362,15 @@
       max-width: 380px;
 
       font-size: 13px;
-
       line-height: 1.8;
 
       color: var(--muted);
     }
 
 
-    /* SET CARDS */
+    /* =========================================================
+       SET CARDS
+    ========================================================= */
 
     .sets-grid {
       display: grid;
@@ -443,9 +419,7 @@
       height: 310px;
 
       display: flex;
-
       align-items: flex-end;
-
       justify-content: center;
 
       padding-bottom: 45px;
@@ -472,7 +446,6 @@
       content: "";
 
       position: absolute;
-
       inset: 0;
 
       background-image:
@@ -492,25 +465,19 @@
 
     .set-number {
       position: absolute;
-
       top: 21px;
       left: 21px;
-
       z-index: 2;
 
       font-size: 9px;
-
       letter-spacing: .16em;
-
       color: var(--faint);
     }
 
     .platform-badge {
       position: absolute;
-
       top: 18px;
       right: 18px;
-
       z-index: 2;
 
       padding: 7px 10px;
@@ -522,28 +489,25 @@
         rgba(0,0,0,.25);
 
       font-size: 8px;
-
       letter-spacing: .15em;
-
       text-transform: uppercase;
 
       color: var(--muted);
     }
 
 
-    /* VISUALIZER */
+    /* =========================================================
+       VISUALIZER
+    ========================================================= */
 
     .bars {
       position: relative;
-
       z-index: 2;
 
       height: 82px;
 
       display: flex;
-
       align-items: flex-end;
-
       justify-content: center;
 
       gap: 4px;
@@ -601,7 +565,9 @@
     }
 
 
-    /* CARD PLAY */
+    /* =========================================================
+       CARD PLAY
+    ========================================================= */
 
     .card-play {
       position: absolute;
@@ -675,12 +641,13 @@
 
     .disabled .card-play {
       opacity: .25;
-
       cursor: default;
     }
 
 
-    /* SET INFO */
+    /* =========================================================
+       SET INFO
+    ========================================================= */
 
     .set-info {
       padding: 24px;
@@ -688,9 +655,7 @@
 
     .set-platform {
       font-size: 9px;
-
       letter-spacing: .16em;
-
       text-transform: uppercase;
 
       color: var(--cyan);
@@ -700,29 +665,22 @@
 
     .set-name {
       font-size: 18px;
-
       font-weight: 600;
-
       margin-bottom: 8px;
     }
 
     .set-meta {
       font-size: 10px;
-
       line-height: 1.7;
-
       color: var(--muted);
     }
 
     .set-footer {
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
 
       margin-top: 22px;
-
       padding-top: 16px;
 
       border-top:
@@ -731,22 +689,20 @@
 
     .set-footer span:first-child {
       font-size: 9px;
-
       letter-spacing: .14em;
-
       text-transform: uppercase;
-
       color: var(--text);
     }
 
     .set-arrow {
       font-size: 18px;
-
       color: var(--cyan);
     }
 
 
-    /* FUTURE */
+    /* =========================================================
+       FUTURE
+    ========================================================= */
 
     .future {
       padding:
@@ -757,11 +713,8 @@
       min-height: 250px;
 
       display: flex;
-
       flex-direction: column;
-
       align-items: center;
-
       justify-content: center;
 
       text-align: center;
@@ -788,7 +741,6 @@
         );
 
       letter-spacing: -.04em;
-
       font-weight: 500;
     }
 
@@ -798,20 +750,20 @@
       margin-top: 17px;
 
       font-size: 12px;
-
       line-height: 1.8;
 
       color: var(--muted);
     }
 
 
-    /* FOOTER */
+    /* =========================================================
+       FOOTER
+    ========================================================= */
 
     footer {
       padding: 30px 40px;
 
       display: flex;
-
       justify-content: space-between;
       align-items: center;
 
@@ -821,9 +773,7 @@
 
     .footer-brand {
       font-size: 10px;
-
       letter-spacing: .14em;
-
       text-transform: uppercase;
 
       color: var(--faint);
@@ -831,15 +781,12 @@
 
     .socials {
       display: flex;
-
       gap: 22px;
     }
 
     .socials a {
       font-size: 9px;
-
       letter-spacing: .12em;
-
       text-transform: uppercase;
 
       color: var(--muted);
@@ -853,7 +800,9 @@
     }
 
 
-    /* WAP PLAYER */
+    /* =========================================================
+       WAP PLAYER
+    ========================================================= */
 
     .wap-player {
       position: fixed;
@@ -914,7 +863,9 @@
     }
 
 
-    /* WAP PLAY */
+    /* =========================================================
+       WAP PLAY
+    ========================================================= */
 
     .wap-play {
       width: 46px;
@@ -929,7 +880,6 @@
         rgba(0,200,255,.04);
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -982,7 +932,9 @@
     }
 
 
-    /* TRACK INFO */
+    /* =========================================================
+       TRACK INFO
+    ========================================================= */
 
     .wap-info {
       min-width: 0;
@@ -990,9 +942,7 @@
 
     .wap-label {
       font-size: 8px;
-
       letter-spacing: .17em;
-
       text-transform: uppercase;
 
       color: var(--cyan);
@@ -1002,13 +952,10 @@
 
     .wap-title {
       font-size: 12px;
-
       font-weight: 600;
 
       white-space: nowrap;
-
       overflow: hidden;
-
       text-overflow: ellipsis;
     }
 
@@ -1020,14 +967,14 @@
       color: var(--muted);
 
       white-space: nowrap;
-
       overflow: hidden;
-
       text-overflow: ellipsis;
     }
 
 
-    /* PROGRESS */
+    /* =========================================================
+       PROGRESS
+    ========================================================= */
 
     .wap-progress-area {
       min-width: 0;
@@ -1035,13 +982,11 @@
 
     .wap-times {
       display: flex;
-
       justify-content: space-between;
 
       margin-bottom: 9px;
 
       font-size: 8px;
-
       letter-spacing: .06em;
 
       color: var(--muted);
@@ -1109,15 +1054,14 @@
     }
 
 
-    /* PLATFORM / CLOSE */
+    /* =========================================================
+       PLATFORM / CLOSE
+    ========================================================= */
 
     .wap-platform {
       font-size: 8px;
-
       letter-spacing: .14em;
-
       text-transform: uppercase;
-
       text-align: right;
 
       color: var(--muted);
@@ -1151,7 +1095,9 @@
     }
 
 
-    /* HIDDEN ENGINES */
+    /* =========================================================
+       HIDDEN ENGINES
+    ========================================================= */
 
     .hidden-engine {
       position: fixed;
@@ -1168,7 +1114,9 @@
     }
 
 
-    /* RESPONSIVE */
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
 
     @media (max-width: 1000px) {
 
@@ -1309,7 +1257,6 @@
 
       .socials {
         flex-wrap: wrap;
-
         justify-content: center;
       }
 
@@ -1324,7 +1271,9 @@
   <div class="pulse-line"></div>
 
 
-  <!-- NAV -->
+  <!-- =======================================================
+       NAV
+  ======================================================== -->
 
   <nav>
 
@@ -1391,7 +1340,9 @@
   </nav>
 
 
-  <!-- HERO -->
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
 
   <header class="hero">
 
@@ -1440,7 +1391,9 @@
   </header>
 
 
-  <!-- SETS -->
+  <!-- =======================================================
+       SETS
+  ======================================================== -->
 
   <main>
 
@@ -1476,13 +1429,16 @@
         <div class="sets-grid">
 
 
-          <!-- SOUNDCLOUD -->
+          <!-- =================================================
+               SET 001 — SOUNDCLOUD
+          ================================================== -->
 
           <article
             class="set-card playable"
             data-platform="soundcloud"
             data-title="Minimal Session 31.04.23"
             data-source="WeAreParty · SoundCloud"
+            data-start="0"
           >
 
             <div class="set-visual">
@@ -1555,13 +1511,16 @@
           </article>
 
 
-          <!-- YOUTUBE -->
+          <!-- =================================================
+               SET 002 — YOUTUBE
+          ================================================== -->
 
           <article
             class="set-card playable"
             data-platform="youtube"
             data-title="YouTube Session"
             data-source="WeAreParty · YouTube"
+            data-start="0"
           >
 
             <div class="set-visual">
@@ -1610,7 +1569,7 @@
               </h3>
 
               <p class="set-meta">
-                Empieza en 49:02
+                Reproducción desde 0:00
               </p>
 
 
@@ -1631,7 +1590,9 @@
           </article>
 
 
-          <!-- MIXCLOUD FUTURE -->
+          <!-- =================================================
+               SET 003 — MIXCLOUD
+          ================================================== -->
 
           <article
             class="set-card disabled"
@@ -1711,7 +1672,9 @@
     </section>
 
 
-    <!-- FUTURE -->
+    <!-- =====================================================
+         FUTURE
+    ====================================================== -->
 
     <section class="future">
 
@@ -1742,7 +1705,9 @@
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
 
   <footer>
 
@@ -1790,7 +1755,9 @@
   </footer>
 
 
-  <!-- WAP PLAYER -->
+  <!-- =======================================================
+       WAP PLAYER
+  ======================================================== -->
 
   <div
     id="wapPlayer"
@@ -1909,12 +1876,16 @@
   </div>
 
 
-  <!-- SOUNDCLOUD API -->
+  <!-- =======================================================
+       SOUNDCLOUD API
+  ======================================================== -->
 
   <script src="https://w.soundcloud.com/player/api.js"></script>
 
 
-  <!-- YOUTUBE API -->
+  <!-- =======================================================
+       YOUTUBE API
+  ======================================================== -->
 
   <script src="https://www.youtube.com/iframe_api"></script>
 
@@ -1960,6 +1931,8 @@
 
     let currentPlatform = null;
 
+    let currentStart = 0;
+
     let trackDuration = 0;
 
     let scReady = false;
@@ -1971,11 +1944,17 @@
     let youtubeProgressTimer = null;
 
 
-    /* FORMAT TIME */
+    /* =========================================================
+       FORMAT TIME
+    ========================================================= */
 
     function formatTimeFromSeconds(seconds) {
 
-      if (!seconds || seconds < 0) {
+      if (
+        seconds === undefined ||
+        seconds === null ||
+        seconds < 0
+      ) {
         return "0:00";
       }
 
@@ -2030,6 +2009,10 @@
     }
 
 
+    /* =========================================================
+       RESET PROGRESS
+    ========================================================= */
+
     function resetProgress() {
 
       wapProgressFill.style.width =
@@ -2046,6 +2029,10 @@
 
     }
 
+
+    /* =========================================================
+       UPDATE PROGRESS
+    ========================================================= */
 
     function updateProgress(
       currentSeconds,
@@ -2085,11 +2072,18 @@
     }
 
 
+    /* =========================================================
+       STOP EVERYTHING
+    ========================================================= */
+
     function stopEverything() {
 
       if (scReady) {
+
         scWidget.pause();
+
       }
+
 
       if (
         youtubePlayer &&
@@ -2099,6 +2093,7 @@
         youtubePlayer.pauseVideo();
 
       }
+
 
       if (youtubeProgressTimer) {
 
@@ -2110,6 +2105,7 @@
 
       }
 
+
       wapPlay.classList.remove(
         "playing"
       );
@@ -2117,7 +2113,9 @@
     }
 
 
-    /* SOUNDCLOUD */
+    /* =========================================================
+       SOUNDCLOUD
+    ========================================================= */
 
     const scWidget =
       SC.Widget(scIframe);
@@ -2144,6 +2142,7 @@
           return;
         }
 
+
         wapPlay.classList.add(
           "playing"
         );
@@ -2162,6 +2161,7 @@
         ) {
           return;
         }
+
 
         wapPlay.classList.remove(
           "playing"
@@ -2243,6 +2243,7 @@
           return;
         }
 
+
         wapPlay.classList.remove(
           "playing"
         );
@@ -2253,7 +2254,9 @@
     );
 
 
-    /* YOUTUBE */
+    /* =========================================================
+       YOUTUBE
+    ========================================================= */
 
     window.onYouTubeIframeAPIReady =
       function () {
@@ -2262,6 +2265,7 @@
           new YT.Player(
             "youtubeEngine",
             {
+
               height: "1",
               width: "1",
 
@@ -2269,11 +2273,17 @@
                 "WASQWD4NaGQ",
 
               playerVars: {
+
                 autoplay: 0,
+
                 controls: 0,
+
                 rel: 0,
+
                 playsinline: 1,
+
                 start: 0
+
               },
 
               events: {
@@ -2284,6 +2294,7 @@
                     youtubeReady = true;
 
                   },
+
 
                 onStateChange:
                   function (event) {
@@ -2338,11 +2349,16 @@
                   }
 
               }
+
             }
           );
 
       };
 
+
+    /* =========================================================
+       YOUTUBE PROGRESS
+    ========================================================= */
 
     function startYouTubeProgress() {
 
@@ -2373,6 +2389,7 @@
               youtubePlayer
                 .getCurrentTime();
 
+
             const duration =
               youtubePlayer
                 .getDuration();
@@ -2390,15 +2407,24 @@
     }
 
 
-    /* OPEN PLAYER */
+    /* =========================================================
+       OPEN PLAYER
+    ========================================================= */
 
     function openPlayer(card) {
 
       const platform =
         card.dataset.platform;
 
+
       currentPlatform =
         platform;
+
+
+      currentStart =
+        Number(
+          card.dataset.start || 0
+        );
 
 
       stopEverything();
@@ -2410,9 +2436,11 @@
         card.dataset.title ||
         "WeAreParty Set";
 
+
       wapSource.textContent =
         card.dataset.source ||
         "WeAreParty";
+
 
       wapPlatform.textContent =
         platform.toUpperCase();
@@ -2423,10 +2451,22 @@
       );
 
 
+      /* SOUNDCLOUD */
+
       if (
         platform ===
         "soundcloud"
       ) {
+
+        const playSoundCloud =
+          function () {
+
+            scWidget.seekTo(0);
+
+            scWidget.play();
+
+          };
+
 
         if (!scReady) {
 
@@ -2438,7 +2478,7 @@
 
                   clearInterval(wait);
 
-                  scWidget.play();
+                  playSoundCloud();
 
                 }
 
@@ -2448,17 +2488,32 @@
 
         } else {
 
-          scWidget.play();
+          playSoundCloud();
 
         }
 
       }
 
 
+      /* YOUTUBE */
+
       if (
         platform ===
         "youtube"
       ) {
+
+        const playYouTube =
+          function () {
+
+            youtubePlayer.seekTo(
+              currentStart,
+              true
+            );
+
+            youtubePlayer.playVideo();
+
+          };
+
 
         if (!youtubeReady) {
 
@@ -2473,12 +2528,7 @@
 
                   clearInterval(wait);
 
-                  youtubePlayer.seekTo(
-                    2942,
-                    true
-                  );
-
-                  youtubePlayer.playVideo();
+                  playYouTube();
 
                 }
 
@@ -2488,12 +2538,7 @@
 
         } else {
 
-          youtubePlayer.seekTo(
-            2942,
-            true
-          );
-
-          youtubePlayer.playVideo();
+          playYouTube();
 
         }
 
@@ -2502,7 +2547,9 @@
     }
 
 
-    /* CARD EVENTS */
+    /* =========================================================
+       CARD EVENTS
+    ========================================================= */
 
     document
       .querySelectorAll(
@@ -2542,11 +2589,16 @@
       );
 
 
-    /* PLAY / PAUSE */
+    /* =========================================================
+       PLAY / PAUSE
+    ========================================================= */
 
     wapPlay.addEventListener(
       "click",
       function () {
+
+
+        /* SOUNDCLOUD */
 
         if (
           currentPlatform ===
@@ -2572,6 +2624,8 @@
 
         }
 
+
+        /* YOUTUBE */
 
         if (
           currentPlatform ===
@@ -2606,7 +2660,9 @@
     );
 
 
-    /* SEEK */
+    /* =========================================================
+       SEEK
+    ========================================================= */
 
     wapProgress.addEventListener(
       "click",
@@ -2635,6 +2691,8 @@
           );
 
 
+        /* SOUNDCLOUD */
+
         if (
           currentPlatform ===
           "soundcloud" &&
@@ -2649,6 +2707,8 @@
 
         }
 
+
+        /* YOUTUBE */
 
         if (
           currentPlatform ===
@@ -2674,7 +2734,9 @@
     );
 
 
-    /* CLOSE */
+    /* =========================================================
+       CLOSE PLAYER
+    ========================================================= */
 
     wapClose.addEventListener(
       "click",
@@ -2690,7 +2752,6 @@
     );
 
   </script>
-
 
 </body>
 </html>
