@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Descubre los sets de WeAreParty. Música electrónica, sesiones y Natural Connection."
+    content="Sets de WeAreParty. Música electrónica, sesiones y conexiones reales."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +24,7 @@
     /* =========================================================
        WEAREPARTY
        SETS
+       Natural Connection
     ========================================================= */
 
     * {
@@ -62,6 +63,8 @@
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+
+      padding-bottom: 110px;
     }
 
     a {
@@ -195,7 +198,7 @@
     .page-hero {
       position: relative;
 
-      min-height: 62vh;
+      min-height: 65vh;
 
       display: flex;
       align-items: center;
@@ -205,7 +208,7 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .page-hero-background {
+    .page-background {
       position: absolute;
       inset: 0;
 
@@ -218,17 +221,17 @@
       width: 750px;
       height: 750px;
 
-      right: -250px;
-      top: -150px;
+      right: -220px;
+      top: -100px;
 
       background:
         radial-gradient(
           circle,
-          rgba(123,44,255,.18),
+          rgba(123,44,255,.20),
           transparent 68%
         );
 
-      filter: blur(20px);
+      filter: blur(25px);
     }
 
     .glow-2 {
@@ -237,20 +240,20 @@
       width: 650px;
       height: 650px;
 
-      left: -300px;
+      left: -320px;
       bottom: -300px;
 
       background:
         radial-gradient(
           circle,
-          rgba(0,200,255,.10),
+          rgba(0,200,255,.12),
           transparent 68%
         );
 
-      filter: blur(20px);
+      filter: blur(25px);
     }
 
-    .page-grid {
+    .hero-grid {
       position: absolute;
       inset: 0;
 
@@ -279,27 +282,33 @@
       position: relative;
       z-index: 2;
 
-      padding: 100px 0 90px;
+      padding: 120px 0;
     }
 
-    .page-hero-eyebrow {
+    .page-eyebrow {
       margin-bottom: 28px;
     }
 
     .page-title {
-      font-size: clamp(62px, 11vw, 150px);
+      font-size: clamp(60px, 11vw, 150px);
 
       line-height: .88;
 
       letter-spacing: -.07em;
 
       font-weight: 600;
+
+      max-width: 1100px;
+    }
+
+    .page-title span {
+      display: block;
     }
 
     .page-description {
       max-width: 610px;
 
-      margin-top: 38px;
+      margin-top: 40px;
 
       font-size: 16px;
 
@@ -310,14 +319,14 @@
 
 
     /* =========================================================
-       SETS SECTION
+       SETS INTRO
     ========================================================= */
 
-    .sets {
-      padding: 110px 0 140px;
+    .sets-section {
+      padding: 110px 0;
     }
 
-    .sets-header {
+    .section-top {
       display: flex;
 
       justify-content: space-between;
@@ -326,7 +335,7 @@
       margin-bottom: 55px;
     }
 
-    .section-title {
+    .section-heading {
       font-size: clamp(34px, 5vw, 62px);
 
       letter-spacing: -.045em;
@@ -337,7 +346,7 @@
     }
 
     .section-intro {
-      max-width: 370px;
+      max-width: 380px;
 
       font-size: 13px;
 
@@ -348,227 +357,8 @@
 
 
     /* =========================================================
-       FEATURED SET
+       SET GRID
     ========================================================= */
-
-    .featured-set {
-      display: grid;
-
-      grid-template-columns: 1fr 1.25fr;
-
-      border: 1px solid var(--border);
-
-      background: var(--surface);
-
-      min-height: 430px;
-    }
-
-    .featured-info {
-      padding: 50px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      border-right: 1px solid var(--border);
-    }
-
-    .set-index {
-      font-size: 10px;
-
-      letter-spacing: .18em;
-
-      color: var(--faint);
-
-      text-transform: uppercase;
-    }
-
-    .featured-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .set-category {
-      font-size: 10px;
-
-      letter-spacing: .18em;
-
-      text-transform: uppercase;
-
-      color: var(--cyan);
-    }
-
-    .featured-title {
-      font-size: clamp(32px, 4vw, 54px);
-
-      line-height: 1;
-
-      letter-spacing: -.045em;
-
-      font-weight: 500;
-
-      margin-bottom: 18px;
-    }
-
-    .featured-description {
-      max-width: 430px;
-
-      color: var(--muted);
-
-      font-size: 13px;
-
-      line-height: 1.8;
-    }
-
-    .featured-date {
-      margin-top: 25px;
-
-      font-size: 10px;
-
-      color: var(--faint);
-
-      letter-spacing: .14em;
-
-      text-transform: uppercase;
-    }
-
-
-    /* =========================================================
-       PLAYER
-    ========================================================= */
-
-    .featured-player {
-      position: relative;
-
-      min-height: 430px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      overflow: hidden;
-
-      background:
-        radial-gradient(
-          circle at 50% 100%,
-          rgba(123,44,255,.24),
-          transparent 62%
-        ),
-
-        radial-gradient(
-          circle at 20% 30%,
-          rgba(0,200,255,.08),
-          transparent 40%
-        ),
-
-        #08080b;
-    }
-
-    .player-glow {
-      position: absolute;
-
-      width: 500px;
-      height: 500px;
-
-      left: 50%;
-      top: 50%;
-
-      transform: translate(-50%, -50%);
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(123,44,255,.10),
-          transparent 65%
-        );
-
-      pointer-events: none;
-    }
-
-    .soundcloud-player {
-      position: relative;
-      z-index: 2;
-
-      width: calc(100% - 80px);
-
-      max-width: 700px;
-
-      border: 1px solid rgba(255,255,255,.08);
-
-      background: #09090d;
-
-      box-shadow:
-        0 20px 70px rgba(0,0,0,.35);
-    }
-
-    .soundcloud-player iframe {
-      display: block;
-
-      width: 100%;
-
-      min-height: 300px;
-
-      border: 0;
-    }
-
-    .player-label {
-      position: absolute;
-
-      left: 28px;
-      bottom: 22px;
-
-      z-index: 3;
-
-      font-size: 9px;
-
-      letter-spacing: .16em;
-
-      text-transform: uppercase;
-
-      color: var(--faint);
-
-      pointer-events: none;
-    }
-
-
-    /* =========================================================
-       SETS GRID
-    ========================================================= */
-
-    .archive {
-      margin-top: 100px;
-    }
-
-    .archive-header {
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      padding-bottom: 25px;
-
-      border-bottom: 1px solid var(--border);
-    }
-
-    .archive-title {
-      font-size: 28px;
-
-      letter-spacing: -.035em;
-
-      font-weight: 500;
-    }
-
-    .archive-label {
-      font-size: 9px;
-
-      letter-spacing: .16em;
-
-      text-transform: uppercase;
-
-      color: var(--muted);
-    }
 
     .sets-grid {
       display: grid;
@@ -577,26 +367,28 @@
         repeat(3, 1fr);
 
       gap: 12px;
-
-      margin-top: 12px;
     }
 
     .set-card {
+      position: relative;
+
       background: var(--surface);
 
       border: 1px solid var(--border);
 
+      overflow: hidden;
+
       transition:
-        transform .25s ease,
-        border-color .25s ease,
-        background .25s ease;
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease;
     }
 
     .set-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
 
       border-color:
-        rgba(123,44,255,.45);
+        rgba(123,44,255,.5);
 
       background: var(--surface-2);
     }
@@ -604,244 +396,113 @@
     .set-visual {
       position: relative;
 
-      height: 230px;
+      height: 300px;
 
       display: flex;
 
       align-items: flex-end;
-
       justify-content: center;
 
-      padding-bottom: 30px;
+      padding-bottom: 45px;
 
       overflow: hidden;
 
       background:
         radial-gradient(
           circle at 50% 100%,
-          rgba(123,44,255,.22),
+          rgba(123,44,255,.27),
           transparent 60%
+        ),
+
+        radial-gradient(
+          circle at 20% 30%,
+          rgba(0,200,255,.09),
+          transparent 40%
         ),
 
         #09090d;
     }
 
-    .bars {
-      display: flex;
-
-      align-items: flex-end;
-
-      gap: 3px;
-
-      height: 70px;
-    }
-
-    .bars span {
-      width: 4px;
-
-      border-radius: 3px 3px 0 0;
-
-      background:
-        linear-gradient(
-          to top,
-          var(--cyan),
-          var(--violet)
-        );
-
-      opacity: .7;
-
-      animation:
-        frequency 1.8s ease-in-out infinite;
-    }
-
-    .bars span:nth-child(1)  { height: 18px; animation-delay: .0s; }
-    .bars span:nth-child(2)  { height: 35px; animation-delay: .1s; }
-    .bars span:nth-child(3)  { height: 48px; animation-delay: .2s; }
-    .bars span:nth-child(4)  { height: 27px; animation-delay: .3s; }
-    .bars span:nth-child(5)  { height: 62px; animation-delay: .4s; }
-    .bars span:nth-child(6)  { height: 40px; animation-delay: .5s; }
-    .bars span:nth-child(7)  { height: 55px; animation-delay: .6s; }
-    .bars span:nth-child(8)  { height: 30px; animation-delay: .7s; }
-    .bars span:nth-child(9)  { height: 45px; animation-delay: .8s; }
-    .bars span:nth-child(10) { height: 58px; animation-delay: .9s; }
-    .bars span:nth-child(11) { height: 32px; animation-delay: 1s; }
-    .bars span:nth-child(12) { height: 50px; animation-delay: 1.1s; }
-    .bars span:nth-child(13) { height: 23px; animation-delay: 1.2s; }
-    .bars span:nth-child(14) { height: 43px; animation-delay: 1.3s; }
-    .bars span:nth-child(15) { height: 35px; animation-delay: 1.4s; }
-
-    @keyframes frequency {
-      0%,100% {
-        transform: scaleY(.45);
-        opacity: .4;
-      }
-
-      50% {
-        transform: scaleY(1);
-        opacity: .9;
-      }
-    }
-
-    .play-circle {
-      position: absolute;
-
-      right: 15px;
-      bottom: 15px;
-
-      width: 38px;
-      height: 38px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      border:
-        1px solid rgba(255,255,255,.2);
-
-      border-radius: 50%;
-    }
-
-    .play-circle::after {
+    .set-visual::before {
       content: "";
 
-      width: 0;
-      height: 0;
+      position: absolute;
+      inset: 0;
 
-      border-top:
-        5px solid transparent;
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        );
 
-      border-bottom:
-        5px solid transparent;
+      background-size: 50px 50px;
 
-      border-left:
-        8px solid var(--white);
-
-      margin-left: 2px;
+      opacity: .55;
     }
 
-    .set-info {
-      padding: 20px;
+    .set-number {
+      position: absolute;
+
+      top: 20px;
+      left: 20px;
+
+      font-size: 10px;
+
+      letter-spacing: .16em;
+
+      color: var(--faint);
     }
 
-    .set-platform {
-      font-size: 9px;
+    .set-platform-badge {
+      position: absolute;
+
+      top: 18px;
+      right: 18px;
+
+      padding: 7px 10px;
+
+      border: 1px solid rgba(255,255,255,.12);
+
+      font-size: 8px;
 
       letter-spacing: .15em;
 
       text-transform: uppercase;
 
-      color: var(--cyan);
-
-      margin-bottom: 9px;
-    }
-
-    .set-name {
-      font-size: 15px;
-
-      font-weight: 600;
-
-      margin-bottom: 7px;
-    }
-
-    .set-meta {
-      font-size: 10px;
-
       color: var(--muted);
+
+      background: rgba(0,0,0,.25);
     }
 
 
     /* =========================================================
-       NATURAL CONNECTION
+       VISUALIZER
     ========================================================= */
 
-    .connection {
+    .bars {
       position: relative;
+      z-index: 2;
 
-      overflow: hidden;
-
-      padding: 140px 0;
-
-      margin-top: 40px;
-
-      border-top: 1px solid var(--border);
-
-      border-bottom: 1px solid var(--border);
-    }
-
-    .connection-bg {
-      position: absolute;
-
-      inset: 0;
-
-      background:
-        radial-gradient(
-          ellipse at 50% 100%,
-          rgba(123,44,255,.22),
-          transparent 55%
-        ),
-
-        radial-gradient(
-          ellipse at 15% 50%,
-          rgba(0,200,255,.08),
-          transparent 40%
-        ),
-
-        radial-gradient(
-          ellipse at 85% 30%,
-          rgba(232,0,90,.07),
-          transparent 40%
-        );
-    }
-
-    .connection-content {
-      position: relative;
-
-      text-align: center;
-    }
-
-    .connection-title {
-      margin-top: 25px;
-
-      font-size: clamp(50px, 9vw, 120px);
-
-      line-height: .9;
-
-      letter-spacing: -.065em;
-
-      font-weight: 600;
-    }
-
-    .connection-description {
-      max-width: 580px;
-
-      margin: 38px auto 0;
-
-      color: var(--muted);
-
-      font-size: 15px;
-
-      line-height: 1.8;
-    }
-
-    .frequency-main {
       display: flex;
 
-      align-items: center;
+      align-items: flex-end;
 
       justify-content: center;
 
-      gap: 3px;
+      gap: 4px;
 
-      height: 50px;
-
-      margin-top: 55px;
+      height: 80px;
     }
 
-    .frequency-main span {
-      width: 3px;
+    .bars span {
+      width: 4px;
 
-      border-radius: 4px;
+      border-radius: 4px 4px 0 0;
 
       background:
         linear-gradient(
@@ -851,83 +512,374 @@
           var(--magenta)
         );
 
+      opacity: .75;
+
       animation:
-        frequency 1.8s ease-in-out infinite;
+        frequency 1.7s ease-in-out infinite;
     }
 
-    .frequency-main span:nth-child(1)  { height: 15px; animation-delay: .0s; }
-    .frequency-main span:nth-child(2)  { height: 30px; animation-delay: .1s; }
-    .frequency-main span:nth-child(3)  { height: 42px; animation-delay: .2s; }
-    .frequency-main span:nth-child(4)  { height: 24px; animation-delay: .3s; }
-    .frequency-main span:nth-child(5)  { height: 50px; animation-delay: .4s; }
-    .frequency-main span:nth-child(6)  { height: 32px; animation-delay: .5s; }
-    .frequency-main span:nth-child(7)  { height: 44px; animation-delay: .6s; }
-    .frequency-main span:nth-child(8)  { height: 20px; animation-delay: .7s; }
-    .frequency-main span:nth-child(9)  { height: 38px; animation-delay: .8s; }
-    .frequency-main span:nth-child(10) { height: 48px; animation-delay: .9s; }
-    .frequency-main span:nth-child(11) { height: 26px; animation-delay: 1s; }
-    .frequency-main span:nth-child(12) { height: 40px; animation-delay: 1.1s; }
-    .frequency-main span:nth-child(13) { height: 18px; animation-delay: 1.2s; }
+    .bars span:nth-child(1)  { height: 22px; animation-delay: .0s; }
+    .bars span:nth-child(2)  { height: 45px; animation-delay: .1s; }
+    .bars span:nth-child(3)  { height: 65px; animation-delay: .2s; }
+    .bars span:nth-child(4)  { height: 35px; animation-delay: .3s; }
+    .bars span:nth-child(5)  { height: 75px; animation-delay: .4s; }
+    .bars span:nth-child(6)  { height: 50px; animation-delay: .5s; }
+    .bars span:nth-child(7)  { height: 68px; animation-delay: .6s; }
+    .bars span:nth-child(8)  { height: 30px; animation-delay: .7s; }
+    .bars span:nth-child(9)  { height: 55px; animation-delay: .8s; }
+    .bars span:nth-child(10) { height: 72px; animation-delay: .9s; }
+    .bars span:nth-child(11) { height: 40px; animation-delay: 1s; }
+    .bars span:nth-child(12) { height: 62px; animation-delay: 1.1s; }
+    .bars span:nth-child(13) { height: 27px; animation-delay: 1.2s; }
+
+    @keyframes frequency {
+
+      0%,100% {
+        transform: scaleY(.45);
+        opacity: .35;
+      }
+
+      50% {
+        transform: scaleY(1);
+        opacity: .9;
+      }
+
+    }
 
 
     /* =========================================================
-       CTA
+       PLAY BUTTON
     ========================================================= */
 
-    .cta {
-      padding: 150px 0;
+    .play-button {
+      position: absolute;
 
-      text-align: center;
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      width: 68px;
+      height: 68px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid rgba(255,255,255,.25);
+
+      border-radius: 50%;
+
+      background: rgba(0,0,0,.30);
+
+      backdrop-filter: blur(8px);
+
+      cursor: pointer;
+
+      transition:
+        background .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
     }
 
-    .cta-title {
-      font-size: clamp(48px, 8vw, 110px);
+    .play-button:hover {
+      background: rgba(0,200,255,.12);
 
-      line-height: .95;
+      border-color:
+        rgba(0,200,255,.7);
 
-      letter-spacing: -.06em;
+      transform:
+        translate(-50%, -50%)
+        scale(1.08);
+    }
+
+    .play-button::after {
+      content: "";
+
+      width: 0;
+      height: 0;
+
+      border-top:
+        9px solid transparent;
+
+      border-bottom:
+        9px solid transparent;
+
+      border-left:
+        14px solid var(--white);
+
+      margin-left: 4px;
+    }
+
+
+    /* =========================================================
+       SET INFO
+    ========================================================= */
+
+    .set-info {
+      padding: 24px;
+    }
+
+    .set-platform {
+      font-size: 9px;
+
+      letter-spacing: .16em;
+
+      text-transform: uppercase;
+
+      color: var(--cyan);
+
+      margin-bottom: 10px;
+    }
+
+    .set-name {
+      font-size: 18px;
+
+      line-height: 1.3;
+
+      font-weight: 600;
+
+      margin-bottom: 9px;
+    }
+
+    .set-meta {
+      font-size: 10px;
+
+      color: var(--muted);
+
+      line-height: 1.7;
+    }
+
+    .set-action {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      margin-top: 22px;
+
+      padding-top: 16px;
+
+      border-top:
+        1px solid var(--border);
+    }
+
+    .set-action-text {
+      font-size: 9px;
+
+      letter-spacing: .14em;
+
+      text-transform: uppercase;
+
+      color: var(--text);
+    }
+
+    .set-action-arrow {
+      font-size: 18px;
+
+      color: var(--cyan);
+
+      transition:
+        transform .25s ease;
+    }
+
+    .set-card:hover .set-action-arrow {
+      transform: translateX(4px);
+    }
+
+
+    /* =========================================================
+       UNIVERSAL PLAYER
+    ========================================================= */
+
+    .player-bar {
+      position: fixed;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      z-index: 900;
+
+      min-height: 88px;
+
+      border-top:
+        1px solid rgba(255,255,255,.12);
+
+      background:
+        rgba(7,7,8,.94);
+
+      backdrop-filter:
+        blur(18px);
+
+      box-shadow:
+        0 -15px 50px rgba(0,0,0,.35);
+    }
+
+    .player-inner {
+      width: min(
+        var(--max),
+        calc(100% - 40px)
+      );
+
+      min-height: 88px;
+
+      margin: 0 auto;
+
+      display: grid;
+
+      grid-template-columns:
+        250px 1fr 40px;
+
+      align-items: center;
+
+      gap: 20px;
+    }
+
+    .player-info {
+      min-width: 0;
+    }
+
+    .player-label {
+      font-size: 8px;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+
+      color: var(--cyan);
+
+      margin-bottom: 7px;
+    }
+
+    .player-title {
+      font-size: 12px;
+
+      font-weight: 600;
+
+      white-space: nowrap;
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+    }
+
+    .player-source {
+      font-size: 9px;
+
+      color: var(--muted);
+
+      margin-top: 4px;
+    }
+
+    .player-frame {
+      width: 100%;
+
+      height: 70px;
+
+      overflow: hidden;
+
+      display: flex;
+
+      align-items: center;
+    }
+
+    .player-frame iframe {
+      width: 100%;
+
+      border: 0;
+
+      display: block;
+    }
+
+    .player-close {
+      width: 34px;
+      height: 34px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border:
+        1px solid var(--border);
+
+      color: var(--muted);
+
+      font-size: 16px;
+
+      cursor: pointer;
+
+      transition:
+        color .2s ease,
+        border-color .2s ease;
+    }
+
+    .player-close:hover {
+      color: var(--white);
+
+      border-color:
+        rgba(255,255,255,.3);
+    }
+
+    .player-bar.hidden {
+      display: none;
+    }
+
+
+    /* =========================================================
+       EMPTY / FUTURE
+    ========================================================= */
+
+    .future-section {
+      padding: 80px 0 140px;
+
+      border-top:
+        1px solid var(--border);
+    }
+
+    .future-box {
+      min-height: 230px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(123,44,255,.12),
+          transparent 60%
+        );
+    }
+
+    .future-title {
+      font-size: 28px;
+
+      letter-spacing: -.03em;
 
       font-weight: 500;
     }
 
-    .cta-text {
-      max-width: 560px;
+    .future-text {
+      max-width: 480px;
 
-      margin: 30px auto 40px;
+      margin-top: 15px;
 
-      font-size: 14px;
+      font-size: 12px;
 
       line-height: 1.8;
 
       color: var(--muted);
-    }
-
-    .cta-button {
-      display: inline-flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      padding: 14px 24px;
-
-      background: var(--white);
-
-      color: #050505;
-
-      font-size: 10px;
-
-      font-weight: 600;
-
-      letter-spacing: .15em;
-
-      text-transform: uppercase;
-
-      transition: all .25s ease;
-    }
-
-    .cta-button:hover {
-      background: var(--cyan);
     }
 
 
@@ -941,7 +893,6 @@
       display: flex;
 
       justify-content: space-between;
-
       align-items: center;
 
       border-top:
@@ -986,6 +937,25 @@
        TABLET
     ========================================================= */
 
+    @media (max-width: 1000px) {
+
+      .sets-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .player-inner {
+        grid-template-columns:
+          200px 1fr 40px;
+      }
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
     @media (max-width: 900px) {
 
       .container {
@@ -1009,20 +979,19 @@
       }
 
       .page-hero {
-        min-height: auto;
+        min-height: 65vh;
       }
 
       .page-hero-content {
-        padding:
-          100px 0 90px;
+        padding: 100px 0;
       }
 
       .page-title {
         font-size:
           clamp(
-            58px,
-            16vw,
-            100px
+            54px,
+            17vw,
+            90px
           );
       }
 
@@ -1030,11 +999,11 @@
         font-size: 14px;
       }
 
-      .sets {
-        padding: 80px 0 100px;
+      .sets-section {
+        padding: 80px 0;
       }
 
-      .sets-header {
+      .section-top {
         display: block;
       }
 
@@ -1042,40 +1011,16 @@
         margin-top: 25px;
       }
 
-      .featured-set {
+      .sets-grid {
         grid-template-columns: 1fr;
       }
 
-      .featured-info {
-        border-right: 0;
-
-        border-bottom:
-          1px solid var(--border);
-
-        min-height: 340px;
-
-        padding: 36px;
+      .set-visual {
+        height: 280px;
       }
 
-      .featured-player {
-        min-height: 380px;
-      }
-
-      .soundcloud-player {
-        width: calc(100% - 50px);
-      }
-
-      .sets-grid {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
-
-      .connection {
-        padding: 100px 0;
-      }
-
-      .cta {
-        padding: 110px 0;
+      .future-section {
+        padding: 60px 0 100px;
       }
 
       footer {
@@ -1085,12 +1030,26 @@
 
         gap: 20px;
       }
+
+      .player-inner {
+        width: calc(100% - 24px);
+
+        grid-template-columns:
+          1fr 35px;
+
+        gap: 10px;
+      }
+
+      .player-info {
+        display: none;
+      }
+
+      .player-frame {
+        height: 76px;
+      }
+
     }
 
-
-    /* =========================================================
-       MOBILE
-    ========================================================= */
 
     @media (max-width: 520px) {
 
@@ -1099,62 +1058,12 @@
           9px 13px;
       }
 
-      .page-hero-content {
-        padding:
-          85px 0 75px;
-      }
-
-      .page-title {
-        font-size:
-          clamp(
-            54px,
-            18vw,
-            82px
-          );
-      }
-
-      .page-description {
-        font-size: 13px;
-      }
-
-      .featured-info {
-        padding: 28px;
-
-        min-height: 310px;
-      }
-
-      .featured-player {
-        min-height: 350px;
-      }
-
-      .soundcloud-player {
-        width: calc(100% - 30px);
-      }
-
-      .soundcloud-player iframe {
-        min-height: 280px;
-      }
-
-      .sets-grid {
-        grid-template-columns: 1fr;
-      }
-
       .set-visual {
-        height: 200px;
+        height: 250px;
       }
 
-      .connection {
-        padding: 90px 0;
-      }
-
-      .cta {
-        padding: 100px 0;
-      }
-
-      .socials {
-        flex-wrap: wrap;
-
-        justify-content: center;
+      .player-frame iframe {
+        min-width: 0;
       }
 
     }
@@ -1166,7 +1075,7 @@
 <body>
 
   <!-- =======================================================
-       TOP GRADIENT LINE
+       TOP LINE
   ======================================================== -->
 
   <div class="pulse-line"></div>
@@ -1187,25 +1096,14 @@
 
     </a>
 
+
     <div class="nav-right">
 
       <ul class="nav-links">
 
         <li>
-          <a href="sets.html" class="active">
-            Sets
-          </a>
-        </li>
-
-        <li>
-          <a href="index.html#encuentros">
-            Próximos encuentros
-          </a>
-        </li>
-
-        <li>
-          <a href="index.html#comunidad">
-            Comunidad
+          <a href="index.html">
+            Inicio
           </a>
         </li>
 
@@ -1215,10 +1113,32 @@
           </a>
         </li>
 
+        <li>
+          <a href="sets.html" class="active">
+            Sets
+          </a>
+        </li>
+
+        <li>
+          <a href="index.html#encuentros">
+            Encuentros
+          </a>
+        </li>
+
+        <li>
+          <a href="contacto.html">
+            Contacto
+          </a>
+        </li>
+
       </ul>
 
-      <a href="contacto.html" class="nav-button">
-        Entrar
+
+      <a
+        href="contacto.html"
+        class="nav-button"
+      >
+        ENTRAR
       </a>
 
     </div>
@@ -1226,322 +1146,342 @@
   </nav>
 
 
+
   <!-- =======================================================
-       HERO
+       PAGE HERO
   ======================================================== -->
 
-  <header class="page-hero">
+  <section class="page-hero">
 
-    <div class="page-hero-background">
+    <div class="page-background">
 
       <div class="glow-1"></div>
       <div class="glow-2"></div>
-      <div class="page-grid"></div>
+
+      <div class="hero-grid"></div>
 
     </div>
+
 
     <div class="container">
 
       <div class="page-hero-content">
 
-        <div class="eyebrow page-hero-eyebrow">
-          WEAREPARTY / AUDIO
+        <div class="eyebrow page-eyebrow">
+          WEAREPARTY / SETS
         </div>
 
+
         <h1 class="page-title">
-          LOS
-          <span class="gradient-text">
-            SETS.
+
+          <span>
+            LA MÚSICA
           </span>
+
+          <span class="gradient-text">
+            SE SIENTE.
+          </span>
+
         </h1>
 
+
         <p class="page-description">
-          Sesiones, sonidos y momentos compartidos.
-          Una selección de música electrónica que forma parte
-          del universo WeAreParty.
+
+          Sesiones seleccionadas por WeAreParty.
+          Música electrónica, identidad y momentos
+          compartidos. Cada set representa una
+          forma de entender la música y la conexión.
+
         </p>
 
       </div>
 
     </div>
 
-  </header>
+  </section>
+
 
 
   <!-- =======================================================
-       FEATURED SET
+       SETS
   ======================================================== -->
 
   <main>
 
-    <section class="sets">
+    <section class="sets-section">
 
       <div class="container">
 
-        <div class="sets-header">
+
+        <div class="section-top">
 
           <div>
 
             <div class="eyebrow">
-              WEAREPARTY SESSIONS
+              AUDIO / SELECCIÓN
             </div>
 
-            <h2 class="section-title">
-              Escucha
-              <span class="gradient-text">
-                dentro.
-              </span>
+            <h2 class="section-heading">
+              Sets
             </h2>
 
           </div>
 
+
           <p class="section-intro">
-            La música es el punto de encuentro.
-            Dale al play y continúa navegando por
-            WeAreParty mientras escuchas la sesión.
+
+            Una selección de sesiones para escuchar,
+            descubrir y conectar. El catálogo crecerá
+            junto a nuestra comunidad.
+
           </p>
 
         </div>
 
 
-        <!-- ===================================================
-             FEATURED SET
-        ==================================================== -->
 
-        <article class="featured-set">
-
-          <div class="featured-info">
-
-            <div class="set-index">
-              SET / 001
-            </div>
-
-            <div class="featured-meta">
-
-              <div class="set-category">
-                Minimal / House / Tech
-              </div>
-
-              <h2 class="featured-title">
-                Minimal
-                <span class="gradient-text">
-                  Session.
-                </span>
-              </h2>
-
-              <p class="featured-description">
-                Una sesión de prueba dentro del universo
-                sonoro de WeAreParty.
-              </p>
-
-              <div class="featured-date">
-                31.04.23 · WEAREPARTY
-              </div>
-
-            </div>
-
-          </div>
+        <div class="sets-grid">
 
 
           <!-- =================================================
-               SOUNDCLOUD EMBED
+               SET 01
           ================================================== -->
 
-          <div class="featured-player">
+          <article
+            class="set-card"
+            data-platform="soundcloud"
+            data-url="https://soundcloud.com/weareparty/set-minimal-31-04-23"
+            data-title="Minimal Session 31.04.23"
+            data-meta="Minimal / House · WeAreParty"
+          >
 
-            <div class="player-glow"></div>
+            <div class="set-visual">
 
-            <div class="soundcloud-player">
+              <div class="set-number">
+                001
+              </div>
 
-              <iframe
-                title="WeAreParty Minimal Session"
-                scrolling="no"
-                frameborder="no"
-                allow="autoplay"
-                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/weareparty/set-minimal-31-04-23&color=%2300c8ff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
-              </iframe>
+              <div class="set-platform-badge">
+                SOUNDCLOUD
+              </div>
+
+
+              <div class="bars">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+              </div>
+
+
+              <button
+                class="play-button"
+                aria-label="Reproducir Minimal Session 31.04.23"
+              ></button>
 
             </div>
 
-            <div class="player-label">
-              SOUND / WEAREPARTY
+
+            <div class="set-info">
+
+              <div class="set-platform">
+                SOUNDCLOUD
+              </div>
+
+              <h3 class="set-name">
+                Minimal Session 31.04.23
+              </h3>
+
+              <p class="set-meta">
+                Minimal / House · WeAreParty
+              </p>
+
+
+              <div class="set-action">
+
+                <span class="set-action-text">
+                  REPRODUCIR
+                </span>
+
+                <span class="set-action-arrow">
+                  →
+                </span>
+
+              </div>
+
             </div>
 
-          </div>
-
-        </article>
+          </article>
 
 
-        <!-- ===================================================
-             ARCHIVE
-        ==================================================== -->
 
-        <div class="archive">
+          <!-- =================================================
+               FUTURO SET 02
+          ================================================== -->
 
-          <div class="archive-header">
+          <article
+            class="set-card"
+            data-platform="mixcloud"
+            data-url=""
+            data-title="Próximamente"
+            data-meta="Nuevo set · WeAreParty"
+          >
 
-            <h2 class="archive-title">
-              Archivo
-            </h2>
+            <div class="set-visual">
 
-            <span class="archive-label">
-              Próximamente
-            </span>
+              <div class="set-number">
+                002
+              </div>
 
-          </div>
-
-
-          <div class="sets-grid">
+              <div class="set-platform-badge">
+                MIXCLOUD
+              </div>
 
 
-            <!-- SET CARD 01 -->
+              <div class="bars">
 
-            <article class="set-card">
-
-              <div class="set-visual">
-
-                <div class="bars">
-
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-
-                </div>
-
-                <div class="play-circle"></div>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
 
               </div>
 
-              <div class="set-info">
 
-                <div class="set-platform">
-                  WeAreParty
-                </div>
+              <button
+                class="play-button"
+                aria-label="Próximamente"
+              ></button>
 
-                <div class="set-name">
-                  Próximo set
-                </div>
+            </div>
 
-                <div class="set-meta">
-                  Próximamente
-                </div>
+
+            <div class="set-info">
+
+              <div class="set-platform">
+                MIXCLOUD
+              </div>
+
+              <h3 class="set-name">
+                Próximamente
+              </h3>
+
+              <p class="set-meta">
+                Nueva sesión · WeAreParty
+              </p>
+
+
+              <div class="set-action">
+
+                <span class="set-action-text">
+                  PRÓXIMAMENTE
+                </span>
+
+                <span class="set-action-arrow">
+                  →
+                </span>
 
               </div>
 
-            </article>
+            </div>
+
+          </article>
 
 
-            <!-- SET CARD 02 -->
 
-            <article class="set-card">
+          <!-- =================================================
+               FUTURO SET 03
+          ================================================== -->
 
-              <div class="set-visual">
+          <article
+            class="set-card"
+            data-platform="youtube"
+            data-url=""
+            data-title="Próximamente"
+            data-meta="Nuevo set · WeAreParty"
+          >
 
-                <div class="bars">
+            <div class="set-visual">
 
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
+              <div class="set-number">
+                003
+              </div>
 
-                </div>
+              <div class="set-platform-badge">
+                YOUTUBE
+              </div>
 
-                <div class="play-circle"></div>
+
+              <div class="bars">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
 
               </div>
 
-              <div class="set-info">
 
-                <div class="set-platform">
-                  WeAreParty
-                </div>
+              <button
+                class="play-button"
+                aria-label="Próximamente"
+              ></button>
 
-                <div class="set-name">
-                  Próximo set
-                </div>
+            </div>
 
-                <div class="set-meta">
-                  Próximamente
-                </div>
+
+            <div class="set-info">
+
+              <div class="set-platform">
+                YOUTUBE
+              </div>
+
+              <h3 class="set-name">
+                Próximamente
+              </h3>
+
+              <p class="set-meta">
+                Nueva sesión · WeAreParty
+              </p>
+
+
+              <div class="set-action">
+
+                <span class="set-action-text">
+                  PRÓXIMAMENTE
+                </span>
+
+                <span class="set-action-arrow">
+                  →
+                </span>
 
               </div>
 
-            </article>
+            </div>
 
+          </article>
 
-            <!-- SET CARD 03 -->
-
-            <article class="set-card">
-
-              <div class="set-visual">
-
-                <div class="bars">
-
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-
-                </div>
-
-                <div class="play-circle"></div>
-
-              </div>
-
-              <div class="set-info">
-
-                <div class="set-platform">
-                  WeAreParty
-                </div>
-
-                <div class="set-name">
-                  Próximo set
-                </div>
-
-                <div class="set-meta">
-                  Próximamente
-                </div>
-
-              </div>
-
-            </article>
-
-
-          </div>
 
         </div>
 
@@ -1550,97 +1490,96 @@
     </section>
 
 
+
     <!-- =====================================================
-         NATURAL CONNECTION
+         FUTURE
     ====================================================== -->
 
-    <section class="connection">
-
-      <div class="connection-bg"></div>
+    <section class="future-section">
 
       <div class="container">
 
-        <div class="connection-content">
+        <div class="future-box">
 
           <div class="eyebrow">
-            THE FREQUENCY
+            WEAREPARTY
           </div>
 
-          <h2 class="connection-title">
-            NATURAL
-            <span class="gradient-text">
-              CONNECTION.
-            </span>
+          <h2 class="future-title">
+            Más música está por llegar.
           </h2>
 
-          <p class="connection-description">
-            Cuando se crea un ambiente adecuado,
-            las conexiones fluyen naturalmente
-            para generar experiencias únicas.
+          <p class="future-text">
+
+            Nuevas sesiones, nuevos artistas y nuevas
+            conexiones. El espacio crecerá con la
+            comunidad.
+
           </p>
 
-
-          <div class="frequency-main">
-
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-
-          </div>
-
         </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         CTA
-    ====================================================== -->
-
-    <section class="cta">
-
-      <div class="container">
-
-        <div class="eyebrow">
-          BE PART OF IT
-        </div>
-
-        <h2 class="cta-title">
-          La música
-          <br>
-          nos conecta.
-        </h2>
-
-        <p class="cta-text">
-          WeAreParty es una comunidad construida alrededor
-          de la música, las personas y las experiencias
-          que compartimos.
-        </p>
-
-        <a
-          href="contacto.html"
-          class="cta-button"
-        >
-          Entrar en WeAreParty
-        </a>
 
       </div>
 
     </section>
 
   </main>
+
+
+
+  <!-- =======================================================
+       UNIVERSAL PLAYER
+  ======================================================== -->
+
+  <div
+    id="playerBar"
+    class="player-bar hidden"
+  >
+
+    <div class="player-inner">
+
+
+      <div class="player-info">
+
+        <div class="player-label">
+          NOW PLAYING
+        </div>
+
+        <div
+          id="playerTitle"
+          class="player-title"
+        >
+          —
+        </div>
+
+        <div
+          id="playerSource"
+          class="player-source"
+        >
+          —
+        </div>
+
+      </div>
+
+
+      <div
+        id="playerFrame"
+        class="player-frame"
+      ></div>
+
+
+      <button
+        id="playerClose"
+        class="player-close"
+        aria-label="Cerrar reproductor"
+      >
+        ×
+      </button>
+
+    </div>
+
+  </div>
+
 
 
   <!-- =======================================================
@@ -1650,8 +1589,9 @@
   <footer>
 
     <div class="footer-brand">
-      WEAREPARTY · NATURAL CONNECTION
+      WEAREPARTY — NATURAL CONNECTION
     </div>
+
 
     <div class="socials">
 
@@ -1690,6 +1630,440 @@
     </div>
 
   </footer>
+
+
+
+  <!-- =======================================================
+       UNIVERSAL PLAYER JAVASCRIPT
+  ======================================================== -->
+
+  <script>
+
+    const playerBar =
+      document.getElementById("playerBar");
+
+    const playerFrame =
+      document.getElementById("playerFrame");
+
+    const playerTitle =
+      document.getElementById("playerTitle");
+
+    const playerSource =
+      document.getElementById("playerSource");
+
+    const playerClose =
+      document.getElementById("playerClose");
+
+
+
+    /*
+      ========================================================
+      DETECT PLATFORM
+      ========================================================
+    */
+
+    function detectPlatform(url) {
+
+      if (!url) return null;
+
+      const value = url.toLowerCase();
+
+      if (
+        value.includes("soundcloud.com") ||
+        value.includes("on.soundcloud.com")
+      ) {
+        return "soundcloud";
+      }
+
+      if (
+        value.includes("mixcloud.com")
+      ) {
+        return "mixcloud";
+      }
+
+      if (
+        value.includes("youtube.com") ||
+        value.includes("youtu.be")
+      ) {
+        return "youtube";
+      }
+
+      return null;
+
+    }
+
+
+
+    /*
+      ========================================================
+      YOUTUBE ID
+      ========================================================
+    */
+
+    function getYouTubeId(url) {
+
+      try {
+
+        const parsed =
+          new URL(url);
+
+        if (
+          parsed.hostname.includes("youtu.be")
+        ) {
+
+          return parsed.pathname
+            .replace("/", "")
+            .trim();
+
+        }
+
+        if (
+          parsed.searchParams.get("v")
+        ) {
+
+          return parsed.searchParams.get("v");
+
+        }
+
+        const parts =
+          parsed.pathname.split("/");
+
+        const embedIndex =
+          parts.indexOf("embed");
+
+        if (
+          embedIndex !== -1 &&
+          parts[embedIndex + 1]
+        ) {
+
+          return parts[embedIndex + 1];
+
+        }
+
+      } catch (error) {
+
+        return null;
+
+      }
+
+      return null;
+
+    }
+
+
+
+    /*
+      ========================================================
+      SOUNDCLOUD PLAYER
+      ========================================================
+    */
+
+    function createSoundCloudPlayer(url) {
+
+      const iframe =
+        document.createElement("iframe");
+
+      const embedUrl =
+        "https://w.soundcloud.com/player/?" +
+        "url=" +
+        encodeURIComponent(url) +
+        "&color=%2300c8ff" +
+        "&auto_play=false" +
+        "&hide_related=true" +
+        "&show_comments=false" +
+        "&show_user=true" +
+        "&show_reposts=false" +
+        "&show_teaser=false" +
+        "&visual=false";
+
+      iframe.src = embedUrl;
+
+      iframe.height = "70";
+
+      iframe.scrolling = "no";
+
+      iframe.frameBorder = "no";
+
+      iframe.allow =
+        "autoplay";
+
+      iframe.title =
+        "WeAreParty SoundCloud Player";
+
+      return iframe;
+
+    }
+
+
+
+    /*
+      ========================================================
+      MIXCLOUD PLAYER
+      ========================================================
+    */
+
+    function createMixcloudPlayer(url) {
+
+      const iframe =
+        document.createElement("iframe");
+
+      let feed = url;
+
+      try {
+
+        const parsed =
+          new URL(url);
+
+        feed =
+          parsed.pathname;
+
+      } catch (error) {
+
+        feed = url;
+
+      }
+
+      const embedUrl =
+        "https://www.mixcloud.com/widget/iframe/" +
+        "?hide_cover=1" +
+        "&hide_tracklist=1" +
+        "&hide_artwork=1" +
+        "&autoplay=0" +
+        "&feed=" +
+        encodeURIComponent(feed);
+
+      iframe.src = embedUrl;
+
+      iframe.height = "70";
+
+      iframe.scrolling = "no";
+
+      iframe.frameBorder = "0";
+
+      iframe.allow =
+        "autoplay";
+
+      iframe.title =
+        "WeAreParty Mixcloud Player";
+
+      return iframe;
+
+    }
+
+
+
+    /*
+      ========================================================
+      YOUTUBE PLAYER
+      ========================================================
+    */
+
+    function createYouTubePlayer(url) {
+
+      const videoId =
+        getYouTubeId(url);
+
+      if (!videoId) {
+        return null;
+      }
+
+      const iframe =
+        document.createElement("iframe");
+
+      iframe.src =
+        "https://www.youtube.com/embed/" +
+        encodeURIComponent(videoId) +
+        "?playsinline=1" +
+        "&rel=0" +
+        "&modestbranding=1";
+
+      iframe.height = "70";
+
+      iframe.scrolling = "no";
+
+      iframe.frameBorder = "0";
+
+      iframe.allow =
+        "autoplay; encrypted-media; picture-in-picture";
+
+      iframe.allowFullscreen = true;
+
+      iframe.title =
+        "WeAreParty YouTube Player";
+
+      return iframe;
+
+    }
+
+
+
+    /*
+      ========================================================
+      OPEN PLAYER
+      ========================================================
+    */
+
+    function openPlayer(card) {
+
+      const url =
+        card.dataset.url;
+
+      const title =
+        card.dataset.title;
+
+      const meta =
+        card.dataset.meta;
+
+      const platform =
+        detectPlatform(url);
+
+      if (!url || !platform) {
+
+        return;
+
+      }
+
+
+      playerFrame.innerHTML = "";
+
+
+      let iframe = null;
+
+
+      if (platform === "soundcloud") {
+
+        iframe =
+          createSoundCloudPlayer(url);
+
+      }
+
+
+      if (platform === "mixcloud") {
+
+        iframe =
+          createMixcloudPlayer(url);
+
+      }
+
+
+      if (platform === "youtube") {
+
+        iframe =
+          createYouTubePlayer(url);
+
+      }
+
+
+      if (!iframe) {
+
+        return;
+
+      }
+
+
+      playerFrame.appendChild(iframe);
+
+
+      playerTitle.textContent =
+        title || "WeAreParty Set";
+
+
+      playerSource.textContent =
+        meta || platform.toUpperCase();
+
+
+      playerBar.classList.remove("hidden");
+
+
+      window.scrollTo({
+        top: window.scrollY,
+        behavior: "instant"
+      });
+
+    }
+
+
+
+    /*
+      ========================================================
+      SET CARDS
+      ========================================================
+    */
+
+    document
+      .querySelectorAll(".set-card")
+      .forEach(card => {
+
+        const button =
+          card.querySelector(".play-button");
+
+        const url =
+          card.dataset.url;
+
+
+        if (!url) {
+
+          button.style.opacity = ".35";
+
+          button.style.cursor = "default";
+
+          card.style.cursor = "default";
+
+          return;
+
+        }
+
+
+        button.addEventListener(
+          "click",
+          function(event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            openPlayer(card);
+
+          }
+        );
+
+
+        card.addEventListener(
+          "click",
+          function(event) {
+
+            if (
+              event.target.closest(".play-button")
+            ) {
+              return;
+            }
+
+            openPlayer(card);
+
+          }
+        );
+
+      });
+
+
+
+    /*
+      ========================================================
+      CLOSE PLAYER
+      ========================================================
+    */
+
+    playerClose.addEventListener(
+      "click",
+      function() {
+
+        playerFrame.innerHTML = "";
+
+        playerBar.classList.add("hidden");
+
+      }
+    );
+
+  </script>
 
 
 </body>
