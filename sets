@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Sets — WeAreParty | Natural Connection</title>
+  <title>Sets — WeAreParty</title>
 
   <meta
     name="description"
-    content="Sets de WeAreParty. Música electrónica, sesiones y conexiones sonoras."
+    content="Descubre los sets de WeAreParty. Música electrónica, sesiones y Natural Connection."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,6 @@
     /* =========================================================
        WEAREPARTY
        SETS
-       Natural Connection
     ========================================================= */
 
     * {
@@ -51,11 +50,6 @@
 
       --max: 1440px;
     }
-
-
-    /* =========================================================
-       BASE
-    ========================================================= */
 
     html {
       scroll-behavior: smooth;
@@ -88,13 +82,12 @@
     }
 
     .gradient-text {
-      background:
-        linear-gradient(
-          90deg,
-          var(--cyan),
-          var(--violet),
-          var(--magenta)
-        );
+      background: linear-gradient(
+        90deg,
+        var(--cyan),
+        var(--violet),
+        var(--magenta)
+      );
 
       -webkit-background-clip: text;
       background-clip: text;
@@ -138,7 +131,7 @@
 
       border-bottom: 1px solid var(--border);
 
-      background: rgba(6,6,6,.72);
+      background: rgba(6,6,6,.65);
       backdrop-filter: blur(14px);
     }
 
@@ -170,10 +163,7 @@
       transition: color .25s ease;
     }
 
-    .nav-links a:hover {
-      color: var(--white);
-    }
-
+    .nav-links a:hover,
     .nav-links a.active {
       color: var(--white);
     }
@@ -205,10 +195,10 @@
     .page-hero {
       position: relative;
 
-      min-height: 56vh;
+      min-height: 62vh;
 
       display: flex;
-      align-items: flex-end;
+      align-items: center;
 
       overflow: hidden;
 
@@ -225,16 +215,16 @@
     .glow-1 {
       position: absolute;
 
-      width: 700px;
-      height: 700px;
+      width: 750px;
+      height: 750px;
 
-      right: -200px;
-      top: -180px;
+      right: -250px;
+      top: -150px;
 
       background:
         radial-gradient(
           circle,
-          rgba(123,44,255,.20),
+          rgba(123,44,255,.18),
           transparent 68%
         );
 
@@ -244,23 +234,23 @@
     .glow-2 {
       position: absolute;
 
-      width: 600px;
-      height: 600px;
+      width: 650px;
+      height: 650px;
 
       left: -300px;
-      bottom: -350px;
+      bottom: -300px;
 
       background:
         radial-gradient(
           circle,
-          rgba(0,200,255,.11),
+          rgba(0,200,255,.10),
           transparent 68%
         );
 
       filter: blur(20px);
     }
 
-    .hero-grid {
+    .page-grid {
       position: absolute;
       inset: 0;
 
@@ -289,30 +279,30 @@
       position: relative;
       z-index: 2;
 
-      width: 100%;
-
-      padding: 100px 0 80px;
+      padding: 100px 0 90px;
     }
 
-    .page-hero-content .eyebrow {
+    .page-hero-eyebrow {
       margin-bottom: 28px;
     }
 
     .page-title {
-      font-size: clamp(70px, 12vw, 170px);
+      font-size: clamp(62px, 11vw, 150px);
 
-      line-height: .84;
-      letter-spacing: -.075em;
+      line-height: .88;
+
+      letter-spacing: -.07em;
 
       font-weight: 600;
     }
 
-    .page-intro {
-      max-width: 600px;
+    .page-description {
+      max-width: 610px;
 
-      margin-top: 42px;
+      margin-top: 38px;
 
-      font-size: 15px;
+      font-size: 16px;
+
       line-height: 1.8;
 
       color: var(--muted);
@@ -333,21 +323,21 @@
       justify-content: space-between;
       align-items: flex-end;
 
-      margin-bottom: 50px;
+      margin-bottom: 55px;
     }
 
-    .sets-heading {
+    .section-title {
       font-size: clamp(34px, 5vw, 62px);
 
-      line-height: 1;
-
       letter-spacing: -.045em;
+
+      line-height: 1;
 
       font-weight: 500;
     }
 
-    .sets-header-description {
-      max-width: 340px;
+    .section-intro {
+      max-width: 370px;
 
       font-size: 13px;
 
@@ -362,284 +352,67 @@
     ========================================================= */
 
     .featured-set {
+      display: grid;
+
+      grid-template-columns: 1fr 1.25fr;
+
       border: 1px solid var(--border);
 
       background: var(--surface);
 
-      overflow: hidden;
-    }
-
-    .featured-top {
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
       min-height: 430px;
     }
 
-    .featured-visual {
-      position: relative;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      overflow: hidden;
-
-      background:
-        radial-gradient(
-          circle at 50% 65%,
-          rgba(123,44,255,.27),
-          transparent 48%
-        ),
-
-        radial-gradient(
-          circle at 20% 20%,
-          rgba(0,200,255,.09),
-          transparent 35%
-        ),
-
-        radial-gradient(
-          circle at 85% 25%,
-          rgba(232,0,90,.08),
-          transparent 35%
-        ),
-
-        #08080b;
-    }
-
-    .visual-ring {
-      position: absolute;
-
-      width: 320px;
-      height: 320px;
-
-      border: 1px solid rgba(255,255,255,.08);
-
-      border-radius: 50%;
-    }
-
-    .visual-ring::before {
-      content: "";
-
-      position: absolute;
-
-      inset: 28px;
-
-      border: 1px solid rgba(123,44,255,.18);
-
-      border-radius: 50%;
-    }
-
-    .visual-ring::after {
-      content: "";
-
-      position: absolute;
-
-      inset: 75px;
-
-      border: 1px solid rgba(0,200,255,.20);
-
-      border-radius: 50%;
-    }
-
-    .visual-center {
-      position: relative;
-
-      width: 105px;
-      height: 105px;
-
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(255,255,255,.18),
-          rgba(123,44,255,.30) 30%,
-          rgba(6,6,6,.95) 70%
-        );
-
-      border: 1px solid rgba(255,255,255,.18);
-
-      box-shadow:
-        0 0 80px rgba(123,44,255,.35);
-    }
-
-    .visual-center::after {
-      content: "";
-
-      position: absolute;
-
-      width: 9px;
-      height: 9px;
-
-      left: 50%;
-      top: 50%;
-
-      transform: translate(-50%, -50%);
-
-      border-radius: 50%;
-
-      background: var(--white);
-
-      box-shadow:
-        0 0 20px rgba(255,255,255,.8);
-    }
-
-    .visual-bars {
-      position: absolute;
-
-      bottom: 38px;
-
-      display: flex;
-
-      align-items: flex-end;
-
-      gap: 4px;
-
-      height: 70px;
-    }
-
-    .visual-bars span {
-      width: 4px;
-
-      border-radius: 3px 3px 0 0;
-
-      background:
-        linear-gradient(
-          to top,
-          var(--cyan),
-          var(--violet),
-          var(--magenta)
-        );
-
-      opacity: .75;
-
-      animation:
-        soundwave 1.7s ease-in-out infinite;
-    }
-
-    .visual-bars span:nth-child(1) {
-      height: 20px;
-      animation-delay: .0s;
-    }
-
-    .visual-bars span:nth-child(2) {
-      height: 35px;
-      animation-delay: .1s;
-    }
-
-    .visual-bars span:nth-child(3) {
-      height: 52px;
-      animation-delay: .2s;
-    }
-
-    .visual-bars span:nth-child(4) {
-      height: 30px;
-      animation-delay: .3s;
-    }
-
-    .visual-bars span:nth-child(5) {
-      height: 65px;
-      animation-delay: .4s;
-    }
-
-    .visual-bars span:nth-child(6) {
-      height: 40px;
-      animation-delay: .5s;
-    }
-
-    .visual-bars span:nth-child(7) {
-      height: 55px;
-      animation-delay: .6s;
-    }
-
-    .visual-bars span:nth-child(8) {
-      height: 28px;
-      animation-delay: .7s;
-    }
-
-    .visual-bars span:nth-child(9) {
-      height: 47px;
-      animation-delay: .8s;
-    }
-
-    .visual-bars span:nth-child(10) {
-      height: 60px;
-      animation-delay: .9s;
-    }
-
-    .visual-bars span:nth-child(11) {
-      height: 33px;
-      animation-delay: 1s;
-    }
-
-    .visual-bars span:nth-child(12) {
-      height: 50px;
-      animation-delay: 1.1s;
-    }
-
-    .visual-bars span:nth-child(13) {
-      height: 23px;
-      animation-delay: 1.2s;
-    }
-
-    @keyframes soundwave {
-      0%,100% {
-        transform: scaleY(.45);
-        opacity: .35;
-      }
-
-      50% {
-        transform: scaleY(1);
-        opacity: .9;
-      }
-    }
-
-
-    /* =========================================================
-       FEATURED INFORMATION
-    ========================================================= */
-
     .featured-info {
-      padding: 48px;
+      padding: 50px;
 
       display: flex;
-
       flex-direction: column;
-
       justify-content: space-between;
 
-      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+
+    .set-index {
+      font-size: 10px;
+
+      letter-spacing: .18em;
+
+      color: var(--faint);
+
+      text-transform: uppercase;
+    }
+
+    .featured-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .set-category {
-      font-size: 9px;
+      font-size: 10px;
 
       letter-spacing: .18em;
 
       text-transform: uppercase;
 
       color: var(--cyan);
+    }
+
+    .featured-title {
+      font-size: clamp(32px, 4vw, 54px);
+
+      line-height: 1;
+
+      letter-spacing: -.045em;
+
+      font-weight: 500;
 
       margin-bottom: 18px;
     }
 
-    .featured-title {
-      font-size: clamp(32px, 4vw, 56px);
-
-      line-height: 1;
-
-      letter-spacing: -.05em;
-
-      font-weight: 500;
-    }
-
     .featured-description {
-      max-width: 470px;
-
-      margin-top: 25px;
+      max-width: 430px;
 
       color: var(--muted);
 
@@ -648,87 +421,146 @@
       line-height: 1.8;
     }
 
-    .featured-meta {
-      display: flex;
+    .featured-date {
+      margin-top: 25px;
 
-      gap: 35px;
+      font-size: 10px;
 
-      margin-top: 38px;
+      color: var(--faint);
 
-      padding-top: 25px;
+      letter-spacing: .14em;
 
-      border-top: 1px solid var(--border);
+      text-transform: uppercase;
     }
 
-    .meta-item {
+
+    /* =========================================================
+       PLAYER
+    ========================================================= */
+
+    .featured-player {
+      position: relative;
+
+      min-height: 430px;
+
       display: flex;
+      align-items: center;
+      justify-content: center;
 
-      flex-direction: column;
+      overflow: hidden;
 
-      gap: 7px;
+      background:
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(123,44,255,.24),
+          transparent 62%
+        ),
+
+        radial-gradient(
+          circle at 20% 30%,
+          rgba(0,200,255,.08),
+          transparent 40%
+        ),
+
+        #08080b;
     }
 
-    .meta-label {
-      font-size: 8px;
+    .player-glow {
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(123,44,255,.10),
+          transparent 65%
+        );
+
+      pointer-events: none;
+    }
+
+    .soundcloud-player {
+      position: relative;
+      z-index: 2;
+
+      width: calc(100% - 80px);
+
+      max-width: 700px;
+
+      border: 1px solid rgba(255,255,255,.08);
+
+      background: #09090d;
+
+      box-shadow:
+        0 20px 70px rgba(0,0,0,.35);
+    }
+
+    .soundcloud-player iframe {
+      display: block;
+
+      width: 100%;
+
+      min-height: 300px;
+
+      border: 0;
+    }
+
+    .player-label {
+      position: absolute;
+
+      left: 28px;
+      bottom: 22px;
+
+      z-index: 3;
+
+      font-size: 9px;
 
       letter-spacing: .16em;
 
       text-transform: uppercase;
 
       color: var(--faint);
-    }
 
-    .meta-value {
-      font-size: 11px;
-
-      color: var(--text);
+      pointer-events: none;
     }
 
 
     /* =========================================================
-       SOUNDCLOUD PLAYER
+       SETS GRID
     ========================================================= */
 
-    .player-wrapper {
-      padding: 0;
-
-      background: #08080a;
-
-      border-top: 1px solid var(--border);
+    .archive {
+      margin-top: 100px;
     }
 
-    .player-label {
+    .archive-header {
       display: flex;
 
       align-items: center;
+
       justify-content: space-between;
 
-      padding: 18px 24px;
+      padding-bottom: 25px;
 
       border-bottom: 1px solid var(--border);
     }
 
-    .player-label-left {
-      display: flex;
+    .archive-title {
+      font-size: 28px;
 
-      align-items: center;
+      letter-spacing: -.035em;
 
-      gap: 10px;
+      font-weight: 500;
     }
 
-    .player-dot {
-      width: 6px;
-      height: 6px;
-
-      border-radius: 50%;
-
-      background: var(--cyan);
-
-      box-shadow:
-        0 0 12px rgba(0,200,255,.7);
-    }
-
-    .player-label-text {
+    .archive-label {
       font-size: 9px;
 
       letter-spacing: .16em;
@@ -738,82 +570,18 @@
       color: var(--muted);
     }
 
-    .player-platform {
-      font-size: 9px;
-
-      letter-spacing: .12em;
-
-      text-transform: uppercase;
-
-      color: var(--faint);
-    }
-
-    .soundcloud-frame {
-      display: block;
-
-      width: 100%;
-
-      height: 166px;
-
-      border: 0;
-    }
-
-
-    /* =========================================================
-       MORE SETS
-    ========================================================= */
-
-    .more-sets {
-      margin-top: 100px;
-    }
-
-    .more-header {
-      display: flex;
-
-      justify-content: space-between;
-      align-items: center;
-
-      margin-bottom: 35px;
-    }
-
-    .more-title {
-      font-size: 28px;
-
-      letter-spacing: -.035em;
-
-      font-weight: 500;
-    }
-
-    .more-note {
-      font-size: 10px;
-
-      letter-spacing: .12em;
-
-      text-transform: uppercase;
-
-      color: var(--faint);
-    }
-
-    .set-grid {
+    .sets-grid {
       display: grid;
 
       grid-template-columns:
         repeat(3, 1fr);
 
       gap: 12px;
+
+      margin-top: 12px;
     }
 
     .set-card {
-      min-height: 270px;
-
-      padding: 30px;
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: space-between;
-
       background: var(--surface);
 
       border: 1px solid var(--border);
@@ -827,60 +595,159 @@
     .set-card:hover {
       transform: translateY(-4px);
 
-      background: var(--surface-2);
-
       border-color:
-        rgba(123,44,255,.4);
+        rgba(123,44,255,.45);
+
+      background: var(--surface-2);
     }
 
-    .card-number {
-      font-size: 10px;
+    .set-visual {
+      position: relative;
 
-      letter-spacing: .15em;
+      height: 230px;
 
-      color: var(--faint);
-    }
-
-    .card-bottom {
       display: flex;
 
-      justify-content: space-between;
+      align-items: flex-end;
+
+      justify-content: center;
+
+      padding-bottom: 30px;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(123,44,255,.22),
+          transparent 60%
+        ),
+
+        #09090d;
+    }
+
+    .bars {
+      display: flex;
 
       align-items: flex-end;
+
+      gap: 3px;
+
+      height: 70px;
     }
 
-    .card-info h3 {
-      font-size: 20px;
+    .bars span {
+      width: 4px;
 
-      font-weight: 500;
+      border-radius: 3px 3px 0 0;
 
-      letter-spacing: -.025em;
+      background:
+        linear-gradient(
+          to top,
+          var(--cyan),
+          var(--violet)
+        );
 
-      margin-bottom: 8px;
+      opacity: .7;
+
+      animation:
+        frequency 1.8s ease-in-out infinite;
     }
 
-    .card-info p {
-      font-size: 10px;
+    .bars span:nth-child(1)  { height: 18px; animation-delay: .0s; }
+    .bars span:nth-child(2)  { height: 35px; animation-delay: .1s; }
+    .bars span:nth-child(3)  { height: 48px; animation-delay: .2s; }
+    .bars span:nth-child(4)  { height: 27px; animation-delay: .3s; }
+    .bars span:nth-child(5)  { height: 62px; animation-delay: .4s; }
+    .bars span:nth-child(6)  { height: 40px; animation-delay: .5s; }
+    .bars span:nth-child(7)  { height: 55px; animation-delay: .6s; }
+    .bars span:nth-child(8)  { height: 30px; animation-delay: .7s; }
+    .bars span:nth-child(9)  { height: 45px; animation-delay: .8s; }
+    .bars span:nth-child(10) { height: 58px; animation-delay: .9s; }
+    .bars span:nth-child(11) { height: 32px; animation-delay: 1s; }
+    .bars span:nth-child(12) { height: 50px; animation-delay: 1.1s; }
+    .bars span:nth-child(13) { height: 23px; animation-delay: 1.2s; }
+    .bars span:nth-child(14) { height: 43px; animation-delay: 1.3s; }
+    .bars span:nth-child(15) { height: 35px; animation-delay: 1.4s; }
 
-      color: var(--muted);
+    @keyframes frequency {
+      0%,100% {
+        transform: scaleY(.45);
+        opacity: .4;
+      }
+
+      50% {
+        transform: scaleY(1);
+        opacity: .9;
+      }
     }
 
-    .card-arrow {
-      width: 34px;
-      height: 34px;
+    .play-circle {
+      position: absolute;
+
+      right: 15px;
+      bottom: 15px;
+
+      width: 38px;
+      height: 38px;
 
       display: flex;
 
       align-items: center;
       justify-content: center;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid rgba(255,255,255,.2);
 
       border-radius: 50%;
+    }
+
+    .play-circle::after {
+      content: "";
+
+      width: 0;
+      height: 0;
+
+      border-top:
+        5px solid transparent;
+
+      border-bottom:
+        5px solid transparent;
+
+      border-left:
+        8px solid var(--white);
+
+      margin-left: 2px;
+    }
+
+    .set-info {
+      padding: 20px;
+    }
+
+    .set-platform {
+      font-size: 9px;
+
+      letter-spacing: .15em;
+
+      text-transform: uppercase;
 
       color: var(--cyan);
 
-      font-size: 16px;
+      margin-bottom: 9px;
+    }
+
+    .set-name {
+      font-size: 15px;
+
+      font-weight: 600;
+
+      margin-bottom: 7px;
+    }
+
+    .set-meta {
+      font-size: 10px;
+
+      color: var(--muted);
     }
 
 
@@ -893,35 +760,36 @@
 
       overflow: hidden;
 
-      margin-top: 120px;
+      padding: 140px 0;
 
-      padding: 130px 0;
+      margin-top: 40px;
 
       border-top: 1px solid var(--border);
+
       border-bottom: 1px solid var(--border);
     }
 
     .connection-bg {
       position: absolute;
+
       inset: 0;
 
       background:
-
         radial-gradient(
           ellipse at 50% 100%,
-          rgba(123,44,255,.20),
+          rgba(123,44,255,.22),
           transparent 55%
         ),
 
         radial-gradient(
           ellipse at 15% 50%,
-          rgba(0,200,255,.07),
+          rgba(0,200,255,.08),
           transparent 40%
         ),
 
         radial-gradient(
           ellipse at 85% 30%,
-          rgba(232,0,90,.06),
+          rgba(232,0,90,.07),
           transparent 40%
         );
     }
@@ -956,10 +824,11 @@
       line-height: 1.8;
     }
 
-    .frequency {
+    .frequency-main {
       display: flex;
 
       align-items: center;
+
       justify-content: center;
 
       gap: 3px;
@@ -969,7 +838,7 @@
       margin-top: 55px;
     }
 
-    .frequency span {
+    .frequency-main span {
       width: 3px;
 
       border-radius: 4px;
@@ -986,30 +855,79 @@
         frequency 1.8s ease-in-out infinite;
     }
 
-    .frequency span:nth-child(1)  { height: 15px; animation-delay: .0s; }
-    .frequency span:nth-child(2)  { height: 30px; animation-delay: .1s; }
-    .frequency span:nth-child(3)  { height: 42px; animation-delay: .2s; }
-    .frequency span:nth-child(4)  { height: 24px; animation-delay: .3s; }
-    .frequency span:nth-child(5)  { height: 50px; animation-delay: .4s; }
-    .frequency span:nth-child(6)  { height: 32px; animation-delay: .5s; }
-    .frequency span:nth-child(7)  { height: 44px; animation-delay: .6s; }
-    .frequency span:nth-child(8)  { height: 20px; animation-delay: .7s; }
-    .frequency span:nth-child(9)  { height: 38px; animation-delay: .8s; }
-    .frequency span:nth-child(10) { height: 48px; animation-delay: .9s; }
-    .frequency span:nth-child(11) { height: 26px; animation-delay: 1s; }
-    .frequency span:nth-child(12) { height: 40px; animation-delay: 1.1s; }
-    .frequency span:nth-child(13) { height: 18px; animation-delay: 1.2s; }
+    .frequency-main span:nth-child(1)  { height: 15px; animation-delay: .0s; }
+    .frequency-main span:nth-child(2)  { height: 30px; animation-delay: .1s; }
+    .frequency-main span:nth-child(3)  { height: 42px; animation-delay: .2s; }
+    .frequency-main span:nth-child(4)  { height: 24px; animation-delay: .3s; }
+    .frequency-main span:nth-child(5)  { height: 50px; animation-delay: .4s; }
+    .frequency-main span:nth-child(6)  { height: 32px; animation-delay: .5s; }
+    .frequency-main span:nth-child(7)  { height: 44px; animation-delay: .6s; }
+    .frequency-main span:nth-child(8)  { height: 20px; animation-delay: .7s; }
+    .frequency-main span:nth-child(9)  { height: 38px; animation-delay: .8s; }
+    .frequency-main span:nth-child(10) { height: 48px; animation-delay: .9s; }
+    .frequency-main span:nth-child(11) { height: 26px; animation-delay: 1s; }
+    .frequency-main span:nth-child(12) { height: 40px; animation-delay: 1.1s; }
+    .frequency-main span:nth-child(13) { height: 18px; animation-delay: 1.2s; }
 
-    @keyframes frequency {
-      0%,100% {
-        transform: scaleY(.45);
-        opacity: .4;
-      }
 
-      50% {
-        transform: scaleY(1);
-        opacity: .9;
-      }
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .cta {
+      padding: 150px 0;
+
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: clamp(48px, 8vw, 110px);
+
+      line-height: .95;
+
+      letter-spacing: -.06em;
+
+      font-weight: 500;
+    }
+
+    .cta-text {
+      max-width: 560px;
+
+      margin: 30px auto 40px;
+
+      font-size: 14px;
+
+      line-height: 1.8;
+
+      color: var(--muted);
+    }
+
+    .cta-button {
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 14px 24px;
+
+      background: var(--white);
+
+      color: #050505;
+
+      font-size: 10px;
+
+      font-weight: 600;
+
+      letter-spacing: .15em;
+
+      text-transform: uppercase;
+
+      transition: all .25s ease;
+    }
+
+    .cta-button:hover {
+      background: var(--cyan);
     }
 
 
@@ -1023,9 +941,11 @@
       display: flex;
 
       justify-content: space-between;
+
       align-items: center;
 
-      border-top: 1px solid var(--border);
+      border-top:
+        1px solid var(--border);
     }
 
     .footer-brand {
@@ -1053,7 +973,8 @@
 
       color: var(--muted);
 
-      transition: color .2s ease;
+      transition:
+        color .2s ease;
     }
 
     .socials a:hover {
@@ -1062,16 +983,17 @@
 
 
     /* =========================================================
-       RESPONSIVE
+       TABLET
     ========================================================= */
 
     @media (max-width: 900px) {
 
       .container {
-        width: min(
-          calc(100% - 40px),
-          var(--max)
-        );
+        width:
+          min(
+            100% - 40px,
+            var(--max)
+          );
       }
 
       nav {
@@ -1087,22 +1009,24 @@
       }
 
       .page-hero {
-        min-height: 48vh;
+        min-height: auto;
       }
 
       .page-hero-content {
-        padding: 100px 0 65px;
+        padding:
+          100px 0 90px;
       }
 
       .page-title {
-        font-size: clamp(
-          60px,
-          18vw,
-          110px
-        );
+        font-size:
+          clamp(
+            58px,
+            16vw,
+            100px
+          );
       }
 
-      .page-intro {
+      .page-description {
         font-size: 14px;
       }
 
@@ -1114,34 +1038,44 @@
         display: block;
       }
 
-      .sets-header-description {
+      .section-intro {
         margin-top: 25px;
       }
 
-      .featured-top {
+      .featured-set {
         grid-template-columns: 1fr;
       }
 
-      .featured-visual {
-        min-height: 380px;
-      }
-
       .featured-info {
-        border-left: 0;
+        border-right: 0;
 
-        border-top: 1px solid var(--border);
+        border-bottom:
+          1px solid var(--border);
+
+        min-height: 340px;
 
         padding: 36px;
       }
 
-      .set-grid {
-        grid-template-columns: 1fr;
+      .featured-player {
+        min-height: 380px;
+      }
+
+      .soundcloud-player {
+        width: calc(100% - 50px);
+      }
+
+      .sets-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
       }
 
       .connection {
-        margin-top: 80px;
-
         padding: 100px 0;
+      }
+
+      .cta {
+        padding: 110px 0;
       }
 
       footer {
@@ -1154,92 +1088,67 @@
     }
 
 
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
     @media (max-width: 520px) {
 
-      .logo img {
-        height: 32px;
-      }
-
       .nav-button {
-        padding: 9px 13px;
-      }
-
-      .page-hero {
-        min-height: 45vh;
+        padding:
+          9px 13px;
       }
 
       .page-hero-content {
-        padding: 90px 0 55px;
+        padding:
+          85px 0 75px;
       }
 
-      .page-intro {
-        margin-top: 30px;
+      .page-title {
+        font-size:
+          clamp(
+            54px,
+            18vw,
+            82px
+          );
+      }
 
+      .page-description {
         font-size: 13px;
-      }
-
-      .sets {
-        padding: 70px 0 80px;
-      }
-
-      .sets-heading {
-        font-size: 42px;
-      }
-
-      .featured-visual {
-        min-height: 300px;
-      }
-
-      .visual-ring {
-        width: 240px;
-        height: 240px;
-      }
-
-      .visual-center {
-        width: 80px;
-        height: 80px;
       }
 
       .featured-info {
         padding: 28px;
+
+        min-height: 310px;
       }
 
-      .featured-title {
-        font-size: 34px;
+      .featured-player {
+        min-height: 350px;
       }
 
-      .featured-meta {
-        gap: 22px;
-
-        flex-wrap: wrap;
+      .soundcloud-player {
+        width: calc(100% - 30px);
       }
 
-      .player-label {
-        padding: 15px 18px;
+      .soundcloud-player iframe {
+        min-height: 280px;
       }
 
-      .player-platform {
-        display: none;
+      .sets-grid {
+        grid-template-columns: 1fr;
       }
 
-      .soundcloud-frame {
-        height: 166px;
-      }
-
-      .more-sets {
-        margin-top: 70px;
+      .set-visual {
+        height: 200px;
       }
 
       .connection {
-        padding: 85px 0;
+        padding: 90px 0;
       }
 
-      .connection-title {
-        font-size: 58px;
-      }
-
-      .connection-description {
-        font-size: 13px;
+      .cta {
+        padding: 100px 0;
       }
 
       .socials {
@@ -1247,6 +1156,7 @@
 
         justify-content: center;
       }
+
     }
 
   </style>
@@ -1256,7 +1166,7 @@
 <body>
 
   <!-- =======================================================
-       COLOR LINE
+       TOP GRADIENT LINE
   ======================================================== -->
 
   <div class="pulse-line"></div>
@@ -1269,10 +1179,12 @@
   <nav>
 
     <a href="index.html" class="logo">
+
       <img
         src="logo.png"
         alt="WeAreParty"
       />
+
     </a>
 
     <div class="nav-right">
@@ -1286,8 +1198,8 @@
         </li>
 
         <li>
-          <a href="index.html#eventos">
-            Eventos
+          <a href="index.html#encuentros">
+            Próximos encuentros
           </a>
         </li>
 
@@ -1305,10 +1217,7 @@
 
       </ul>
 
-      <a
-        href="index.html#contacto"
-        class="nav-button"
-      >
+      <a href="contacto.html" class="nav-button">
         Entrar
       </a>
 
@@ -1318,7 +1227,7 @@
 
 
   <!-- =======================================================
-       PAGE HERO
+       HERO
   ======================================================== -->
 
   <header class="page-hero">
@@ -1327,28 +1236,29 @@
 
       <div class="glow-1"></div>
       <div class="glow-2"></div>
-
-      <div class="hero-grid"></div>
+      <div class="page-grid"></div>
 
     </div>
-
 
     <div class="container">
 
       <div class="page-hero-content">
 
-        <div class="eyebrow">
+        <div class="eyebrow page-hero-eyebrow">
           WEAREPARTY / AUDIO
         </div>
 
         <h1 class="page-title">
-          <span>SETS</span>
+          LOS
+          <span class="gradient-text">
+            SETS.
+          </span>
         </h1>
 
-        <p class="page-intro">
-          Sesiones que representan nuestra forma de entender
-          la música. Selección, identidad y conexión a través
-          del sonido.
+        <p class="page-description">
+          Sesiones, sonidos y momentos compartidos.
+          Una selección de música electrónica que forma parte
+          del universo WeAreParty.
         </p>
 
       </div>
@@ -1359,7 +1269,7 @@
 
 
   <!-- =======================================================
-       SETS
+       FEATURED SET
   ======================================================== -->
 
   <main>
@@ -1368,127 +1278,64 @@
 
       <div class="container">
 
-
         <div class="sets-header">
 
-          <h2 class="sets-heading">
-            SESIONES
-          </h2>
+          <div>
 
-          <p class="sets-header-description">
-            Escucha nuestras sesiones directamente desde
-            WeAreParty y descubre diferentes formas de
-            conectar con la música.
+            <div class="eyebrow">
+              WEAREPARTY SESSIONS
+            </div>
+
+            <h2 class="section-title">
+              Escucha
+              <span class="gradient-text">
+                dentro.
+              </span>
+            </h2>
+
+          </div>
+
+          <p class="section-intro">
+            La música es el punto de encuentro.
+            Dale al play y continúa navegando por
+            WeAreParty mientras escuchas la sesión.
           </p>
 
         </div>
 
 
-        <!-- =================================================
+        <!-- ===================================================
              FEATURED SET
-        ================================================== -->
+        ==================================================== -->
 
         <article class="featured-set">
 
+          <div class="featured-info">
 
-          <div class="featured-top">
-
-
-            <!-- VISUAL -->
-
-            <div class="featured-visual">
-
-              <div class="visual-ring"></div>
-
-              <div class="visual-center"></div>
-
-
-              <div class="visual-bars">
-
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-
-              </div>
-
+            <div class="set-index">
+              SET / 001
             </div>
 
+            <div class="featured-meta">
 
-            <!-- INFORMATION -->
-
-            <div class="featured-info">
-
-              <div>
-
-                <div class="set-category">
-                  WEAREPARTY / TEST SET
-                </div>
-
-                <h2 class="featured-title">
-                  Minimal
-                  <br>
-                  Session
-                </h2>
-
-                <p class="featured-description">
-                  Una sesión de prueba para explorar el
-                  espacio sonoro de WeAreParty.
-                  Minimal, groove y energía en una misma
-                  frecuencia.
-                </p>
-
+              <div class="set-category">
+                Minimal / House / Tech
               </div>
 
+              <h2 class="featured-title">
+                Minimal
+                <span class="gradient-text">
+                  Session.
+                </span>
+              </h2>
 
-              <div class="featured-meta">
+              <p class="featured-description">
+                Una sesión de prueba dentro del universo
+                sonoro de WeAreParty.
+              </p>
 
-                <div class="meta-item">
-
-                  <span class="meta-label">
-                    ARTISTA
-                  </span>
-
-                  <span class="meta-value">
-                    WeAreParty
-                  </span>
-
-                </div>
-
-
-                <div class="meta-item">
-
-                  <span class="meta-label">
-                    ESTILO
-                  </span>
-
-                  <span class="meta-value">
-                    Minimal / House
-                  </span>
-
-                </div>
-
-
-                <div class="meta-item">
-
-                  <span class="meta-label">
-                    AÑO
-                  </span>
-
-                  <span class="meta-value">
-                    2023
-                  </span>
-
-                </div>
-
+              <div class="featured-date">
+                31.04.23 · WEAREPARTY
               </div>
 
             </div>
@@ -1497,88 +1344,98 @@
 
 
           <!-- =================================================
-               SOUNDCLOUD PLAYER
+               SOUNDCLOUD EMBED
           ================================================== -->
 
-          <div class="player-wrapper">
+          <div class="featured-player">
 
-            <div class="player-label">
+            <div class="player-glow"></div>
 
-              <div class="player-label-left">
+            <div class="soundcloud-player">
 
-                <span class="player-dot"></span>
-
-                <span class="player-label-text">
-                  REPRODUCIR SESIÓN
-                </span>
-
-              </div>
-
-              <span class="player-platform">
-                SOUNDCLOUD
-              </span>
+              <iframe
+                title="WeAreParty Minimal Session"
+                scrolling="no"
+                frameborder="no"
+                allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/weareparty/set-minimal-31-04-23&color=%2300c8ff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
+              </iframe>
 
             </div>
 
-
-            <iframe
-              class="soundcloud-frame"
-              scrolling="no"
-              frameborder="no"
-              allow="autoplay"
-              src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FQMzVAg8aw8zVDrjbqt&color=%237b2cff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
-              title="WeAreParty Minimal Session"
-            ></iframe>
+            <div class="player-label">
+              SOUND / WEAREPARTY
+            </div>
 
           </div>
 
         </article>
 
 
-        <!-- =================================================
-             MORE SETS
-        ================================================== -->
+        <!-- ===================================================
+             ARCHIVE
+        ==================================================== -->
 
-        <div class="more-sets">
+        <div class="archive">
 
-          <div class="more-header">
+          <div class="archive-header">
 
-            <h2 class="more-title">
-              PRÓXIMAMENTE
+            <h2 class="archive-title">
+              Archivo
             </h2>
 
-            <span class="more-note">
-              NUEVAS SESIONES
+            <span class="archive-label">
+              Próximamente
             </span>
 
           </div>
 
 
-          <div class="set-grid">
+          <div class="sets-grid">
 
+
+            <!-- SET CARD 01 -->
 
             <article class="set-card">
 
-              <span class="card-number">
-                02
-              </span>
+              <div class="set-visual">
 
-              <div class="card-bottom">
+                <div class="bars">
 
-                <div class="card-info">
-
-                  <h3>
-                    Session 02
-                  </h3>
-
-                  <p>
-                    WEAREPARTY / SOON
-                  </p>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
 
                 </div>
 
-                <div class="card-arrow">
-                  →
+                <div class="play-circle"></div>
+
+              </div>
+
+              <div class="set-info">
+
+                <div class="set-platform">
+                  WeAreParty
+                </div>
+
+                <div class="set-name">
+                  Próximo set
+                </div>
+
+                <div class="set-meta">
+                  Próximamente
                 </div>
 
               </div>
@@ -1586,28 +1443,48 @@
             </article>
 
 
+            <!-- SET CARD 02 -->
+
             <article class="set-card">
 
-              <span class="card-number">
-                03
-              </span>
+              <div class="set-visual">
 
-              <div class="card-bottom">
+                <div class="bars">
 
-                <div class="card-info">
-
-                  <h3>
-                    Session 03
-                  </h3>
-
-                  <p>
-                    WEAREPARTY / SOON
-                  </p>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
 
                 </div>
 
-                <div class="card-arrow">
-                  →
+                <div class="play-circle"></div>
+
+              </div>
+
+              <div class="set-info">
+
+                <div class="set-platform">
+                  WeAreParty
+                </div>
+
+                <div class="set-name">
+                  Próximo set
+                </div>
+
+                <div class="set-meta">
+                  Próximamente
                 </div>
 
               </div>
@@ -1615,28 +1492,48 @@
             </article>
 
 
+            <!-- SET CARD 03 -->
+
             <article class="set-card">
 
-              <span class="card-number">
-                04
-              </span>
+              <div class="set-visual">
 
-              <div class="card-bottom">
+                <div class="bars">
 
-                <div class="card-info">
-
-                  <h3>
-                    Session 04
-                  </h3>
-
-                  <p>
-                    WEAREPARTY / SOON
-                  </p>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
 
                 </div>
 
-                <div class="card-arrow">
-                  →
+                <div class="play-circle"></div>
+
+              </div>
+
+              <div class="set-info">
+
+                <div class="set-platform">
+                  WeAreParty
+                </div>
+
+                <div class="set-name">
+                  Próximo set
+                </div>
+
+                <div class="set-meta">
+                  Próximamente
                 </div>
 
               </div>
@@ -1670,11 +1567,10 @@
           </div>
 
           <h2 class="connection-title">
+            NATURAL
             <span class="gradient-text">
-              NATURAL
+              CONNECTION.
             </span>
-            <br>
-            CONNECTION
           </h2>
 
           <p class="connection-description">
@@ -1684,7 +1580,7 @@
           </p>
 
 
-          <div class="frequency">
+          <div class="frequency-main">
 
             <span></span>
             <span></span>
@@ -1708,6 +1604,42 @@
 
     </section>
 
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <section class="cta">
+
+      <div class="container">
+
+        <div class="eyebrow">
+          BE PART OF IT
+        </div>
+
+        <h2 class="cta-title">
+          La música
+          <br>
+          nos conecta.
+        </h2>
+
+        <p class="cta-text">
+          WeAreParty es una comunidad construida alrededor
+          de la música, las personas y las experiencias
+          que compartimos.
+        </p>
+
+        <a
+          href="contacto.html"
+          class="cta-button"
+        >
+          Entrar en WeAreParty
+        </a>
+
+      </div>
+
+    </section>
+
   </main>
 
 
@@ -1718,9 +1650,8 @@
   <footer>
 
     <div class="footer-brand">
-      WEAREPARTY — NATURAL CONNECTION
+      WEAREPARTY · NATURAL CONNECTION
     </div>
-
 
     <div class="socials">
 
@@ -1733,7 +1664,7 @@
       </a>
 
       <a
-        href="https://on.soundcloud.com/1fzaZHNLJa3kJYFUAt"
+        href="https://on.soundcloud.com/QMzVAg8aw8zVDrjbqt"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -1759,6 +1690,7 @@
     </div>
 
   </footer>
+
 
 </body>
 </html>
