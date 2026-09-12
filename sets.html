@@ -21,10 +21,6 @@
 
   <style>
 
-    /* =========================================================
-       BASE
-    ========================================================= */
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -129,9 +125,7 @@
     }
 
 
-    /* =========================================================
-       NAVIGATION
-    ========================================================= */
+    /* NAVIGATION */
 
     nav {
       position: relative;
@@ -222,9 +216,7 @@
     }
 
 
-    /* =========================================================
-       HERO
-    ========================================================= */
+    /* HERO */
 
     .hero {
       position: relative;
@@ -359,9 +351,7 @@
     }
 
 
-    /* =========================================================
-       SETS
-    ========================================================= */
+    /* SETS */
 
     .sets {
       padding:
@@ -404,9 +394,7 @@
     }
 
 
-    /* =========================================================
-       SET CARDS
-    ========================================================= */
+    /* SET CARDS */
 
     .sets-grid {
       display: grid;
@@ -543,9 +531,7 @@
     }
 
 
-    /* =========================================================
-       VISUALIZER
-    ========================================================= */
+    /* VISUALIZER */
 
     .bars {
       position: relative;
@@ -615,9 +601,7 @@
     }
 
 
-    /* =========================================================
-       CARD PLAY
-    ========================================================= */
+    /* CARD PLAY */
 
     .card-play {
       position: absolute;
@@ -696,9 +680,7 @@
     }
 
 
-    /* =========================================================
-       SET INFO
-    ========================================================= */
+    /* SET INFO */
 
     .set-info {
       padding: 24px;
@@ -764,9 +746,7 @@
     }
 
 
-    /* =========================================================
-       FUTURE
-    ========================================================= */
+    /* FUTURE */
 
     .future {
       padding:
@@ -825,9 +805,7 @@
     }
 
 
-    /* =========================================================
-       FOOTER
-    ========================================================= */
+    /* FOOTER */
 
     footer {
       padding: 30px 40px;
@@ -875,9 +853,7 @@
     }
 
 
-    /* =========================================================
-       WAP PLAYER
-    ========================================================= */
+    /* WAP PLAYER */
 
     .wap-player {
       position: fixed;
@@ -938,9 +914,7 @@
     }
 
 
-    /* =========================================================
-       WAP PLAY
-    ========================================================= */
+    /* WAP PLAY */
 
     .wap-play {
       width: 46px;
@@ -1008,9 +982,7 @@
     }
 
 
-    /* =========================================================
-       TRACK INFO
-    ========================================================= */
+    /* TRACK INFO */
 
     .wap-info {
       min-width: 0;
@@ -1055,9 +1027,7 @@
     }
 
 
-    /* =========================================================
-       PROGRESS
-    ========================================================= */
+    /* PROGRESS */
 
     .wap-progress-area {
       min-width: 0;
@@ -1139,9 +1109,7 @@
     }
 
 
-    /* =========================================================
-       PLATFORM / CLOSE
-    ========================================================= */
+    /* PLATFORM / CLOSE */
 
     .wap-platform {
       font-size: 8px;
@@ -1183,11 +1151,9 @@
     }
 
 
-    /* =========================================================
-       HIDDEN SOUNDCLOUD ENGINE
-    ========================================================= */
+    /* HIDDEN ENGINES */
 
-    .sc-hidden-player {
+    .hidden-engine {
       position: fixed;
 
       left: -9999px;
@@ -1202,9 +1168,7 @@
     }
 
 
-    /* =========================================================
-       RESPONSIVE
-    ========================================================= */
+    /* RESPONSIVE */
 
     @media (max-width: 1000px) {
 
@@ -1357,17 +1321,10 @@
 
 <body>
 
-
-  <!-- =======================================================
-       TOP LINE
-  ======================================================== -->
-
   <div class="pulse-line"></div>
 
 
-  <!-- =======================================================
-       NAV
-  ======================================================== -->
+  <!-- NAV -->
 
   <nav>
 
@@ -1434,9 +1391,7 @@
   </nav>
 
 
-  <!-- =======================================================
-       HERO
-  ======================================================== -->
+  <!-- HERO -->
 
   <header class="hero">
 
@@ -1485,9 +1440,7 @@
   </header>
 
 
-  <!-- =======================================================
-       SETS
-  ======================================================== -->
+  <!-- SETS -->
 
   <main>
 
@@ -1523,12 +1476,11 @@
         <div class="sets-grid">
 
 
-          <!-- =================================================
-               SET 001 — SOUNDCLOUD
-          ================================================== -->
+          <!-- SOUNDCLOUD -->
 
           <article
             class="set-card playable"
+            data-platform="soundcloud"
             data-title="Minimal Session 31.04.23"
             data-source="WeAreParty · SoundCloud"
           >
@@ -1603,9 +1555,83 @@
           </article>
 
 
-          <!-- =================================================
-               FUTURE MIXCLOUD
-          ================================================== -->
+          <!-- YOUTUBE -->
+
+          <article
+            class="set-card playable"
+            data-platform="youtube"
+            data-title="YouTube Session"
+            data-source="WeAreParty · YouTube"
+          >
+
+            <div class="set-visual">
+
+              <span class="set-number">
+                002
+              </span>
+
+              <span class="platform-badge">
+                YouTube
+              </span>
+
+
+              <div class="bars">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+              </div>
+
+
+              <button
+                class="card-play"
+                aria-label="Reproducir YouTube Session"
+              ></button>
+
+            </div>
+
+
+            <div class="set-info">
+
+              <div class="set-platform">
+                YOUTUBE
+              </div>
+
+              <h3 class="set-name">
+                YouTube Session
+              </h3>
+
+              <p class="set-meta">
+                Empieza en 49:02
+              </p>
+
+
+              <div class="set-footer">
+
+                <span>
+                  Reproducir
+                </span>
+
+                <span class="set-arrow">
+                  →
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- MIXCLOUD FUTURE -->
 
           <article
             class="set-card disabled"
@@ -1614,7 +1640,7 @@
             <div class="set-visual">
 
               <span class="set-number">
-                002
+                003
               </span>
 
               <span class="platform-badge">
@@ -1678,81 +1704,6 @@
           </article>
 
 
-          <!-- =================================================
-               FUTURE YOUTUBE
-          ================================================== -->
-
-          <article
-            class="set-card disabled"
-          >
-
-            <div class="set-visual">
-
-              <span class="set-number">
-                003
-              </span>
-
-              <span class="platform-badge">
-                YouTube
-              </span>
-
-
-              <div class="bars">
-
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-
-              </div>
-
-
-              <button
-                class="card-play"
-                disabled
-                aria-label="Próximamente"
-              ></button>
-
-            </div>
-
-
-            <div class="set-info">
-
-              <div class="set-platform">
-                YOUTUBE
-              </div>
-
-              <h3 class="set-name">
-                Próximamente
-              </h3>
-
-              <p class="set-meta">
-                Nueva sesión · WeAreParty
-              </p>
-
-
-              <div class="set-footer">
-
-                <span>
-                  Próximamente
-                </span>
-
-                <span class="set-arrow">
-                  →
-                </span>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
         </div>
 
       </div>
@@ -1760,9 +1711,7 @@
     </section>
 
 
-    <!-- =====================================================
-         FUTURE
-    ====================================================== -->
+    <!-- FUTURE -->
 
     <section class="future">
 
@@ -1793,9 +1742,7 @@
   </main>
 
 
-  <!-- =======================================================
-       FOOTER
-  ======================================================== -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -1843,9 +1790,7 @@
   </footer>
 
 
-  <!-- =======================================================
-       WAP PLAYER
-  ======================================================== -->
+  <!-- WAP PLAYER -->
 
   <div
     id="wapPlayer"
@@ -1855,8 +1800,6 @@
     <div class="wap-player-inner">
 
 
-      <!-- PLAY / PAUSE -->
-
       <button
         id="wapPlay"
         class="wap-play"
@@ -1865,8 +1808,6 @@
         <span class="wap-play-icon"></span>
       </button>
 
-
-      <!-- INFO -->
 
       <div class="wap-info">
 
@@ -1878,20 +1819,18 @@
           id="wapTitle"
           class="wap-title"
         >
-          Minimal Session 31.04.23
+          —
         </div>
 
         <div
           id="wapSource"
           class="wap-source"
         >
-          WeAreParty · SoundCloud
+          —
         </div>
 
       </div>
 
-
-      <!-- PROGRESS -->
 
       <div class="wap-progress-area">
 
@@ -1928,14 +1867,13 @@
       </div>
 
 
-      <!-- PLATFORM -->
-
-      <div class="wap-platform">
-        SoundCloud
+      <div
+        id="wapPlatform"
+        class="wap-platform"
+      >
+        —
       </div>
 
-
-      <!-- CLOSE -->
 
       <button
         id="wapClose"
@@ -1948,13 +1886,11 @@
     </div>
 
 
-    <!-- =====================================================
-         HIDDEN SOUNDCLOUD PLAYER
-    ====================================================== -->
+    <!-- SOUNDCLOUD ENGINE -->
 
     <iframe
       id="scWidget"
-      class="sc-hidden-player"
+      class="hidden-engine"
       scrolling="no"
       frameborder="no"
       allow="autoplay"
@@ -1962,21 +1898,28 @@
       src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fweareparty%2Fset-minimal-31-04-23&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"
     ></iframe>
 
+
+    <!-- YOUTUBE ENGINE -->
+
+    <div
+      id="youtubeEngine"
+      class="hidden-engine"
+    ></div>
+
   </div>
 
 
-  <!-- =======================================================
-       SOUNDCLOUD API
-  ======================================================== -->
+  <!-- SOUNDCLOUD API -->
 
   <script src="https://w.soundcloud.com/player/api.js"></script>
 
 
-  <script>
+  <!-- YOUTUBE API -->
 
-    /* =========================================================
-       ELEMENTS
-    ========================================================= */
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+
+  <script>
 
     const wapPlayer =
       document.getElementById("wapPlayer");
@@ -1992,6 +1935,9 @@
 
     const wapSource =
       document.getElementById("wapSource");
+
+    const wapPlatform =
+      document.getElementById("wapPlatform");
 
     const wapCurrentTime =
       document.getElementById("wapCurrentTime");
@@ -2012,32 +1958,29 @@
       document.getElementById("scWidget");
 
 
-    /* =========================================================
-       SOUNDCLOUD WIDGET
-    ========================================================= */
-
-    const scWidget =
-      SC.Widget(scIframe);
+    let currentPlatform = null;
 
     let trackDuration = 0;
 
-    let widgetReady = false;
+    let scReady = false;
+
+    let youtubeReady = false;
+
+    let youtubePlayer = null;
+
+    let youtubeProgressTimer = null;
 
 
-    /* =========================================================
-       FORMAT TIME
-    ========================================================= */
+    /* FORMAT TIME */
 
-    function formatTime(milliseconds) {
+    function formatTimeFromSeconds(seconds) {
 
-      if (!milliseconds) {
+      if (!seconds || seconds < 0) {
         return "0:00";
       }
 
       const totalSeconds =
-        Math.floor(
-          milliseconds / 1000
-        );
+        Math.floor(seconds);
 
       const hours =
         Math.floor(
@@ -2049,7 +1992,7 @@
           (totalSeconds % 3600) / 60
         );
 
-      const seconds =
+      const secs =
         totalSeconds % 60;
 
 
@@ -2061,7 +2004,7 @@
           String(minutes)
             .padStart(2,"0") +
           ":" +
-          String(seconds)
+          String(secs)
             .padStart(2,"0")
         );
 
@@ -2071,31 +2014,214 @@
       return (
         minutes +
         ":" +
-        String(seconds)
+        String(secs)
           .padStart(2,"0")
       );
 
     }
 
 
-    /* =========================================================
-       WIDGET READY
-    ========================================================= */
+    function formatTimeFromMs(milliseconds) {
+
+      return formatTimeFromSeconds(
+        milliseconds / 1000
+      );
+
+    }
+
+
+    function resetProgress() {
+
+      wapProgressFill.style.width =
+        "0%";
+
+      wapProgressDot.style.left =
+        "0%";
+
+      wapCurrentTime.textContent =
+        "0:00";
+
+      wapDuration.textContent =
+        "0:00";
+
+    }
+
+
+    function updateProgress(
+      currentSeconds,
+      durationSeconds
+    ) {
+
+      if (!durationSeconds) {
+        return;
+      }
+
+      const percentage =
+        Math.min(
+          100,
+          (
+            currentSeconds /
+            durationSeconds
+          ) * 100
+        );
+
+
+      wapProgressFill.style.width =
+        percentage + "%";
+
+      wapProgressDot.style.left =
+        percentage + "%";
+
+      wapCurrentTime.textContent =
+        formatTimeFromSeconds(
+          currentSeconds
+        );
+
+      wapDuration.textContent =
+        formatTimeFromSeconds(
+          durationSeconds
+        );
+
+    }
+
+
+    function stopEverything() {
+
+      if (scReady) {
+        scWidget.pause();
+      }
+
+      if (
+        youtubePlayer &&
+        youtubeReady
+      ) {
+
+        youtubePlayer.pauseVideo();
+
+      }
+
+      if (youtubeProgressTimer) {
+
+        clearInterval(
+          youtubeProgressTimer
+        );
+
+        youtubeProgressTimer = null;
+
+      }
+
+      wapPlay.classList.remove(
+        "playing"
+      );
+
+    }
+
+
+    /* SOUNDCLOUD */
+
+    const scWidget =
+      SC.Widget(scIframe);
+
 
     scWidget.bind(
       SC.Widget.Events.READY,
       function () {
 
-        widgetReady = true;
+        scReady = true;
+
+      }
+    );
+
+
+    scWidget.bind(
+      SC.Widget.Events.PLAY,
+      function () {
+
+        if (
+          currentPlatform !==
+          "soundcloud"
+        ) {
+          return;
+        }
+
+        wapPlay.classList.add(
+          "playing"
+        );
+
+      }
+    );
+
+
+    scWidget.bind(
+      SC.Widget.Events.PAUSE,
+      function () {
+
+        if (
+          currentPlatform !==
+          "soundcloud"
+        ) {
+          return;
+        }
+
+        wapPlay.classList.remove(
+          "playing"
+        );
+
+      }
+    );
+
+
+    scWidget.bind(
+      SC.Widget.Events.PLAY_PROGRESS,
+      function (event) {
+
+        if (
+          currentPlatform !==
+          "soundcloud"
+        ) {
+          return;
+        }
+
 
         scWidget.getDuration(
-          function (duration) {
+          function (durationMs) {
 
             trackDuration =
-              duration || 0;
+              durationMs || 0;
+
+
+            const currentMs =
+              event.currentPosition || 0;
+
+
+            if (!trackDuration) {
+              return;
+            }
+
+
+            const percentage =
+              Math.min(
+                100,
+                (
+                  currentMs /
+                  trackDuration
+                ) * 100
+              );
+
+
+            wapProgressFill.style.width =
+              percentage + "%";
+
+            wapProgressDot.style.left =
+              percentage + "%";
+
+            wapCurrentTime.textContent =
+              formatTimeFromMs(
+                currentMs
+              );
 
             wapDuration.textContent =
-              formatTime(
+              formatTimeFromMs(
                 trackDuration
               );
 
@@ -2106,109 +2232,179 @@
     );
 
 
-    /* =========================================================
-       PLAY
-    ========================================================= */
-
-    scWidget.bind(
-      SC.Widget.Events.PLAY,
-      function () {
-
-        wapPlay.classList.add(
-          "playing"
-        );
-
-      }
-    );
-
-
-    /* =========================================================
-       PAUSE
-    ========================================================= */
-
-    scWidget.bind(
-      SC.Widget.Events.PAUSE,
-      function () {
-
-        wapPlay.classList.remove(
-          "playing"
-        );
-
-      }
-    );
-
-
-    /* =========================================================
-       PROGRESS
-    ========================================================= */
-
-    scWidget.bind(
-      SC.Widget.Events.PLAY_PROGRESS,
-      function (event) {
-
-        const position =
-          event.currentPosition || 0;
-
-
-        wapCurrentTime.textContent =
-          formatTime(position);
-
-
-        if (!trackDuration) {
-          return;
-        }
-
-
-        const percentage =
-          Math.min(
-            100,
-            (
-              position /
-              trackDuration
-            ) * 100
-          );
-
-
-        wapProgressFill.style.width =
-          percentage + "%";
-
-        wapProgressDot.style.left =
-          percentage + "%";
-
-      }
-    );
-
-
-    /* =========================================================
-       FINISH
-    ========================================================= */
-
     scWidget.bind(
       SC.Widget.Events.FINISH,
       function () {
 
+        if (
+          currentPlatform !==
+          "soundcloud"
+        ) {
+          return;
+        }
+
         wapPlay.classList.remove(
           "playing"
         );
 
-        wapProgressFill.style.width =
-          "0%";
-
-        wapProgressDot.style.left =
-          "0%";
-
-        wapCurrentTime.textContent =
-          "0:00";
+        resetProgress();
 
       }
     );
 
 
-    /* =========================================================
-       OPEN PLAYER
-    ========================================================= */
+    /* YOUTUBE */
+
+    window.onYouTubeIframeAPIReady =
+      function () {
+
+        youtubePlayer =
+          new YT.Player(
+            "youtubeEngine",
+            {
+              height: "1",
+              width: "1",
+
+              videoId:
+                "WASQWD4NaGQ",
+
+              playerVars: {
+                autoplay: 0,
+                controls: 0,
+                rel: 0,
+                playsinline: 1,
+                start: 2942
+              },
+
+              events: {
+
+                onReady:
+                  function () {
+
+                    youtubeReady = true;
+
+                  },
+
+                onStateChange:
+                  function (event) {
+
+                    if (
+                      currentPlatform !==
+                      "youtube"
+                    ) {
+                      return;
+                    }
+
+
+                    if (
+                      event.data ===
+                      YT.PlayerState.PLAYING
+                    ) {
+
+                      wapPlay.classList.add(
+                        "playing"
+                      );
+
+                      startYouTubeProgress();
+
+                    }
+
+
+                    if (
+                      event.data ===
+                      YT.PlayerState.PAUSED
+                    ) {
+
+                      wapPlay.classList.remove(
+                        "playing"
+                      );
+
+                    }
+
+
+                    if (
+                      event.data ===
+                      YT.PlayerState.ENDED
+                    ) {
+
+                      wapPlay.classList.remove(
+                        "playing"
+                      );
+
+                      resetProgress();
+
+                    }
+
+                  }
+
+              }
+            }
+          );
+
+      };
+
+
+    function startYouTubeProgress() {
+
+      if (youtubeProgressTimer) {
+
+        clearInterval(
+          youtubeProgressTimer
+        );
+
+      }
+
+
+      youtubeProgressTimer =
+        setInterval(
+          function () {
+
+            if (
+              !youtubePlayer ||
+              !youtubeReady ||
+              currentPlatform !==
+              "youtube"
+            ) {
+              return;
+            }
+
+
+            const current =
+              youtubePlayer
+                .getCurrentTime();
+
+            const duration =
+              youtubePlayer
+                .getDuration();
+
+
+            updateProgress(
+              current,
+              duration
+            );
+
+          },
+          500
+        );
+
+    }
+
+
+    /* OPEN PLAYER */
 
     function openPlayer(card) {
+
+      const platform =
+        card.dataset.platform;
+
+      currentPlatform =
+        platform;
+
+
+      stopEverything();
+
+      resetProgress();
+
 
       wapTitle.textContent =
         card.dataset.title ||
@@ -2218,45 +2414,95 @@
         card.dataset.source ||
         "WeAreParty";
 
+      wapPlatform.textContent =
+        platform.toUpperCase();
+
 
       wapPlayer.classList.remove(
         "hidden"
       );
 
 
-      if (!widgetReady) {
+      if (
+        platform ===
+        "soundcloud"
+      ) {
 
-        const waitForWidget =
-          setInterval(
-            function () {
+        if (!scReady) {
 
-              if (widgetReady) {
+          const wait =
+            setInterval(
+              function () {
 
-                clearInterval(
-                  waitForWidget
-                );
+                if (scReady) {
 
-                scWidget.play();
+                  clearInterval(wait);
 
-              }
+                  scWidget.play();
 
-            },
-            100
-          );
+                }
 
-        return;
+              },
+              100
+            );
+
+        } else {
+
+          scWidget.play();
+
+        }
 
       }
 
 
-      scWidget.play();
+      if (
+        platform ===
+        "youtube"
+      ) {
+
+        if (!youtubeReady) {
+
+          const wait =
+            setInterval(
+              function () {
+
+                if (
+                  youtubeReady &&
+                  youtubePlayer
+                ) {
+
+                  clearInterval(wait);
+
+                  youtubePlayer.seekTo(
+                    2942,
+                    true
+                  );
+
+                  youtubePlayer.playVideo();
+
+                }
+
+              },
+              100
+            );
+
+        } else {
+
+          youtubePlayer.seekTo(
+            2942,
+            true
+          );
+
+          youtubePlayer.playVideo();
+
+        }
+
+      }
 
     }
 
 
-    /* =========================================================
-       CARD EVENTS
-    ========================================================= */
+    /* CARD EVENTS */
 
     document
       .querySelectorAll(
@@ -2296,54 +2542,75 @@
       );
 
 
-    /* =========================================================
-       PLAY / PAUSE
-    ========================================================= */
+    /* PLAY / PAUSE */
 
     wapPlay.addEventListener(
       "click",
       function () {
 
-        if (!widgetReady) {
-          return;
+        if (
+          currentPlatform ===
+          "soundcloud" &&
+          scReady
+        ) {
+
+          scWidget.isPaused(
+            function (paused) {
+
+              if (paused) {
+
+                scWidget.play();
+
+              } else {
+
+                scWidget.pause();
+
+              }
+
+            }
+          );
+
         }
 
 
-        scWidget.isPaused(
-          function (paused) {
+        if (
+          currentPlatform ===
+          "youtube" &&
+          youtubeReady &&
+          youtubePlayer
+        ) {
 
-            if (paused) {
+          const state =
+            youtubePlayer
+              .getPlayerState();
 
-              scWidget.play();
 
-            } else {
+          if (
+            state ===
+            YT.PlayerState.PLAYING
+          ) {
 
-              scWidget.pause();
+            youtubePlayer
+              .pauseVideo();
 
-            }
+          } else {
+
+            youtubePlayer
+              .playVideo();
 
           }
-        );
+
+        }
 
       }
     );
 
 
-    /* =========================================================
-       SEEK
-    ========================================================= */
+    /* SEEK */
 
     wapProgress.addEventListener(
       "click",
       function (event) {
-
-        if (
-          !widgetReady ||
-          !trackDuration
-        ) {
-          return;
-        }
-
 
         const rect =
           wapProgress
@@ -2368,26 +2635,52 @@
           );
 
 
-        scWidget.seekTo(
-          trackDuration *
-          percentage
-        );
+        if (
+          currentPlatform ===
+          "soundcloud" &&
+          scReady &&
+          trackDuration
+        ) {
+
+          scWidget.seekTo(
+            trackDuration *
+            percentage
+          );
+
+        }
+
+
+        if (
+          currentPlatform ===
+          "youtube" &&
+          youtubeReady &&
+          youtubePlayer
+        ) {
+
+          const duration =
+            youtubePlayer
+              .getDuration();
+
+
+          youtubePlayer.seekTo(
+            duration *
+            percentage,
+            true
+          );
+
+        }
 
       }
     );
 
 
-    /* =========================================================
-       CLOSE
-    ========================================================= */
+    /* CLOSE */
 
     wapClose.addEventListener(
       "click",
       function () {
 
-        if (widgetReady) {
-          scWidget.pause();
-        }
+        stopEverything();
 
         wapPlayer.classList.add(
           "hidden"
