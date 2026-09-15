@@ -44,10 +44,12 @@
       --border: rgba(255,255,255,.08);
 
       --max: 1440px;
+      --nav-height: 83px;
     }
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 100px;
     }
 
     body {
@@ -61,6 +63,8 @@
       -webkit-font-smoothing: antialiased;
 
       overflow-x: hidden;
+
+      padding-top: var(--nav-height);
     }
 
     a {
@@ -98,6 +102,11 @@
       color: transparent;
     }
 
+
+    /* =========================================================
+       TOP LINE
+    ========================================================= */
+
     .pulse-line {
       position: fixed;
 
@@ -107,7 +116,7 @@
       width: 100%;
       height: 2px;
 
-      z-index: 1000;
+      z-index: 2100;
 
       background:
         linear-gradient(
@@ -120,31 +129,40 @@
 
 
     /* =========================================================
-       NAVIGATION
+       FIXED NAVIGATION
     ========================================================= */
 
     nav {
-      position: relative;
-      z-index: 20;
+      position: fixed;
 
-      width: 100%;
+      top: 2px;
+      left: 0;
+      right: 0;
+
+      z-index: 2000;
+
+      min-height: calc(var(--nav-height) - 2px);
 
       padding: 22px 40px;
 
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
 
       border-bottom:
         1px solid var(--border);
 
       background:
-        rgba(6,6,6,.72);
+        rgba(6,6,6,.88);
 
       backdrop-filter:
-        blur(14px);
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      box-shadow:
+        0 10px 35px rgba(0,0,0,.25);
     }
 
     .logo img {
@@ -174,6 +192,8 @@
     }
 
     .nav-links a {
+      position: relative;
+
       font-size: 10px;
 
       letter-spacing: .14em;
@@ -189,6 +209,25 @@
     .nav-links a:hover,
     .nav-links a.active {
       color: var(--white);
+    }
+
+    .nav-links a.active::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: -12px;
+
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--violet)
+        );
     }
 
     .nav-button {
@@ -656,20 +695,24 @@
 
     @media (max-width: 900px) {
 
+      :root {
+        --nav-height: 73px;
+      }
+
       .container {
         width:
           min(
-            100% - 40px,
+            calc(100% - 40px),
             var(--max)
           );
       }
 
       nav {
-        padding: 20px;
+        padding: 17px 20px;
       }
 
       .logo img {
-        height: 32px;
+        height: 34px;
       }
 
       .nav-links {
@@ -734,6 +777,7 @@
 
     }
 
+
     @media (max-width: 520px) {
 
       .nav-button {
@@ -760,7 +804,7 @@
 
 
   <!-- =======================================================
-       NAVIGATION
+       BARRA DE NAVEGACIÓN FIJA
   ======================================================== -->
 
   <nav>
@@ -782,48 +826,77 @@
 
       <ul class="nav-links">
 
-        <li>
-          <a href="index.html#sets">
-            Sets
-          </a>
-        </li>
+
+        <!-- INICIO -->
 
         <li>
-          <a href="index.html#eventos">
-            Eventos
+
+          <a href="index.html">
+            Inicio
           </a>
+
         </li>
 
-        <li>
-          <a href="index.html#comunidad">
-            Comunidad
-          </a>
-        </li>
+
+        <!-- FILOSOFÍA -->
 
         <li>
+
           <a
             href="filosofia.html"
             class="active"
           >
             Filosofía
           </a>
+
         </li>
 
+
+        <!-- SETS -->
+
         <li>
-          <a href="index.html#contacto">
+
+          <a href="sets.html">
+            Sets
+          </a>
+
+        </li>
+
+
+        <!-- EVENTOS -->
+
+        <li>
+
+          <a href="index.html#eventos">
+            Eventos
+          </a>
+
+        </li>
+
+
+        <!-- CONTACTO -->
+
+        <li>
+
+          <a href="contacto.html">
             Contacto
           </a>
+
         </li>
+
 
       </ul>
 
 
+      <!-- BOTÓN ENTRAR -->
+
       <a
-        href="entrar.html"
+        href="contacto.html"
         class="nav-button"
       >
         Entrar
       </a>
+
 
     </div>
 
@@ -1168,7 +1241,7 @@
         </p>
 
         <a
-          href="index.html#sets"
+          href="sets.html"
           class="button"
         >
           Descubrir WeAreParty →
@@ -1188,15 +1261,15 @@
   <footer>
 
     <div class="footer-brand">
-      WeAreParty — Natural Connection
+      © 2026 WeAreParty · Natural Connection
     </div>
 
     <div class="socials">
 
       <a
-        href="https://www.instagram.com/we.are.party"
+        href="https://www.instagram.com/we.are.party?igsi=MTFtbm51NGxpZHlwdg=="
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         Instagram
       </a>
@@ -1204,15 +1277,15 @@
       <a
         href="https://on.soundcloud.com/1fzaZHNLJa3kJYFUAt"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         SoundCloud
       </a>
 
       <a
-        href="https://youtube.com/@we_are_party"
+        href="https://youtube.com/@we_are_party?si=O0rQbu32ImPsSfvb"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         YouTube
       </a>
@@ -1220,7 +1293,7 @@
       <a
         href="https://kick.com/weareparty"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         Kick
       </a>
