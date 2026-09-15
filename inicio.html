@@ -1,0 +1,4238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>WeAreParty — Natural Connection</title>
+
+  <meta
+    name="description"
+    content="WeAreParty. Música, personas y conexión. Natural Connection."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =========================================================
+       BASE
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #060606;
+      --surface: #0b0b0c;
+      --surface-2: #101011;
+
+      --white: #ffffff;
+      --text: rgba(255,255,255,.88);
+      --muted: rgba(255,255,255,.45);
+      --faint: rgba(255,255,255,.20);
+
+      --cyan: #00c8ff;
+      --violet: #7b2cff;
+      --magenta: #e8005a;
+
+      --border: rgba(255,255,255,.08);
+
+      --max: 1440px;
+      --nav-height: 83px;
+      --player-height: 94px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 105px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+
+      background: var(--bg);
+      color: var(--white);
+
+      min-height: 100vh;
+
+      -webkit-font-smoothing: antialiased;
+
+      overflow-x: hidden;
+
+      padding-top: var(--nav-height);
+      padding-bottom: 20px;
+    }
+
+    body.player-visible {
+      padding-bottom: 120px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      color: inherit;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 80px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .gradient-text {
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--violet),
+          var(--magenta)
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+    }
+
+    .section-heading {
+      margin-top: 17px;
+
+      font-size:
+        clamp(42px, 6vw, 78px);
+
+      line-height: .95;
+      letter-spacing: -.055em;
+
+      font-weight: 500;
+    }
+
+    .section-description {
+      max-width: 570px;
+
+      margin-top: 28px;
+
+      font-size: 14px;
+      line-height: 1.9;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       TOP LINE
+    ========================================================= */
+
+    .pulse-line {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 2px;
+
+      z-index: 3000;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--violet),
+          var(--magenta)
+        );
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
+    nav {
+      position: fixed;
+
+      top: 2px;
+      left: 0;
+      right: 0;
+
+      z-index: 2500;
+
+      min-height:
+        calc(var(--nav-height) - 2px);
+
+      padding: 22px 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border-bottom:
+        1px solid var(--border);
+
+      background:
+        rgba(6,6,6,.90);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      box-shadow:
+        0 10px 35px rgba(0,0,0,.24);
+    }
+
+    .logo {
+      flex: 0 0 auto;
+    }
+
+    .logo img {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+
+      min-width: 0;
+    }
+
+    .nav-scroll {
+      min-width: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+
+      gap: 28px;
+
+      list-style: none;
+    }
+
+    .nav-links a {
+      position: relative;
+
+      display: block;
+
+      padding: 6px 0;
+
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+
+      white-space: nowrap;
+
+      color: var(--muted);
+
+      transition:
+        color .25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--white);
+    }
+
+    .nav-links a.active::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: -9px;
+
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--violet)
+        );
+    }
+
+    .nav-button {
+      flex: 0 0 auto;
+
+      padding: 10px 18px;
+
+      border:
+        1px solid rgba(0,200,255,.45);
+
+      color: var(--cyan);
+
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+
+      transition:
+        all .25s ease;
+    }
+
+    .nav-button:hover {
+      background:
+        rgba(0,200,255,.08);
+
+      border-color: var(--cyan);
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      position: relative;
+
+      min-height:
+        calc(100vh - var(--nav-height));
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .hero-background {
+      position: absolute;
+      inset: 0;
+
+      pointer-events: none;
+    }
+
+    .hero-glow-one {
+      position: absolute;
+
+      width: 850px;
+      height: 850px;
+
+      right: -280px;
+      top: -300px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(123,44,255,.22),
+          transparent 68%
+        );
+
+      filter: blur(30px);
+    }
+
+    .hero-glow-two {
+      position: absolute;
+
+      width: 700px;
+      height: 700px;
+
+      left: -360px;
+      bottom: -350px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(0,200,255,.12),
+          transparent 68%
+        );
+
+      filter: blur(30px);
+    }
+
+    .grid-background {
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        );
+
+      background-size:
+        80px 80px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent 92%
+        );
+    }
+
+    .hero-content {
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 1120px;
+
+      padding: 110px 0;
+    }
+
+    .hero-content .eyebrow {
+      margin-bottom: 30px;
+    }
+
+    .hero-title {
+      font-size:
+        clamp(65px, 10vw, 145px);
+
+      line-height: .88;
+      letter-spacing: -.07em;
+
+      font-weight: 600;
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-description {
+      max-width: 650px;
+
+      margin-top: 40px;
+
+      font-size: 15px;
+      line-height: 1.9;
+
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      margin-top: 38px;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 46px;
+
+      padding: 0 21px;
+
+      font-size: 9px;
+      font-weight: 600;
+
+      letter-spacing: .15em;
+      text-transform: uppercase;
+
+      transition:
+        all .25s ease;
+    }
+
+    .button-primary {
+      background: var(--white);
+      color: #050505;
+    }
+
+    .button-primary:hover {
+      background: var(--cyan);
+    }
+
+    .button-secondary {
+      border:
+        1px solid var(--border);
+
+      color: var(--text);
+    }
+
+    .button-secondary:hover {
+      border-color:
+        rgba(255,255,255,.30);
+    }
+
+
+    /* =========================================================
+       MANIFESTO
+    ========================================================= */
+
+    .manifesto {
+      padding: 130px 0;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .manifesto-layout {
+      display: grid;
+
+      grid-template-columns:
+        .8fr 2fr;
+
+      gap: 90px;
+    }
+
+    .manifesto-copy {
+      max-width: 850px;
+    }
+
+    .manifesto-lead {
+      font-size:
+        clamp(27px, 3.2vw, 48px);
+
+      line-height: 1.35;
+
+      letter-spacing: -.04em;
+
+      color: var(--white);
+    }
+
+    .manifesto-text {
+      max-width: 690px;
+
+      margin-top: 35px;
+
+      font-size: 15px;
+      line-height: 1.9;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       PHILOSOPHY
+    ========================================================= */
+
+    .philosophy {
+      position: relative;
+
+      padding: 135px 0;
+
+      overflow: hidden;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .philosophy::before {
+      content: "";
+
+      position: absolute;
+
+      width: 750px;
+      height: 750px;
+
+      right: -320px;
+      top: -180px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(123,44,255,.14),
+          transparent 68%
+        );
+
+      pointer-events: none;
+    }
+
+    .philosophy-header {
+      position: relative;
+      z-index: 2;
+
+      max-width: 800px;
+
+      margin-bottom: 80px;
+    }
+
+    .philosophy-layout {
+      position: relative;
+      z-index: 2;
+
+      display: grid;
+
+      grid-template-columns:
+        .8fr 2fr;
+
+      gap: 90px;
+    }
+
+    .philosophy-side-title {
+      font-size: 11px;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+
+      color: var(--muted);
+    }
+
+    .philosophy-text {
+      max-width: 780px;
+    }
+
+    .philosophy-text p {
+      margin-bottom: 29px;
+
+      font-size: 17px;
+      line-height: 1.9;
+
+      color:
+        rgba(255,255,255,.67);
+    }
+
+    .philosophy-text p:first-child {
+      font-size: 25px;
+
+      line-height: 1.5;
+
+      letter-spacing: -.025em;
+
+      color: var(--white);
+    }
+
+    .philosophy-highlight {
+      position: relative;
+      z-index: 2;
+
+      margin: 90px 0;
+
+      padding: 70px 0;
+
+      text-align: center;
+
+      border-top:
+        1px solid var(--border);
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .philosophy-highlight-title {
+      margin-top: 20px;
+
+      font-size:
+        clamp(46px, 8vw, 105px);
+
+      line-height: .9;
+      letter-spacing: -.065em;
+
+      font-weight: 600;
+    }
+
+    .philosophy-highlight-text {
+      max-width: 560px;
+
+      margin: 30px auto 0;
+
+      font-size: 14px;
+      line-height: 1.8;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       PRINCIPLES
+    ========================================================= */
+
+    .principles-header {
+      position: relative;
+      z-index: 2;
+
+      margin-bottom: 55px;
+    }
+
+    .principles-title {
+      margin-top: 20px;
+
+      font-size:
+        clamp(38px, 6vw, 72px);
+
+      line-height: .95;
+      letter-spacing: -.055em;
+
+      font-weight: 500;
+    }
+
+    .principles-grid {
+      position: relative;
+      z-index: 2;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 1px;
+
+      background: var(--border);
+
+      border:
+        1px solid var(--border);
+    }
+
+    .principle {
+      min-height: 280px;
+
+      padding: 34px;
+
+      background: var(--bg);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      transition:
+        background .3s ease;
+    }
+
+    .principle:hover {
+      background: var(--surface);
+    }
+
+    .principle-number {
+      font-size: 10px;
+      letter-spacing: .15em;
+
+      color: var(--faint);
+    }
+
+    .principle h3 {
+      margin-bottom: 14px;
+
+      font-size: 25px;
+      letter-spacing: -.03em;
+    }
+
+    .principle p {
+      max-width: 310px;
+
+      font-size: 13px;
+      line-height: 1.8;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       ECOSYSTEM
+    ========================================================= */
+
+    .ecosystem {
+      padding: 135px 0;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .ecosystem-header {
+      max-width: 780px;
+
+      margin-bottom: 60px;
+    }
+
+    .ecosystem-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 1px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        var(--border);
+    }
+
+    .ecosystem-card {
+      min-height: 330px;
+
+      padding: 35px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      background: var(--bg);
+
+      transition:
+        background .3s ease;
+    }
+
+    .ecosystem-card:hover {
+      background: var(--surface);
+    }
+
+    .ecosystem-number {
+      font-size: 10px;
+      letter-spacing: .16em;
+
+      color: var(--faint);
+    }
+
+    .ecosystem-card h3 {
+      margin-bottom: 14px;
+
+      font-size: 31px;
+      letter-spacing: -.04em;
+    }
+
+    .ecosystem-card p {
+      max-width: 330px;
+
+      font-size: 13px;
+      line-height: 1.8;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       SETS
+    ========================================================= */
+
+    .sets {
+      padding: 135px 0;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .sets-header {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: flex-end;
+
+      gap: 50px;
+
+      margin-bottom: 60px;
+    }
+
+    .sets-header-copy {
+      max-width: 780px;
+    }
+
+    .sets-intro {
+      max-width: 400px;
+
+      font-size: 13px;
+      line-height: 1.8;
+
+      color: var(--muted);
+    }
+
+    .sets-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 12px;
+    }
+
+    .set-card {
+      position: relative;
+
+      overflow: hidden;
+
+      border:
+        1px solid var(--border);
+
+      background: var(--surface);
+
+      transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease;
+    }
+
+    .set-card.playable {
+      cursor: pointer;
+    }
+
+    .set-card.catalog-hidden {
+      display: none;
+    }
+
+    .set-card.playable:hover {
+      transform:
+        translateY(-5px);
+
+      border-color:
+        rgba(123,44,255,.50);
+
+      background:
+        var(--surface-2);
+    }
+
+    .set-visual {
+      position: relative;
+
+      height: 310px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(123,44,255,.25),
+          transparent 60%
+        ),
+        #09090d;
+    }
+
+    .set-visual::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        );
+
+      background-size:
+        52px 52px;
+    }
+
+    .artist-image {
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+      object-position: center;
+
+      z-index: 1;
+
+      transition:
+        transform .6s ease;
+    }
+
+    .set-card:hover .artist-image {
+      transform: scale(1.025);
+    }
+
+    .set-visual::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      z-index: 2;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,.04) 35%,
+          rgba(0,0,0,.28) 100%
+        );
+    }
+
+    .set-number {
+      position: absolute;
+
+      top: 21px;
+      left: 21px;
+
+      z-index: 5;
+
+      font-size: 9px;
+      letter-spacing: .16em;
+
+      color:
+        rgba(255,255,255,.50);
+    }
+
+    .genre-badge {
+      position: absolute;
+
+      top: 18px;
+      right: 18px;
+
+      z-index: 5;
+
+      padding: 7px 10px;
+
+      border:
+        1px solid rgba(255,255,255,.18);
+
+      background:
+        rgba(0,0,0,.38);
+
+      backdrop-filter:
+        blur(8px);
+
+      font-size: 8px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+
+      color:
+        rgba(255,255,255,.78);
+    }
+
+    .card-play {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      z-index: 6;
+
+      transform:
+        translate(-50%,-50%);
+
+      width: 68px;
+      height: 68px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(255,255,255,.38);
+
+      background:
+        rgba(0,0,0,.38);
+
+      backdrop-filter:
+        blur(8px);
+
+      cursor: pointer;
+
+      transition:
+        background .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
+    }
+
+    .card-play::after {
+      content: "";
+
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      transform:
+        translate(-38%,-50%);
+
+      width: 0;
+      height: 0;
+
+      border-top:
+        9px solid transparent;
+
+      border-bottom:
+        9px solid transparent;
+
+      border-left:
+        14px solid var(--white);
+    }
+
+    .playable:hover .card-play {
+      transform:
+        translate(-50%,-50%)
+        scale(1.08);
+
+      border-color:
+        rgba(0,200,255,.7);
+
+      background:
+        rgba(0,200,255,.10);
+    }
+
+    .set-info {
+      padding: 24px;
+    }
+
+    .set-genre {
+      margin-bottom: 10px;
+
+      font-size: 9px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+
+      color: var(--cyan);
+    }
+
+    .set-name {
+      margin-bottom: 8px;
+
+      font-size: 18px;
+      font-weight: 600;
+
+      letter-spacing: -.01em;
+    }
+
+    .set-date {
+      font-size: 10px;
+      line-height: 1.7;
+
+      color: var(--muted);
+    }
+
+    .set-secondary {
+      margin-top: 13px;
+
+      font-size: 9px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+
+      color: var(--faint);
+    }
+
+    .set-description {
+      margin-top: 8px;
+
+      font-size: 11px;
+      line-height: 1.7;
+
+      color: var(--muted);
+    }
+
+    .set-footer {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+
+      margin-top: 22px;
+      padding-top: 16px;
+
+      border-top:
+        1px solid var(--border);
+    }
+
+    .set-footer span:first-child {
+      font-size: 9px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+
+      color: var(--text);
+    }
+
+    .set-arrow {
+      font-size: 18px;
+
+      color: var(--cyan);
+    }
+
+    .sets-more {
+      display: none;
+
+      justify-content: center;
+
+      margin-top: 40px;
+    }
+
+    .sets-more.visible {
+      display: flex;
+    }
+
+    .show-all-sets {
+      min-height: 46px;
+
+      padding: 0 24px;
+
+      border:
+        1px solid rgba(0,200,255,.38);
+
+      background: transparent;
+
+      color: var(--cyan);
+
+      cursor: pointer;
+
+      font-size: 9px;
+      font-weight: 600;
+
+      letter-spacing: .15em;
+      text-transform: uppercase;
+
+      transition:
+        all .25s ease;
+    }
+
+    .show-all-sets:hover {
+      background:
+        rgba(0,200,255,.08);
+
+      border-color: var(--cyan);
+    }
+
+
+    /* =========================================================
+       EVENTS
+    ========================================================= */
+
+    .events {
+      padding: 135px 0;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .events-header {
+      max-width: 800px;
+
+      margin-bottom: 60px;
+    }
+
+    .events-panel {
+      min-height: 320px;
+
+      display: flex;
+
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      padding: 60px;
+
+      text-align: center;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(123,44,255,.14),
+          transparent 65%
+        );
+    }
+
+    .events-panel h3 {
+      margin-top: 18px;
+
+      font-size:
+        clamp(32px, 5vw, 60px);
+
+      letter-spacing: -.05em;
+
+      font-weight: 500;
+    }
+
+    .events-panel p {
+      max-width: 520px;
+
+      margin-top: 20px;
+
+      font-size: 13px;
+      line-height: 1.8;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+
+    .contact {
+      position: relative;
+
+      padding: 135px 0;
+
+      overflow: hidden;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .contact::before {
+      content: "";
+
+      position: absolute;
+
+      width: 850px;
+      height: 850px;
+
+      left: -400px;
+      bottom: -420px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(0,200,255,.10),
+          transparent 68%
+        );
+
+      pointer-events: none;
+    }
+
+    .contact-layout {
+      position: relative;
+      z-index: 2;
+
+      display: grid;
+
+      grid-template-columns:
+        .9fr 1.1fr;
+
+      gap: 100px;
+    }
+
+    .contact-copy {
+      max-width: 600px;
+    }
+
+    .contact-copy h2 {
+      margin-top: 20px;
+
+      font-size:
+        clamp(45px, 6vw, 78px);
+
+      line-height: .95;
+      letter-spacing: -.055em;
+
+      font-weight: 500;
+    }
+
+    .contact-copy p {
+      margin-top: 28px;
+
+      max-width: 500px;
+
+      font-size: 14px;
+      line-height: 1.9;
+
+      color: var(--muted);
+    }
+
+    .contact-types {
+      display: grid;
+
+      gap: 1px;
+
+      margin-top: 45px;
+
+      border:
+        1px solid var(--border);
+
+      background: var(--border);
+    }
+
+    .contact-type {
+      padding: 19px 20px;
+
+      background: var(--bg);
+
+      display: flex;
+      align-items: center;
+
+      gap: 15px;
+    }
+
+    .contact-type-number {
+      font-size: 9px;
+
+      color: var(--cyan);
+    }
+
+    .contact-type-text {
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+
+      color: var(--text);
+    }
+
+    .contact-form {
+      padding: 38px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(11,11,12,.75);
+    }
+
+    .form-row {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+
+      margin-bottom: 9px;
+
+      font-size: 8px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+
+      color: var(--muted);
+    }
+
+    .form-control {
+      width: 100%;
+
+      padding: 14px 15px;
+
+      border:
+        1px solid var(--border);
+
+      outline: none;
+
+      background: #080809;
+
+      color: var(--white);
+
+      transition:
+        border-color .2s ease;
+    }
+
+    .form-control:focus {
+      border-color:
+        rgba(0,200,255,.55);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+
+      resize: vertical;
+    }
+
+    select.form-control {
+      appearance: none;
+    }
+
+    .form-submit {
+      width: 100%;
+      min-height: 48px;
+
+      border: 0;
+
+      background: var(--white);
+
+      color: #050505;
+
+      cursor: pointer;
+
+      font-size: 9px;
+      font-weight: 700;
+
+      letter-spacing: .16em;
+      text-transform: uppercase;
+
+      transition:
+        background .25s ease;
+    }
+
+    .form-submit:hover {
+      background: var(--cyan);
+    }
+
+    .form-note {
+      margin-top: 13px;
+
+      font-size: 9px;
+      line-height: 1.6;
+
+      color: var(--faint);
+    }
+
+
+    /* =========================================================
+       FINAL CTA
+    ========================================================= */
+
+    .final-cta {
+      position: relative;
+
+      padding: 145px 0;
+
+      overflow: hidden;
+
+      text-align: center;
+    }
+
+    .final-cta::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          ellipse at 50% 100%,
+          rgba(123,44,255,.20),
+          transparent 60%
+        );
+    }
+
+    .final-cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .final-cta h2 {
+      margin-top: 22px;
+
+      font-size:
+        clamp(50px, 9vw, 120px);
+
+      line-height: .9;
+      letter-spacing: -.065em;
+
+      font-weight: 600;
+    }
+
+    .final-cta p {
+      max-width: 560px;
+
+      margin: 35px auto 0;
+
+      font-size: 14px;
+      line-height: 1.8;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      padding: 30px 40px;
+
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+
+      border-top:
+        1px solid var(--border);
+    }
+
+    .footer-brand {
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+
+      color: var(--faint);
+    }
+
+    .socials {
+      display: flex;
+
+      gap: 22px;
+    }
+
+    .socials a {
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+
+      color: var(--muted);
+
+      transition:
+        color .2s ease;
+    }
+
+    .socials a:hover {
+      color: var(--white);
+    }
+
+
+    /* =========================================================
+       WAP PLAYER
+    ========================================================= */
+
+    .wap-player {
+      position: fixed;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      z-index: 2400;
+
+      height: var(--player-height);
+
+      border-top:
+        1px solid rgba(255,255,255,.13);
+
+      background:
+        rgba(5,5,6,.97);
+
+      backdrop-filter:
+        blur(20px);
+
+      -webkit-backdrop-filter:
+        blur(20px);
+
+      box-shadow:
+        0 -20px 60px rgba(0,0,0,.50);
+
+      transition:
+        transform .35s ease,
+        opacity .35s ease;
+    }
+
+    .wap-player.hidden {
+      transform:
+        translateY(110%);
+
+      opacity: 0;
+
+      pointer-events: none;
+    }
+
+    .wap-player-inner {
+      width:
+        min(
+          var(--max),
+          calc(100% - 40px)
+        );
+
+      height: 100%;
+
+      margin: 0 auto;
+
+      display: grid;
+
+      grid-template-columns:
+        52px
+        290px
+        1fr
+        38px;
+
+      align-items: center;
+
+      gap: 20px;
+    }
+
+    .wap-play {
+      width: 46px;
+      height: 46px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(0,200,255,.50);
+
+      background:
+        rgba(0,200,255,.04);
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      transition:
+        all .25s ease;
+    }
+
+    .wap-play:hover {
+      border-color: var(--cyan);
+
+      background:
+        rgba(0,200,255,.12);
+    }
+
+    .wap-play-icon {
+      width: 0;
+      height: 0;
+
+      border-top:
+        6px solid transparent;
+
+      border-bottom:
+        6px solid transparent;
+
+      border-left:
+        10px solid var(--white);
+
+      margin-left: 3px;
+    }
+
+    .wap-play.playing
+    .wap-play-icon {
+      width: 12px;
+      height: 14px;
+
+      border: 0;
+      margin: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--white) 0 33%,
+          transparent 33% 66%,
+          var(--white) 66% 100%
+        );
+    }
+
+    .wap-info {
+      min-width: 0;
+    }
+
+    .wap-label {
+      margin-bottom: 6px;
+
+      font-size: 8px;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+
+      color: var(--cyan);
+    }
+
+    .wap-title {
+      font-size: 12px;
+      font-weight: 600;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .wap-source {
+      margin-top: 5px;
+
+      font-size: 9px;
+
+      color: var(--muted);
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .wap-progress-area {
+      min-width: 0;
+    }
+
+    .wap-times {
+      display: flex;
+
+      justify-content: space-between;
+
+      margin-bottom: 9px;
+
+      font-size: 8px;
+      letter-spacing: .06em;
+
+      color: var(--muted);
+    }
+
+    .wap-progress {
+      position: relative;
+
+      width: 100%;
+      height: 3px;
+
+      background:
+        rgba(255,255,255,.10);
+
+      cursor: pointer;
+    }
+
+    .wap-progress-fill {
+      position: absolute;
+
+      left: 0;
+      top: 0;
+
+      width: 0%;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--violet),
+          var(--magenta)
+        );
+    }
+
+    .wap-progress-dot {
+      position: absolute;
+
+      top: 50%;
+      left: 0%;
+
+      width: 9px;
+      height: 9px;
+
+      transform:
+        translate(-50%,-50%);
+
+      border-radius: 50%;
+
+      background: var(--white);
+
+      box-shadow:
+        0 0 12px rgba(0,200,255,.55);
+
+      opacity: 0;
+
+      transition:
+        opacity .2s ease;
+    }
+
+    .wap-progress:hover
+    .wap-progress-dot {
+      opacity: 1;
+    }
+
+    .wap-close {
+      width: 34px;
+      height: 34px;
+
+      border:
+        1px solid var(--border);
+
+      background: transparent;
+
+      color: var(--muted);
+
+      font-size: 17px;
+
+      cursor: pointer;
+
+      transition:
+        all .2s ease;
+    }
+
+    .wap-close:hover {
+      border-color:
+        rgba(255,255,255,.30);
+
+      color: var(--white);
+    }
+
+
+    /* =========================================================
+       HIDDEN YOUTUBE ENGINE
+    ========================================================= */
+
+    #youtubeEngine {
+      position: fixed;
+
+      width: 320px;
+      height: 180px;
+
+      left: -10000px;
+      top: 0;
+
+      opacity: .01;
+
+      pointer-events: none;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1050px) {
+
+      .sets-grid {
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+      .principles-grid,
+      .ecosystem-grid {
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+      .wap-player-inner {
+        grid-template-columns:
+          50px
+          230px
+          1fr
+          38px;
+      }
+
+    }
+
+
+    @media (max-width: 900px) {
+
+      :root {
+        --nav-height: 128px;
+        --player-height: 80px;
+      }
+
+      .container {
+        width:
+          min(
+            calc(100% - 40px),
+            var(--max)
+          );
+      }
+
+      nav {
+        padding: 14px 20px;
+
+        display: grid;
+
+        grid-template-columns:
+          1fr auto;
+
+        gap: 12px;
+      }
+
+      .logo img {
+        height: 32px;
+      }
+
+      .nav-right {
+        display: contents;
+      }
+
+      .nav-scroll {
+        grid-column:
+          1 / -1;
+
+        grid-row: 2;
+
+        width: 100%;
+
+        overflow-x: auto;
+
+        scrollbar-width: none;
+      }
+
+      .nav-scroll::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-links {
+        width: max-content;
+
+        gap: 22px;
+
+        padding-right: 20px;
+      }
+
+      .nav-button {
+        grid-column: 2;
+        grid-row: 1;
+
+        padding:
+          9px 14px;
+      }
+
+      .hero {
+        min-height:
+          calc(
+            100vh -
+            var(--nav-height)
+          );
+      }
+
+      .hero-content {
+        padding:
+          90px 0;
+      }
+
+      .hero-title {
+        font-size:
+          clamp(
+            57px,
+            17vw,
+            100px
+          );
+      }
+
+      .manifesto,
+      .philosophy,
+      .ecosystem,
+      .sets,
+      .events,
+      .contact {
+        padding:
+          90px 0;
+      }
+
+      .manifesto-layout,
+      .philosophy-layout,
+      .contact-layout {
+        grid-template-columns:
+          1fr;
+
+        gap: 40px;
+      }
+
+      .sets-header {
+        display: block;
+      }
+
+      .sets-intro {
+        margin-top: 25px;
+      }
+
+      .principles-grid,
+      .ecosystem-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .contact-layout {
+        gap: 55px;
+      }
+
+      .final-cta {
+        padding:
+          110px 0;
+      }
+
+      footer {
+        padding:
+          25px 20px;
+
+        flex-direction: column;
+
+        gap: 20px;
+      }
+
+      body.player-visible {
+        padding-bottom: 100px;
+      }
+
+      .wap-player-inner {
+        width:
+          calc(100% - 20px);
+
+        grid-template-columns:
+          44px
+          1fr
+          34px;
+
+        gap: 12px;
+      }
+
+      .wap-play {
+        width: 40px;
+        height: 40px;
+      }
+
+      .wap-progress-area {
+        display: none;
+      }
+
+    }
+
+
+    @media (max-width: 650px) {
+
+      .sets-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .set-visual {
+        height: 350px;
+      }
+
+      .form-row {
+        grid-template-columns:
+          1fr;
+      }
+
+      .contact-form {
+        padding: 25px 20px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+
+        max-width: 300px;
+      }
+
+      .button-primary,
+      .button-secondary {
+        width: 100%;
+      }
+
+    }
+
+
+    @media (max-width: 520px) {
+
+      .container {
+        width:
+          calc(100% - 32px);
+      }
+
+      .hero-title {
+        font-size:
+          clamp(
+            52px,
+            18vw,
+            82px
+          );
+      }
+
+      .philosophy-text p:first-child {
+        font-size: 22px;
+      }
+
+      .set-visual {
+        height: 320px;
+      }
+
+      .events-panel {
+        padding:
+          45px 20px;
+      }
+
+      .socials {
+        flex-wrap: wrap;
+
+        justify-content: center;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="pulse-line"></div>
+
+
+  <!-- =======================================================
+       BARRA FIJA
+  ======================================================== -->
+
+  <nav id="mainNav">
+
+    <a
+      href="#inicio"
+      class="logo"
+      aria-label="WeAreParty - Inicio"
+    >
+      <img
+        src="logo.png"
+        alt="WeAreParty"
+      >
+    </a>
+
+
+    <div class="nav-right">
+
+      <div class="nav-scroll">
+
+        <ul class="nav-links">
+
+          <li>
+            <a
+              href="#inicio"
+              class="nav-link active"
+              data-section="inicio"
+            >
+              Inicio
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#filosofia"
+              class="nav-link"
+              data-section="filosofia"
+            >
+              Filosofía
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#sets"
+              class="nav-link"
+              data-section="sets"
+            >
+              Sets
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#eventos"
+              class="nav-link"
+              data-section="eventos"
+            >
+              Eventos
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#contacto"
+              class="nav-link"
+              data-section="contacto"
+            >
+              Contacto
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <a
+        href="#contacto"
+        class="nav-button"
+      >
+        Entrar
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =======================================================
+       INICIO
+  ======================================================== -->
+
+  <section
+    class="hero page-section"
+    id="inicio"
+  >
+
+    <div class="hero-background">
+
+      <div class="hero-glow-one"></div>
+
+      <div class="hero-glow-two"></div>
+
+      <div class="grid-background"></div>
+
+    </div>
+
+
+    <div class="container">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          WeAreParty · Natural Connection
+        </div>
+
+
+        <h1 class="hero-title">
+
+          <span>
+            Música.
+          </span>
+
+          <span>
+            Personas.
+          </span>
+
+          <span class="gradient-text">
+            Conexión.
+          </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+          Conectamos personas a través de la música.
+          Creamos espacios donde artistas, lugares y público
+          pueden compartir experiencias reales.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+          <a
+            href="#sets"
+            class="button-primary"
+          >
+            Escuchar sets →
+          </a>
+
+          <a
+            href="#filosofia"
+            class="button-secondary"
+          >
+            Nuestra filosofía
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       MANIFESTO
+  ======================================================== -->
+
+  <section class="manifesto">
+
+    <div class="container">
+
+      <div class="manifesto-layout">
+
+        <div>
+
+          <div class="eyebrow">
+            WeAreParty
+          </div>
+
+        </div>
+
+
+        <div class="manifesto-copy">
+
+          <p class="manifesto-lead">
+
+            La música puede ser mucho más
+            que una lista de canciones.
+
+          </p>
+
+
+          <p class="manifesto-text">
+
+            WeAreParty nace de la idea de recuperar
+            algo esencial: la conexión entre las personas,
+            los artistas y los lugares donde la música sucede.
+            La tecnología es una herramienta. La música,
+            la comunidad y la experiencia son el centro.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       FILOSOFÍA
+  ======================================================== -->
+
+  <section
+    class="philosophy page-section"
+    id="filosofia"
+  >
+
+    <div class="container">
+
+
+      <div class="philosophy-header">
+
+        <div class="eyebrow">
+          WeAreParty
+        </div>
+
+        <h2 class="section-heading">
+
+          Nuestra
+          <span class="gradient-text">
+            filosofía.
+          </span>
+
+        </h2>
+
+      </div>
+
+
+      <div class="philosophy-layout">
+
+
+        <div>
+
+          <div class="philosophy-side-title">
+            Natural Connection
+          </div>
+
+        </div>
+
+
+        <div class="philosophy-text">
+
+          <p>
+            Somos WeAreParty, un grupo de personas unidas
+            por una filosofía común: conectar con la naturaleza
+            a través de la música y crear experiencias sonoras
+            que van más allá de la pista de baile.
+          </p>
+
+          <p>
+            “Natural Connection” es nuestro mantra,
+            la esencia que late en el corazón de cada beat.
+            Representa la energía de las conexiones reales,
+            la libertad de expresarnos a través de la música
+            y la posibilidad de compartir momentos que
+            permanecen en nosotros.
+          </p>
+
+          <p>
+            Imaginamos lugares donde la música electrónica
+            se fusiona con la esencia de la naturaleza,
+            donde los beats son pulsaciones que resuenan
+            con el ritmo de la tierra y donde cada persona
+            puede encontrar su propia frecuencia.
+          </p>
+
+          <p>
+            En WeAreParty construimos experiencias donde
+            la música y las personas ocupan el centro.
+            Cada encuentro es una oportunidad para descubrir
+            nuevos sonidos, compartir energía y crear
+            recuerdos junto a personas afines.
+          </p>
+
+          <p>
+            Creemos en una comunidad viva, construida alrededor
+            del respeto, la música, la solidaridad y la conexión
+            entre personas que comparten una misma sensibilidad.
+          </p>
+
+          <p>
+            La música se convierte así en un puente:
+            una forma de encontrarnos, de expresarnos
+            y de formar parte de algo que continúa creciendo.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- NATURAL CONNECTION -->
+
+      <div class="philosophy-highlight">
+
+        <div class="eyebrow">
+          Our mantra
+        </div>
+
+        <h2 class="philosophy-highlight-title">
+
+          <span class="gradient-text">
+            Natural Connection
+          </span>
+
+        </h2>
+
+        <p class="philosophy-highlight-text">
+
+          La música crea el espacio.
+          Las personas crean la experiencia.
+          La conexión sucede de forma natural.
+
+        </p>
+
+      </div>
+
+
+      <!-- PRINCIPIOS -->
+
+      <div class="principles-header">
+
+        <div class="eyebrow">
+          Lo que nos mueve
+        </div>
+
+        <h2 class="principles-title">
+          Una comunidad<br>
+          con identidad.
+        </h2>
+
+      </div>
+
+
+      <div class="principles-grid">
+
+
+        <article class="principle">
+
+          <div class="principle-number">
+            01
+          </div>
+
+          <div>
+
+            <h3>
+              Música
+            </h3>
+
+            <p>
+              La música es nuestro lenguaje común,
+              nuestra forma de expresión y el punto
+              de partida de cada encuentro.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="principle">
+
+          <div class="principle-number">
+            02
+          </div>
+
+          <div>
+
+            <h3>
+              Identidad
+            </h3>
+
+            <p>
+              Cada DJ tiene una personalidad,
+              una sensibilidad y una manera
+              propia de entender la música.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="principle">
+
+          <div class="principle-number">
+            03
+          </div>
+
+          <div>
+
+            <h3>
+              Conexión
+            </h3>
+
+            <p>
+              Creamos espacios donde personas
+              con sensibilidades similares pueden
+              encontrarse de forma natural.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="principle">
+
+          <div class="principle-number">
+            04
+          </div>
+
+          <div>
+
+            <h3>
+              Respeto
+            </h3>
+
+            <p>
+              La comunidad crece cuando existe
+              respeto por la música, por las personas
+              y por los espacios que compartimos.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="principle">
+
+          <div class="principle-number">
+            05
+          </div>
+
+          <div>
+
+            <h3>
+              Naturaleza
+            </h3>
+
+            <p>
+              La naturaleza inspira nuestra forma
+              de entender la energía, el equilibrio
+              y la conexión entre las personas.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="principle">
+
+          <div class="principle-number">
+            06
+          </div>
+
+          <div>
+
+            <h3>
+              Experiencia
+            </h3>
+
+            <p>
+              Cada sesión, cada encuentro y cada
+              momento compartido forma parte de
+              una experiencia que continúa creciendo.
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       ECOSISTEMA
+  ======================================================== -->
+
+  <section class="ecosystem">
+
+    <div class="container">
+
+      <div class="ecosystem-header">
+
+        <div class="eyebrow">
+          Comunidad
+        </div>
+
+        <h2 class="section-heading">
+          Personas alrededor
+          de la música.
+        </h2>
+
+        <p class="section-description">
+
+          WeAreParty conecta las diferentes partes
+          que hacen posible una experiencia musical:
+          artistas, espacios y personas.
+
+        </p>
+
+      </div>
+
+
+      <div class="ecosystem-grid">
+
+
+        <article class="ecosystem-card">
+
+          <div class="ecosystem-number">
+            01 / DJs
+          </div>
+
+          <div>
+
+            <h3>
+              Artistas
+            </h3>
+
+            <p>
+
+              Un espacio donde el talento,
+              la identidad musical y el compromiso
+              tienen más importancia que un número
+              de seguidores.
+
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="ecosystem-card">
+
+          <div class="ecosystem-number">
+            02 / ESPACIOS
+          </div>
+
+          <div>
+
+            <h3>
+              Lugares
+            </h3>
+
+            <p>
+
+              Bares y espacios capaces de convertirse
+              en puntos de encuentro entre música,
+              artistas y público.
+
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="ecosystem-card">
+
+          <div class="ecosystem-number">
+            03 / PERSONAS
+          </div>
+
+          <div>
+
+            <h3>
+              Comunidad
+            </h3>
+
+            <p>
+
+              Personas que descubren música,
+              comparten experiencias y ayudan
+              a mantener viva la escena.
+
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       SETS
+  ======================================================== -->
+
+  <section
+    class="sets page-section"
+    id="sets"
+  >
+
+    <div class="container">
+
+
+      <div class="sets-header">
+
+        <div class="sets-header-copy">
+
+          <div class="eyebrow">
+            Music / Selection
+          </div>
+
+          <h2 class="section-heading">
+            Los sets.
+          </h2>
+
+        </div>
+
+
+        <p class="sets-intro">
+
+          Sesiones seleccionadas por WeAreParty.
+          Descubre artistas, sonidos y diferentes
+          maneras de entender la música.
+
+        </p>
+
+      </div>
+
+
+      <div
+        class="sets-grid"
+        id="setsGrid"
+      >
+
+
+        <!-- =================================================
+             SET 001
+        ================================================== -->
+
+        <article
+          class="set-card playable"
+
+          data-number="001"
+
+          data-platform="youtube"
+
+          data-video-id="42gByTukK4U"
+
+          data-title="VICTOR OLIVA"
+
+          data-source="WeAreParty · Sunset @ Manresa"
+
+          data-start="0"
+        >
+
+
+          <div class="set-visual">
+
+
+            <img
+              src="victor-001.webp"
+              alt="Victor Oliva — Minimal"
+              class="artist-image"
+              loading="lazy"
+            >
+
+
+            <span class="set-number">
+              001
+            </span>
+
+
+            <span class="genre-badge">
+              MINIMAL
+            </span>
+
+
+            <button
+              class="card-play"
+              aria-label="Reproducir set de Victor Oliva"
+            ></button>
+
+
+          </div>
+
+
+          <div class="set-info">
+
+
+            <div class="set-genre">
+              MINIMAL
+            </div>
+
+
+            <h3 class="set-name">
+              VICTOR OLIVA
+            </h3>
+
+
+            <p class="set-date">
+              30/04/2023
+            </p>
+
+
+            <div class="set-secondary">
+              MINIMAL / HOUSE
+            </div>
+
+
+            <p class="set-description">
+              Sunset @ Manresa
+            </p>
+
+
+            <div class="set-footer">
+
+              <span>
+                Reproducir
+              </span>
+
+              <span class="set-arrow">
+                →
+              </span>
+
+            </div>
+
+
+          </div>
+
+
+        </article>
+
+
+      </div>
+
+
+      <!--
+        Este botón aparecerá automáticamente
+        cuando haya más de 6 sets.
+      -->
+
+      <div
+        class="sets-more"
+        id="setsMore"
+      >
+
+        <button
+          class="show-all-sets"
+          id="showAllSets"
+        >
+          Ver todos los sets
+        </button>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       EVENTOS
+  ======================================================== -->
+
+  <section
+    class="events page-section"
+    id="eventos"
+  >
+
+    <div class="container">
+
+
+      <div class="events-header">
+
+        <div class="eyebrow">
+          Experiences
+        </div>
+
+        <h2 class="section-heading">
+          Eventos.
+        </h2>
+
+        <p class="section-description">
+
+          Encuentros donde la música deja de ser
+          simplemente algo que escuchamos
+          y se convierte en una experiencia compartida.
+
+        </p>
+
+      </div>
+
+
+      <div class="events-panel">
+
+        <div class="eyebrow">
+          Próximamente
+        </div>
+
+        <h3>
+          El próximo encuentro<br>
+          está por llegar.
+        </h3>
+
+        <p>
+
+          Los próximos eventos y experiencias
+          de WeAreParty aparecerán aquí.
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       CONTACTO
+  ======================================================== -->
+
+  <section
+    class="contact page-section"
+    id="contacto"
+  >
+
+    <div class="container">
+
+
+      <div class="contact-layout">
+
+
+        <div class="contact-copy">
+
+
+          <div class="eyebrow">
+            Contact / Connection
+          </div>
+
+
+          <h2>
+            Hablemos.
+          </h2>
+
+
+          <p>
+
+            WeAreParty se construye conectando personas.
+            Si eres DJ, gestionas un espacio, quieres
+            colaborar o simplemente quieres formar parte
+            de lo que estamos creando, este es el punto
+            de encuentro.
+
+          </p>
+
+
+          <div class="contact-types">
+
+
+            <div class="contact-type">
+
+              <span class="contact-type-number">
+                01
+              </span>
+
+              <span class="contact-type-text">
+                Soy DJ
+              </span>
+
+            </div>
+
+
+            <div class="contact-type">
+
+              <span class="contact-type-number">
+                02
+              </span>
+
+              <span class="contact-type-text">
+                Tengo un bar o espacio
+              </span>
+
+            </div>
+
+
+            <div class="contact-type">
+
+              <span class="contact-type-number">
+                03
+              </span>
+
+              <span class="contact-type-text">
+                Quiero colaborar
+              </span>
+
+            </div>
+
+
+            <div class="contact-type">
+
+              <span class="contact-type-number">
+                04
+              </span>
+
+              <span class="contact-type-text">
+                Otro
+              </span>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+        <!--
+          IMPORTANTE:
+          Este formulario ya está diseñado y funciona
+          visualmente.
+
+          Por ahora evita que la página se recargue.
+          Más adelante conectaremos el envío real
+          a email/backend.
+        -->
+
+        <form
+          class="contact-form"
+          id="contactForm"
+        >
+
+
+          <div class="form-row">
+
+
+            <div class="form-group">
+
+              <label for="nombre">
+                Nombre
+              </label>
+
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-control"
+                autocomplete="name"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="email">
+                Email
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                autocomplete="email"
+                required
+              >
+
+            </div>
+
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="perfil">
+              Quiero contactar como
+            </label>
+
+            <select
+              id="perfil"
+              name="perfil"
+              class="form-control"
+              required
+            >
+
+              <option value="">
+                Selecciona una opción
+              </option>
+
+              <option value="dj">
+                DJ / Artista
+              </option>
+
+              <option value="espacio">
+                Bar / Espacio
+              </option>
+
+              <option value="colaboracion">
+                Colaboración
+              </option>
+
+              <option value="otro">
+                Otro
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="mensaje">
+              Mensaje
+            </label>
+
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              class="form-control"
+              required
+            ></textarea>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="form-submit"
+          >
+            Enviar mensaje →
+          </button>
+
+
+          <p
+            class="form-note"
+            id="formNote"
+          >
+
+            Cuéntanos brevemente quién eres
+            y qué conexión buscas con WeAreParty.
+
+          </p>
+
+
+        </form>
+
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       CIERRE
+  ======================================================== -->
+
+  <section class="final-cta">
+
+    <div class="container">
+
+      <div class="final-cta-content">
+
+        <div class="eyebrow">
+          WeAreParty
+        </div>
+
+        <h2>
+
+          <span class="gradient-text">
+            Natural Connection
+          </span>
+
+        </h2>
+
+        <p>
+
+          La música crea el espacio.
+          Las personas crean la experiencia.
+          La conexión sucede de forma natural.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="footer-brand">
+      © 2026 WeAreParty · Natural Connection
+    </div>
+
+
+    <div class="socials">
+
+      <a
+        href="https://www.instagram.com/we.are.party?igsi=MTFtbm51NGxpZHlwdg=="
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+
+      <a
+        href="https://on.soundcloud.com/1fzaZHNLJa3kJYFUAt"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        SoundCloud
+      </a>
+
+      <a
+        href="https://youtube.com/@we_are_party?si=O0rQbu32ImPsSfvb"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        YouTube
+      </a>
+
+      <a
+        href="https://kick.com/weareparty"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Kick
+      </a>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       WAP PLAYER PERMANENTE
+  ======================================================== -->
+
+  <div
+    id="wapPlayer"
+    class="wap-player hidden"
+  >
+
+    <div class="wap-player-inner">
+
+
+      <button
+        id="wapPlay"
+        class="wap-play"
+        aria-label="Reproducir o pausar"
+      >
+
+        <span class="wap-play-icon"></span>
+
+      </button>
+
+
+      <div class="wap-info">
+
+        <div class="wap-label">
+          NOW PLAYING
+        </div>
+
+        <div
+          id="wapTitle"
+          class="wap-title"
+        >
+          —
+        </div>
+
+        <div
+          id="wapSource"
+          class="wap-source"
+        >
+          —
+        </div>
+
+      </div>
+
+
+      <div class="wap-progress-area">
+
+        <div class="wap-times">
+
+          <span id="wapCurrentTime">
+            0:00
+          </span>
+
+          <span id="wapDuration">
+            0:00
+          </span>
+
+        </div>
+
+
+        <div
+          id="wapProgress"
+          class="wap-progress"
+        >
+
+          <div
+            id="wapProgressFill"
+            class="wap-progress-fill"
+          ></div>
+
+          <div
+            id="wapProgressDot"
+            class="wap-progress-dot"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <button
+        id="wapClose"
+        class="wap-close"
+        aria-label="Cerrar reproductor"
+      >
+        ×
+      </button>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       MOTOR YOUTUBE OCULTO
+  ======================================================== -->
+
+  <div id="youtubeEngine"></div>
+
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+
+  <script>
+
+    /* =========================================================
+       VARIABLES
+    ========================================================= */
+
+    const wapPlayer =
+      document.getElementById("wapPlayer");
+
+    const wapPlay =
+      document.getElementById("wapPlay");
+
+    const wapClose =
+      document.getElementById("wapClose");
+
+    const wapTitle =
+      document.getElementById("wapTitle");
+
+    const wapSource =
+      document.getElementById("wapSource");
+
+    const wapCurrentTime =
+      document.getElementById("wapCurrentTime");
+
+    const wapDuration =
+      document.getElementById("wapDuration");
+
+    const wapProgress =
+      document.getElementById("wapProgress");
+
+    const wapProgressFill =
+      document.getElementById("wapProgressFill");
+
+    const wapProgressDot =
+      document.getElementById("wapProgressDot");
+
+    const setsGrid =
+      document.getElementById("setsGrid");
+
+    const setsMore =
+      document.getElementById("setsMore");
+
+    const showAllSets =
+      document.getElementById("showAllSets");
+
+
+    let youtubePlayer = null;
+
+    let youtubeReady = false;
+
+    let currentPlatform = null;
+
+    let currentVideoId = null;
+
+    let pendingCard = null;
+
+    let progressTimer = null;
+
+    let allSetsVisible = false;
+
+
+    /* =========================================================
+       ORDENAR SETS
+
+       Siempre:
+       015
+       014
+       013
+       ...
+       002
+       001
+    ========================================================= */
+
+    function sortSets() {
+
+      if (!setsGrid) {
+        return;
+      }
+
+      const cards =
+        Array.from(
+          setsGrid.querySelectorAll(".set-card")
+        );
+
+      cards.sort(
+        function(a,b) {
+
+          const aNumber =
+            Number(a.dataset.number || 0);
+
+          const bNumber =
+            Number(b.dataset.number || 0);
+
+          return bNumber - aNumber;
+
+        }
+      );
+
+      cards.forEach(
+        function(card) {
+          setsGrid.appendChild(card);
+        }
+      );
+
+    }
+
+
+    /* =========================================================
+       CATÁLOGO
+
+       Mostramos 6 inicialmente.
+    ========================================================= */
+
+    function updateSetVisibility() {
+
+      if (!setsGrid) {
+        return;
+      }
+
+      const cards =
+        Array.from(
+          setsGrid.querySelectorAll(".set-card")
+        );
+
+      cards.forEach(
+        function(card,index) {
+
+          if (
+            !allSetsVisible &&
+            index >= 6
+          ) {
+
+            card.classList.add(
+              "catalog-hidden"
+            );
+
+          } else {
+
+            card.classList.remove(
+              "catalog-hidden"
+            );
+
+          }
+
+        }
+      );
+
+
+      if (cards.length > 6) {
+
+        setsMore.classList.add("visible");
+
+        showAllSets.textContent =
+          allSetsVisible
+          ? "Mostrar menos"
+          : "Ver todos los sets";
+
+      } else {
+
+        setsMore.classList.remove("visible");
+
+      }
+
+    }
+
+
+    sortSets();
+    updateSetVisibility();
+
+
+    showAllSets.addEventListener(
+      "click",
+      function() {
+
+        allSetsVisible =
+          !allSetsVisible;
+
+        updateSetVisibility();
+
+      }
+    );
+
+
+    /* =========================================================
+       TIEMPO
+    ========================================================= */
+
+    function formatTime(seconds) {
+
+      if (
+        !seconds ||
+        seconds < 0
+      ) {
+        return "0:00";
+      }
+
+      const total =
+        Math.floor(seconds);
+
+      const hours =
+        Math.floor(total / 3600);
+
+      const minutes =
+        Math.floor(
+          (total % 3600) / 60
+        );
+
+      const secs =
+        total % 60;
+
+      if (hours > 0) {
+
+        return (
+          hours +
+          ":" +
+          String(minutes).padStart(2,"0") +
+          ":" +
+          String(secs).padStart(2,"0")
+        );
+
+      }
+
+      return (
+        minutes +
+        ":" +
+        String(secs).padStart(2,"0")
+      );
+
+    }
+
+
+    /* =========================================================
+       PROGRESO
+    ========================================================= */
+
+    function resetProgress() {
+
+      wapProgressFill.style.width =
+        "0%";
+
+      wapProgressDot.style.left =
+        "0%";
+
+      wapCurrentTime.textContent =
+        "0:00";
+
+      wapDuration.textContent =
+        "0:00";
+
+    }
+
+
+    function updateProgress() {
+
+      if (
+        currentPlatform !== "youtube" ||
+        !youtubePlayer ||
+        !youtubeReady
+      ) {
+        return;
+      }
+
+      const current =
+        youtubePlayer.getCurrentTime();
+
+      const duration =
+        youtubePlayer.getDuration();
+
+      if (!duration) {
+        return;
+      }
+
+      const percentage =
+        Math.min(
+          100,
+          (current / duration) * 100
+        );
+
+      wapProgressFill.style.width =
+        percentage + "%";
+
+      wapProgressDot.style.left =
+        percentage + "%";
+
+      wapCurrentTime.textContent =
+        formatTime(current);
+
+      wapDuration.textContent =
+        formatTime(duration);
+
+    }
+
+
+    function startProgressTimer() {
+
+      if (progressTimer) {
+
+        clearInterval(progressTimer);
+
+      }
+
+      progressTimer =
+        setInterval(
+          updateProgress,
+          500
+        );
+
+    }
+
+
+    /* =========================================================
+       YOUTUBE
+    ========================================================= */
+
+    window.onYouTubeIframeAPIReady =
+      function() {
+
+        youtubePlayer =
+          new YT.Player(
+            "youtubeEngine",
+            {
+
+              width: "320",
+
+              height: "180",
+
+              videoId:
+                "42gByTukK4U",
+
+              playerVars: {
+
+                autoplay: 0,
+
+                controls: 0,
+
+                disablekb: 1,
+
+                playsinline: 1,
+
+                rel: 0,
+
+                start: 0
+
+              },
+
+              events: {
+
+                onReady:
+                  function() {
+
+                    youtubeReady = true;
+
+                    if (pendingCard) {
+
+                      const card =
+                        pendingCard;
+
+                      pendingCard = null;
+
+                      playYouTubeCard(card);
+
+                    }
+
+                  },
+
+                onStateChange:
+                  function(event) {
+
+                    if (
+                      currentPlatform !==
+                      "youtube"
+                    ) {
+                      return;
+                    }
+
+                    if (
+                      event.data ===
+                      YT.PlayerState.PLAYING
+                    ) {
+
+                      wapPlay.classList.add(
+                        "playing"
+                      );
+
+                      startProgressTimer();
+
+                    }
+
+                    if (
+                      event.data ===
+                      YT.PlayerState.PAUSED
+                    ) {
+
+                      wapPlay.classList.remove(
+                        "playing"
+                      );
+
+                    }
+
+                    if (
+                      event.data ===
+                      YT.PlayerState.ENDED
+                    ) {
+
+                      wapPlay.classList.remove(
+                        "playing"
+                      );
+
+                    }
+
+                  }
+
+              }
+
+            }
+          );
+
+      };
+
+
+    /* =========================================================
+       REPRODUCIR YOUTUBE DESDE 0:00
+    ========================================================= */
+
+    function playYouTubeCard(card) {
+
+      if (
+        !youtubePlayer ||
+        !youtubeReady
+      ) {
+
+        pendingCard = card;
+
+        return;
+
+      }
+
+      currentVideoId =
+        card.dataset.videoId;
+
+      youtubePlayer.loadVideoById({
+
+        videoId:
+          currentVideoId,
+
+        startSeconds:
+          0
+
+      });
+
+    }
+
+
+    /* =========================================================
+       ABRIR WAP PLAYER
+    ========================================================= */
+
+    function openPlayer(card) {
+
+      currentPlatform =
+        card.dataset.platform;
+
+      currentVideoId =
+        card.dataset.videoId;
+
+      wapTitle.textContent =
+        card.dataset.title ||
+        "WeAreParty Set";
+
+      wapSource.textContent =
+        card.dataset.source ||
+        "WeAreParty";
+
+      resetProgress();
+
+      wapPlayer.classList.remove(
+        "hidden"
+      );
+
+      document.body.classList.add(
+        "player-visible"
+      );
+
+      if (
+        currentPlatform ===
+        "youtube"
+      ) {
+
+        playYouTubeCard(card);
+
+      }
+
+    }
+
+
+    /* =========================================================
+       CARDS
+    ========================================================= */
+
+    document
+      .querySelectorAll(
+        ".set-card.playable"
+      )
+      .forEach(
+        function(card) {
+
+          card.addEventListener(
+            "click",
+            function() {
+
+              openPlayer(card);
+
+            }
+          );
+
+          const button =
+            card.querySelector(
+              ".card-play"
+            );
+
+          if (button) {
+
+            button.addEventListener(
+              "click",
+              function(event) {
+
+                event.stopPropagation();
+
+                openPlayer(card);
+
+              }
+            );
+
+          }
+
+        }
+      );
+
+
+    /* =========================================================
+       PLAY / PAUSE
+    ========================================================= */
+
+    wapPlay.addEventListener(
+      "click",
+      function() {
+
+        if (
+          currentPlatform !== "youtube" ||
+          !youtubeReady ||
+          !youtubePlayer
+        ) {
+          return;
+        }
+
+        const state =
+          youtubePlayer.getPlayerState();
+
+        if (
+          state ===
+          YT.PlayerState.PLAYING
+        ) {
+
+          youtubePlayer.pauseVideo();
+
+        } else {
+
+          youtubePlayer.playVideo();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       SEEK
+    ========================================================= */
+
+    wapProgress.addEventListener(
+      "click",
+      function(event) {
+
+        if (
+          currentPlatform !== "youtube" ||
+          !youtubeReady ||
+          !youtubePlayer
+        ) {
+          return;
+        }
+
+        const rect =
+          wapProgress.getBoundingClientRect();
+
+        let percentage =
+          (
+            event.clientX -
+            rect.left
+          ) /
+          rect.width;
+
+        percentage =
+          Math.max(
+            0,
+            Math.min(
+              1,
+              percentage
+            )
+          );
+
+        const duration =
+          youtubePlayer.getDuration();
+
+        if (!duration) {
+          return;
+        }
+
+        youtubePlayer.seekTo(
+          duration * percentage,
+          true
+        );
+
+      }
+    );
+
+
+    /* =========================================================
+       CERRAR PLAYER
+    ========================================================= */
+
+    wapClose.addEventListener(
+      "click",
+      function() {
+
+        pendingCard = null;
+
+        if (
+          youtubePlayer &&
+          youtubeReady
+        ) {
+
+          youtubePlayer.stopVideo();
+
+        }
+
+        if (progressTimer) {
+
+          clearInterval(
+            progressTimer
+          );
+
+          progressTimer = null;
+
+        }
+
+        wapPlay.classList.remove(
+          "playing"
+        );
+
+        resetProgress();
+
+        wapPlayer.classList.add(
+          "hidden"
+        );
+
+        document.body.classList.remove(
+          "player-visible"
+        );
+
+      }
+    );
+
+
+    /* =========================================================
+       NAVEGACIÓN ACTIVA
+
+       Detecta automáticamente qué sección
+       está viendo el visitante.
+    ========================================================= */
+
+    const navLinks =
+      Array.from(
+        document.querySelectorAll(
+          ".nav-link"
+        )
+      );
+
+    const sections =
+      Array.from(
+        document.querySelectorAll(
+          ".page-section"
+        )
+      );
+
+
+    function updateActiveNavigation() {
+
+      const position =
+        window.scrollY + 180;
+
+      let activeSection =
+        "inicio";
+
+      sections.forEach(
+        function(section) {
+
+          if (
+            position >=
+            section.offsetTop
+          ) {
+
+            activeSection =
+              section.id;
+
+          }
+
+        }
+      );
+
+
+      navLinks.forEach(
+        function(link) {
+
+          link.classList.toggle(
+            "active",
+            link.dataset.section ===
+            activeSection
+          );
+
+        }
+      );
+
+    }
+
+
+    window.addEventListener(
+      "scroll",
+      updateActiveNavigation,
+      {
+        passive: true
+      }
+    );
+
+
+    window.addEventListener(
+      "load",
+      updateActiveNavigation
+    );
+
+
+    /* =========================================================
+       FORMULARIO
+
+       Por ahora NO recarga la página.
+       Esto es importante para no cortar
+       el reproductor.
+
+       Después conectaremos el envío real.
+    ========================================================= */
+
+    const contactForm =
+      document.getElementById(
+        "contactForm"
+      );
+
+    const formNote =
+      document.getElementById(
+        "formNote"
+      );
+
+
+    contactForm.addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+        formNote.textContent =
+          "Formulario preparado. El siguiente paso será conectar el envío real de los mensajes.";
+
+        formNote.style.color =
+          "var(--cyan)";
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
