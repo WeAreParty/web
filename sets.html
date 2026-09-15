@@ -44,6 +44,8 @@
       --border: rgba(255,255,255,.08);
 
       --max: 1440px;
+
+      --nav-height: 83px;
     }
 
     html {
@@ -57,6 +59,8 @@
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+
+      padding-top: var(--nav-height);
       padding-bottom: 100px;
     }
 
@@ -95,13 +99,20 @@
       color: transparent;
     }
 
+
+    /* =========================================================
+       TOP PULSE
+    ========================================================= */
+
     .pulse-line {
       position: fixed;
       top: 0;
       left: 0;
+
       width: 100%;
       height: 2px;
-      z-index: 1500;
+
+      z-index: 2000;
 
       background:
         linear-gradient(
@@ -114,13 +125,20 @@
 
 
     /* =========================================================
-       NAVIGATION
+       FIXED NAVIGATION
     ========================================================= */
 
     nav {
-      position: relative;
-      z-index: 20;
-      width: 100%;
+      position: fixed;
+
+      top: 2px;
+      left: 0;
+      right: 0;
+
+      z-index: 1900;
+
+      min-height: calc(var(--nav-height) - 2px);
+
       padding: 22px 40px;
 
       display: flex;
@@ -129,8 +147,13 @@
 
       border-bottom: 1px solid var(--border);
 
-      background: rgba(6,6,6,.72);
-      backdrop-filter: blur(14px);
+      background: rgba(6,6,6,.88);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      box-shadow:
+        0 10px 35px rgba(0,0,0,.25);
     }
 
     .logo img {
@@ -149,13 +172,17 @@
       display: flex;
       align-items: center;
       gap: 28px;
+
       list-style: none;
     }
 
     .nav-links a {
+      position: relative;
+
       font-size: 10px;
       letter-spacing: .14em;
       text-transform: uppercase;
+
       color: var(--muted);
 
       transition: color .25s ease;
@@ -164,6 +191,25 @@
     .nav-links a:hover,
     .nav-links a.active {
       color: var(--white);
+    }
+
+    .nav-links a.active::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: -12px;
+
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--violet)
+        );
     }
 
     .nav-button {
@@ -192,6 +238,7 @@
 
     .hero {
       position: relative;
+
       min-height: 62vh;
 
       display: flex;
@@ -205,6 +252,7 @@
     .hero-background {
       position: absolute;
       inset: 0;
+
       pointer-events: none;
     }
 
@@ -273,6 +321,7 @@
 
     .hero-content {
       position: relative;
+
       z-index: 2;
 
       padding: 110px 0 100px;
@@ -287,6 +336,7 @@
 
       line-height: .87;
       letter-spacing: -.07em;
+
       font-weight: 600;
     }
 
@@ -296,6 +346,7 @@
 
     .hero-description {
       max-width: 620px;
+
       margin-top: 40px;
 
       font-size: 15px;
@@ -326,6 +377,7 @@
 
       letter-spacing: -.045em;
       line-height: 1;
+
       font-weight: 500;
     }
 
@@ -340,20 +392,25 @@
 
 
     /* =========================================================
-       SET CARDS
+       SET GRID
     ========================================================= */
 
     .sets-grid {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 12px;
     }
 
     .set-card {
       position: relative;
+
       overflow: hidden;
 
       border: 1px solid var(--border);
+
       background: var(--surface);
 
       transition:
@@ -369,13 +426,16 @@
     .set-card.playable:hover {
       transform: translateY(-5px);
 
-      border-color: rgba(123,44,255,.50);
-      background: var(--surface-2);
+      border-color:
+        rgba(123,44,255,.50);
+
+      background:
+        var(--surface-2);
     }
 
 
     /* =========================================================
-       SET VISUAL / ARTIST IMAGE
+       SET VISUAL
     ========================================================= */
 
     .set-visual {
@@ -422,6 +482,7 @@
 
     .artist-image {
       position: absolute;
+
       inset: 0;
 
       width: 100%;
@@ -432,7 +493,8 @@
 
       z-index: 1;
 
-      transition: transform .6s ease;
+      transition:
+        transform .6s ease;
     }
 
     .set-card:hover .artist-image {
@@ -468,7 +530,8 @@
       font-size: 9px;
       letter-spacing: .16em;
 
-      color: rgba(255,255,255,.50);
+      color:
+        rgba(255,255,255,.50);
     }
 
     .genre-badge {
@@ -481,9 +544,11 @@
 
       padding: 7px 10px;
 
-      border: 1px solid rgba(255,255,255,.18);
+      border:
+        1px solid rgba(255,255,255,.18);
 
-      background: rgba(0,0,0,.38);
+      background:
+        rgba(0,0,0,.38);
 
       backdrop-filter: blur(8px);
 
@@ -491,7 +556,8 @@
       letter-spacing: .15em;
       text-transform: uppercase;
 
-      color: rgba(255,255,255,.78);
+      color:
+        rgba(255,255,255,.78);
     }
 
 
@@ -507,16 +573,19 @@
 
       z-index: 6;
 
-      transform: translate(-50%,-50%);
+      transform:
+        translate(-50%,-50%);
 
       width: 68px;
       height: 68px;
 
       border-radius: 50%;
 
-      border: 1px solid rgba(255,255,255,.38);
+      border:
+        1px solid rgba(255,255,255,.38);
 
-      background: rgba(0,0,0,.38);
+      background:
+        rgba(0,0,0,.38);
 
       backdrop-filter: blur(8px);
 
@@ -536,14 +605,20 @@
       left: 50%;
       top: 50%;
 
-      transform: translate(-38%,-50%);
+      transform:
+        translate(-38%,-50%);
 
       width: 0;
       height: 0;
 
-      border-top: 9px solid transparent;
-      border-bottom: 9px solid transparent;
-      border-left: 14px solid var(--white);
+      border-top:
+        9px solid transparent;
+
+      border-bottom:
+        9px solid transparent;
+
+      border-left:
+        14px solid var(--white);
     }
 
     .playable:hover .card-play {
@@ -551,14 +626,16 @@
         translate(-50%,-50%)
         scale(1.08);
 
-      border-color: rgba(0,200,255,.7);
+      border-color:
+        rgba(0,200,255,.7);
 
-      background: rgba(0,200,255,.10);
+      background:
+        rgba(0,200,255,.10);
     }
 
 
     /* =========================================================
-       SET INFO
+       SET INFORMATION
     ========================================================= */
 
     .set-info {
@@ -566,20 +643,20 @@
     }
 
     .set-genre {
+      margin-bottom: 10px;
+
       font-size: 9px;
       letter-spacing: .16em;
       text-transform: uppercase;
 
       color: var(--cyan);
-
-      margin-bottom: 10px;
     }
 
     .set-name {
+      margin-bottom: 8px;
+
       font-size: 18px;
       font-weight: 600;
-
-      margin-bottom: 8px;
 
       letter-spacing: -.01em;
     }
@@ -618,7 +695,8 @@
       margin-top: 22px;
       padding-top: 16px;
 
-      border-top: 1px solid var(--border);
+      border-top:
+        1px solid var(--border);
     }
 
     .set-footer span:first-child {
@@ -631,6 +709,7 @@
 
     .set-arrow {
       font-size: 18px;
+
       color: var(--cyan);
     }
 
@@ -653,7 +732,8 @@
 
       text-align: center;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       background:
         radial-gradient(
@@ -666,9 +746,11 @@
     .future-title {
       margin-top: 16px;
 
-      font-size: clamp(28px, 4vw, 46px);
+      font-size:
+        clamp(28px, 4vw, 46px);
 
       letter-spacing: -.04em;
+
       font-weight: 500;
     }
 
@@ -695,7 +777,8 @@
       justify-content: space-between;
       align-items: center;
 
-      border-top: 1px solid var(--border);
+      border-top:
+        1px solid var(--border);
     }
 
     .footer-brand {
@@ -708,6 +791,7 @@
 
     .socials {
       display: flex;
+
       gap: 22px;
     }
 
@@ -718,7 +802,8 @@
 
       color: var(--muted);
 
-      transition: color .2s ease;
+      transition:
+        color .2s ease;
     }
 
     .socials a:hover {
@@ -727,7 +812,7 @@
 
 
     /* =========================================================
-       WAP PLAYER
+       PERMANENT WAP PLAYER
     ========================================================= */
 
     .wap-player {
@@ -737,15 +822,18 @@
       right: 0;
       bottom: 0;
 
-      z-index: 1000;
+      z-index: 1800;
 
       height: 94px;
 
-      border-top: 1px solid rgba(255,255,255,.13);
+      border-top:
+        1px solid rgba(255,255,255,.13);
 
-      background: rgba(5,5,6,.97);
+      background:
+        rgba(5,5,6,.97);
 
       backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
 
       box-shadow:
         0 -20px 60px rgba(0,0,0,.50);
@@ -756,14 +844,21 @@
     }
 
     .wap-player.hidden {
-      transform: translateY(110%);
+      transform:
+        translateY(110%);
+
       opacity: 0;
 
       pointer-events: none;
     }
 
     .wap-player-inner {
-      width: min(var(--max), calc(100% - 40px));
+      width:
+        min(
+          var(--max),
+          calc(100% - 40px)
+        );
+
       height: 100%;
 
       margin: 0 auto;
@@ -771,7 +866,10 @@
       display: grid;
 
       grid-template-columns:
-        52px 270px 1fr 38px;
+        52px
+        270px
+        1fr
+        38px;
 
       align-items: center;
 
@@ -780,7 +878,7 @@
 
 
     /* =========================================================
-       WAP PLAY
+       PLAYER PLAY
     ========================================================= */
 
     .wap-play {
@@ -789,9 +887,11 @@
 
       border-radius: 50%;
 
-      border: 1px solid rgba(0,200,255,.50);
+      border:
+        1px solid rgba(0,200,255,.50);
 
-      background: rgba(0,200,255,.04);
+      background:
+        rgba(0,200,255,.04);
 
       display: flex;
       align-items: center;
@@ -799,26 +899,35 @@
 
       cursor: pointer;
 
-      transition: all .25s ease;
+      transition:
+        all .25s ease;
     }
 
     .wap-play:hover {
       border-color: var(--cyan);
-      background: rgba(0,200,255,.12);
+
+      background:
+        rgba(0,200,255,.12);
     }
 
     .wap-play-icon {
       width: 0;
       height: 0;
 
-      border-top: 6px solid transparent;
-      border-bottom: 6px solid transparent;
-      border-left: 10px solid var(--white);
+      border-top:
+        6px solid transparent;
+
+      border-bottom:
+        6px solid transparent;
+
+      border-left:
+        10px solid var(--white);
 
       margin-left: 3px;
     }
 
-    .wap-play.playing .wap-play-icon {
+    .wap-play.playing
+    .wap-play-icon {
       width: 12px;
       height: 14px;
 
@@ -844,13 +953,13 @@
     }
 
     .wap-label {
+      margin-bottom: 6px;
+
       font-size: 8px;
       letter-spacing: .17em;
       text-transform: uppercase;
 
       color: var(--cyan);
-
-      margin-bottom: 6px;
     }
 
     .wap-title {
@@ -876,7 +985,7 @@
 
 
     /* =========================================================
-       PLAYER PROGRESS
+       PROGRESS
     ========================================================= */
 
     .wap-progress-area {
@@ -901,7 +1010,8 @@
       width: 100%;
       height: 3px;
 
-      background: rgba(255,255,255,.10);
+      background:
+        rgba(255,255,255,.10);
 
       cursor: pointer;
     }
@@ -933,34 +1043,39 @@
       width: 9px;
       height: 9px;
 
-      transform: translate(-50%,-50%);
+      transform:
+        translate(-50%,-50%);
 
       border-radius: 50%;
 
       background: var(--white);
 
       box-shadow:
-        0 0 12px rgba(0,200,255,.55);
+        0 0 12px
+        rgba(0,200,255,.55);
 
       opacity: 0;
 
-      transition: opacity .2s ease;
+      transition:
+        opacity .2s ease;
     }
 
-    .wap-progress:hover .wap-progress-dot {
+    .wap-progress:hover
+    .wap-progress-dot {
       opacity: 1;
     }
 
 
     /* =========================================================
-       CLOSE
+       PLAYER CLOSE
     ========================================================= */
 
     .wap-close {
       width: 34px;
       height: 34px;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       background: transparent;
 
@@ -970,31 +1085,40 @@
 
       cursor: pointer;
 
-      transition: all .2s ease;
+      transition:
+        all .2s ease;
     }
 
     .wap-close:hover {
-      border-color: rgba(255,255,255,.30);
+      border-color:
+        rgba(255,255,255,.30);
+
       color: var(--white);
     }
 
 
     /* =========================================================
-       HIDDEN YOUTUBE ENGINE
+       YOUTUBE ENGINE
+
+       IMPORTANTE:
+       NO usamos display:none.
+       YouTube necesita un iframe real activo.
     ========================================================= */
 
-    .hidden-engine {
+    #youtubeEngine {
       position: fixed;
 
-      left: -9999px;
-      bottom: -9999px;
+      width: 2px;
+      height: 2px;
 
-      width: 1px;
-      height: 1px;
+      right: 0;
+      bottom: 0;
 
-      opacity: 0;
+      opacity: .001;
 
       pointer-events: none;
+
+      z-index: -1;
     }
 
 
@@ -1005,12 +1129,16 @@
     @media (max-width: 1000px) {
 
       .sets-grid {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns:
+          repeat(2,1fr);
       }
 
       .wap-player-inner {
         grid-template-columns:
-          50px 220px 1fr 38px;
+          50px
+          220px
+          1fr
+          38px;
       }
 
     }
@@ -1018,12 +1146,20 @@
 
     @media (max-width: 900px) {
 
+      :root {
+        --nav-height: 73px;
+      }
+
       .container {
-        width: min(calc(100% - 40px), var(--max));
+        width:
+          min(
+            calc(100% - 40px),
+            var(--max)
+          );
       }
 
       nav {
-        padding: 20px;
+        padding: 17px 20px;
       }
 
       .nav-links {
@@ -1034,16 +1170,26 @@
         gap: 0;
       }
 
+      .logo img {
+        height: 34px;
+      }
+
       .hero {
         min-height: 58vh;
       }
 
       .hero-content {
-        padding: 95px 0 80px;
+        padding:
+          95px 0 80px;
       }
 
       .hero-title {
-        font-size: clamp(56px, 17vw, 95px);
+        font-size:
+          clamp(
+            56px,
+            17vw,
+            95px
+          );
       }
 
       .section-top {
@@ -1055,11 +1201,13 @@
       }
 
       .sets {
-        padding: 80px 0 100px;
+        padding:
+          80px 0 100px;
       }
 
       .sets-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
       }
 
       .set-visual {
@@ -1083,10 +1231,13 @@
       }
 
       .wap-player-inner {
-        width: calc(100% - 20px);
+        width:
+          calc(100% - 20px);
 
         grid-template-columns:
-          44px 1fr 34px;
+          44px
+          1fr
+          34px;
 
         gap: 12px;
       }
@@ -1138,10 +1289,10 @@
 
 
   <!-- =======================================================
-       NAV
+       FIXED NAVIGATION
   ======================================================== -->
 
-  <nav>
+  <nav id="mainNav">
 
     <a
       href="index.html"
@@ -1207,294 +1358,300 @@
 
 
   <!-- =======================================================
-       HERO
+       PAGE CONTENT
   ======================================================== -->
 
-  <header class="hero">
-
-    <div class="hero-background">
-
-      <div class="glow-1"></div>
-      <div class="glow-2"></div>
-
-      <div class="hero-grid"></div>
-
-    </div>
-
-
-    <div class="container">
-
-      <div class="hero-content">
-
-        <div class="eyebrow">
-          WEAREPARTY / AUDIO
-        </div>
-
-
-        <h1 class="hero-title">
-
-          <span>
-            LOS
-          </span>
-
-          <span class="gradient-text">
-            SETS.
-          </span>
-
-        </h1>
-
-
-        <p class="hero-description">
-          Sesiones seleccionadas por WeAreParty.
-          Una forma de descubrir artistas, sonidos
-          y diferentes maneras de entender la música.
-        </p>
-
-      </div>
-
-    </div>
-
-  </header>
-
-
-  <!-- =======================================================
-       SETS
-  ======================================================== -->
-
-  <main>
-
-    <section class="sets">
-
-      <div class="container">
-
-
-        <div class="section-top">
-
-          <div>
-
-            <div class="eyebrow">
-              MUSIC / SELECTION
-            </div>
-
-            <h2 class="section-heading">
-              Escucha.
-            </h2>
-
-          </div>
-
-
-          <p class="section-intro">
-            Una selección de sesiones para escuchar,
-            descubrir y conectar. El catálogo crecerá
-            junto a nuestra comunidad.
-          </p>
-
-        </div>
-
-
-        <!--
-        ========================================================
-        ORDEN DE LOS SETS
-
-        Los números son históricos y nunca cambian.
-
-        Los sets nuevos se añaden ARRIBA:
-
-        003
-        002
-        001
-        ========================================================
-        -->
-
-
-        <div class="sets-grid">
-
-
-          <!-- =================================================
-               SET 001
-               VICTOR OLIVA
-               MINIMAL
-          ================================================== -->
-
-          <article
-            class="set-card playable"
-
-            data-platform="youtube"
-
-            data-video-id="42gByTukK4U"
-
-            data-title="VICTOR OLIVA"
-
-            data-source="WeAreParty · Sunset @ Manresa"
-
-            data-start="0"
-          >
-
-            <div class="set-visual">
-
-
-              <img
-                src="victor-001.webp"
-                alt="Victor Oliva — Minimal"
-                class="artist-image"
-                loading="lazy"
-              >
-
-
-              <span class="set-number">
-                001
-              </span>
-
-
-              <span class="genre-badge">
-                MINIMAL
-              </span>
-
-
-              <button
-                class="card-play"
-                aria-label="Reproducir set de Victor Oliva"
-              ></button>
-
-            </div>
-
-
-            <div class="set-info">
-
-
-              <div class="set-genre">
-                MINIMAL
-              </div>
-
-
-              <h3 class="set-name">
-                VICTOR OLIVA
-              </h3>
-
-
-              <p class="set-date">
-                30/04/2023
-              </p>
-
-
-              <div class="set-secondary">
-                MINIMAL / HOUSE
-              </div>
-
-
-              <p class="set-description">
-                Sunset @ Manresa
-              </p>
-
-
-              <div class="set-footer">
-
-                <span>
-                  Reproducir
-                </span>
-
-                <span class="set-arrow">
-                  →
-                </span>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-        </div>
-
-      </div>
-
-    </section>
+  <div id="app">
 
 
     <!-- =====================================================
-         FUTURE
+         HERO
     ====================================================== -->
 
-    <section class="future">
+    <header class="hero">
+
+      <div class="hero-background">
+
+        <div class="glow-1"></div>
+
+        <div class="glow-2"></div>
+
+        <div class="hero-grid"></div>
+
+      </div>
+
 
       <div class="container">
 
-        <div class="future-panel">
+        <div class="hero-content">
 
           <div class="eyebrow">
-            NATURAL CONNECTION
+            WEAREPARTY / AUDIO
           </div>
 
-          <h2 class="future-title">
-            El archivo acaba de empezar.
-          </h2>
 
-          <p class="future-text">
-            Nuevos artistas y sesiones irán formando
-            parte del universo WeAreParty.
+          <h1 class="hero-title">
+
+            <span>
+              LOS
+            </span>
+
+            <span class="gradient-text">
+              SETS.
+            </span>
+
+          </h1>
+
+
+          <p class="hero-description">
+            Sesiones seleccionadas por WeAreParty.
+            Una forma de descubrir artistas, sonidos
+            y diferentes maneras de entender la música.
           </p>
 
         </div>
 
       </div>
 
-    </section>
+    </header>
 
-  </main>
+
+    <!-- =====================================================
+         SETS
+    ====================================================== -->
+
+    <main>
+
+      <section class="sets">
+
+        <div class="container">
+
+
+          <div class="section-top">
+
+            <div>
+
+              <div class="eyebrow">
+                MUSIC / SELECTION
+              </div>
+
+              <h2 class="section-heading">
+                Escucha.
+              </h2>
+
+            </div>
+
+
+            <p class="section-intro">
+              Una selección de sesiones para escuchar,
+              descubrir y conectar. El catálogo crecerá
+              junto a nuestra comunidad.
+            </p>
+
+          </div>
+
+
+          <div class="sets-grid">
+
+
+            <!-- =============================================
+                 SET 001
+            ============================================== -->
+
+            <article
+              class="set-card playable"
+
+              data-platform="youtube"
+
+              data-video-id="42gByTukK4U"
+
+              data-title="VICTOR OLIVA"
+
+              data-source="WeAreParty · Sunset @ Manresa"
+
+              data-start="0"
+            >
+
+
+              <div class="set-visual">
+
+
+                <img
+                  src="victor-001.webp"
+                  alt="Victor Oliva — Minimal"
+                  class="artist-image"
+                  loading="lazy"
+                >
+
+
+                <span class="set-number">
+                  001
+                </span>
+
+
+                <span class="genre-badge">
+                  MINIMAL
+                </span>
+
+
+                <button
+                  class="card-play"
+                  aria-label="Reproducir set de Victor Oliva"
+                ></button>
+
+
+              </div>
+
+
+              <div class="set-info">
+
+
+                <div class="set-genre">
+                  MINIMAL
+                </div>
+
+
+                <h3 class="set-name">
+                  VICTOR OLIVA
+                </h3>
+
+
+                <p class="set-date">
+                  30/04/2023
+                </p>
+
+
+                <div class="set-secondary">
+                  MINIMAL / HOUSE
+                </div>
+
+
+                <p class="set-description">
+                  Sunset @ Manresa
+                </p>
+
+
+                <div class="set-footer">
+
+                  <span>
+                    Reproducir
+                  </span>
+
+                  <span class="set-arrow">
+                    →
+                  </span>
+
+                </div>
+
+
+              </div>
+
+            </article>
+
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           FUTURE
+      ==================================================== -->
+
+      <section class="future">
+
+        <div class="container">
+
+          <div class="future-panel">
+
+            <div class="eyebrow">
+              NATURAL CONNECTION
+            </div>
+
+
+            <h2 class="future-title">
+              El archivo acaba de empezar.
+            </h2>
+
+
+            <p class="future-text">
+              Nuevos artistas y sesiones irán formando
+              parte del universo WeAreParty.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+      <div class="footer-brand">
+        WeAreParty — Natural Connection
+      </div>
+
+
+      <div class="socials">
+
+        <a
+          href="https://www.instagram.com/we.are.party?igsi=MTFtbm51NGxpZHlwdg=="
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
+
+
+        <a
+          href="https://on.soundcloud.com/1fzaZHNLJa3kJYFUAt"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          SoundCloud
+        </a>
+
+
+        <a
+          href="https://youtube.com/@we_are_party?si=O0rQbu32ImPsSfvb"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          YouTube
+        </a>
+
+
+        <a
+          href="https://kick.com/weareparty"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Kick
+        </a>
+
+      </div>
+
+    </footer>
+
+
+  </div>
 
 
   <!-- =======================================================
-       FOOTER
-  ======================================================== -->
+       PERMANENT WAP PLAYER
 
-  <footer>
-
-    <div class="footer-brand">
-      WeAreParty — Natural Connection
-    </div>
-
-
-    <div class="socials">
-
-      <a
-        href="https://www.instagram.com/we.are.party?igsi=MTFtbm51NGxpZHlwdg=="
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Instagram
-      </a>
-
-      <a
-        href="https://on.soundcloud.com/1fzaZHNLJa3kJYFUAt"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        SoundCloud
-      </a>
-
-      <a
-        href="https://youtube.com/@we_are_party?si=O0rQbu32ImPsSfvb"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        YouTube
-      </a>
-
-      <a
-        href="https://kick.com/weareparty"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Kick
-      </a>
-
-    </div>
-
-  </footer>
-
-
-  <!-- =======================================================
-       WAP PLAYER
+       Está FUERA de #app.
+       Cuando hagamos la navegación SPA,
+       #app cambiará pero este reproductor no.
   ======================================================== -->
 
   <div
@@ -1510,7 +1667,9 @@
         class="wap-play"
         aria-label="Reproducir o pausar"
       >
+
         <span class="wap-play-icon"></span>
+
       </button>
 
 
@@ -1520,12 +1679,14 @@
           NOW PLAYING
         </div>
 
+
         <div
           id="wapTitle"
           class="wap-title"
         >
           —
         </div>
+
 
         <div
           id="wapSource"
@@ -1538,6 +1699,7 @@
 
 
       <div class="wap-progress-area">
+
 
         <div class="wap-times">
 
@@ -1562,6 +1724,7 @@
             class="wap-progress-fill"
           ></div>
 
+
           <div
             id="wapProgressDot"
             class="wap-progress-dot"
@@ -1580,21 +1743,23 @@
         ×
       </button>
 
+
     </div>
 
 
-    <!-- YOUTUBE: MOTOR OCULTO -->
+    <!--
+      Motor YouTube invisible.
+      La plataforma no aparece visualmente.
+    -->
 
-    <div
-      id="youtubeEngine"
-      class="hidden-engine"
-    ></div>
+    <div id="youtubeEngine"></div>
+
 
   </div>
 
 
   <!-- =======================================================
-       YOUTUBE IFRAME API
+       YOUTUBE API
   ======================================================== -->
 
   <script src="https://www.youtube.com/iframe_api"></script>
@@ -1602,36 +1767,73 @@
 
   <script>
 
+    /* =========================================================
+       ELEMENTS
+    ========================================================= */
+
     const wapPlayer =
-      document.getElementById("wapPlayer");
+      document.getElementById(
+        "wapPlayer"
+      );
+
 
     const wapPlay =
-      document.getElementById("wapPlay");
+      document.getElementById(
+        "wapPlay"
+      );
+
 
     const wapClose =
-      document.getElementById("wapClose");
+      document.getElementById(
+        "wapClose"
+      );
+
 
     const wapTitle =
-      document.getElementById("wapTitle");
+      document.getElementById(
+        "wapTitle"
+      );
+
 
     const wapSource =
-      document.getElementById("wapSource");
+      document.getElementById(
+        "wapSource"
+      );
+
 
     const wapCurrentTime =
-      document.getElementById("wapCurrentTime");
+      document.getElementById(
+        "wapCurrentTime"
+      );
+
 
     const wapDuration =
-      document.getElementById("wapDuration");
+      document.getElementById(
+        "wapDuration"
+      );
+
 
     const wapProgress =
-      document.getElementById("wapProgress");
+      document.getElementById(
+        "wapProgress"
+      );
+
 
     const wapProgressFill =
-      document.getElementById("wapProgressFill");
+      document.getElementById(
+        "wapProgressFill"
+      );
+
 
     const wapProgressDot =
-      document.getElementById("wapProgressDot");
+      document.getElementById(
+        "wapProgressDot"
+      );
 
+
+    /* =========================================================
+       PLAYER STATE
+    ========================================================= */
 
     let currentPlatform = null;
 
@@ -1645,17 +1847,22 @@
 
 
     /* =========================================================
-       FORMAT TIME
+       TIME FORMAT
     ========================================================= */
 
-    function formatTimeFromSeconds(seconds) {
+    function formatTimeFromSeconds(
+      seconds
+    ) {
+
 
       if (
         seconds === undefined ||
         seconds === null ||
         seconds < 0
       ) {
+
         return "0:00";
+
       }
 
 
@@ -1671,7 +1878,8 @@
 
       const minutes =
         Math.floor(
-          (totalSeconds % 3600) / 60
+          (totalSeconds % 3600) /
+          60
         );
 
 
@@ -1684,9 +1892,11 @@
         return (
           hours +
           ":" +
-          String(minutes).padStart(2,"0") +
+          String(minutes)
+            .padStart(2,"0") +
           ":" +
-          String(secs).padStart(2,"0")
+          String(secs)
+            .padStart(2,"0")
         );
 
       }
@@ -1695,7 +1905,8 @@
       return (
         minutes +
         ":" +
-        String(secs).padStart(2,"0")
+        String(secs)
+          .padStart(2,"0")
       );
 
     }
@@ -1707,17 +1918,22 @@
 
     function resetProgress() {
 
+
       wapProgressFill.style.width =
         "0%";
+
 
       wapProgressDot.style.left =
         "0%";
 
+
       wapCurrentTime.textContent =
         "0:00";
 
+
       wapDuration.textContent =
         "0:00";
+
 
     }
 
@@ -1730,6 +1946,7 @@
       currentSeconds,
       durationSeconds
     ) {
+
 
       if (!durationSeconds) {
         return;
@@ -1765,6 +1982,7 @@
           durationSeconds
         );
 
+
     }
 
 
@@ -1781,13 +1999,18 @@
             "youtubeEngine",
             {
 
-              height: "1",
-              width: "1",
+
+              height: "2",
+
+              width: "2",
+
 
               videoId:
                 "42gByTukK4U",
 
+
               playerVars: {
+
 
                 autoplay: 0,
 
@@ -1797,10 +2020,8 @@
 
                 playsinline: 1,
 
-                start: 0,
+                start: 0
 
-                origin:
-                  window.location.origin
 
               },
 
@@ -1811,7 +2032,10 @@
                 onReady:
                   function () {
 
-                    youtubeReady = true;
+
+                    youtubeReady =
+                      true;
+
 
                   },
 
@@ -1824,7 +2048,9 @@
                       currentPlatform !==
                       "youtube"
                     ) {
+
                       return;
+
                     }
 
 
@@ -1833,11 +2059,16 @@
                       YT.PlayerState.PLAYING
                     ) {
 
-                      wapPlay.classList.add(
-                        "playing"
-                      );
+
+                      wapPlay
+                        .classList
+                        .add(
+                          "playing"
+                        );
+
 
                       startYouTubeProgress();
+
 
                     }
 
@@ -1847,9 +2078,13 @@
                       YT.PlayerState.PAUSED
                     ) {
 
-                      wapPlay.classList.remove(
-                        "playing"
-                      );
+
+                      wapPlay
+                        .classList
+                        .remove(
+                          "playing"
+                        );
+
 
                     }
 
@@ -1859,35 +2094,49 @@
                       YT.PlayerState.ENDED
                     ) {
 
-                      wapPlay.classList.remove(
-                        "playing"
-                      );
+
+                      wapPlay
+                        .classList
+                        .remove(
+                          "playing"
+                        );
+
 
                       resetProgress();
 
+
                     }
+
 
                   }
 
+
               }
+
 
             }
           );
+
 
       };
 
 
     /* =========================================================
-       YOUTUBE PROGRESS
+       PROGRESS TIMER
     ========================================================= */
 
     function startYouTubeProgress() {
 
-      if (youtubeProgressTimer) {
+
+      if (
+        youtubeProgressTimer
+      ) {
+
 
         clearInterval(
           youtubeProgressTimer
         );
+
 
       }
 
@@ -1903,16 +2152,20 @@
               currentPlatform !==
               "youtube"
             ) {
+
               return;
+
             }
 
 
             const current =
-              youtubePlayer.getCurrentTime();
+              youtubePlayer
+                .getCurrentTime();
 
 
             const duration =
-              youtubePlayer.getDuration();
+              youtubePlayer
+                .getDuration();
 
 
             updateProgress(
@@ -1925,11 +2178,12 @@
           500
         );
 
+
     }
 
 
     /* =========================================================
-       STOP EVERYTHING
+       STOP
     ========================================================= */
 
     function stopEverything() {
@@ -1940,31 +2194,43 @@
         youtubeReady
       ) {
 
-        youtubePlayer.pauseVideo();
+
+        youtubePlayer
+          .pauseVideo();
+
 
       }
 
 
-      if (youtubeProgressTimer) {
+      if (
+        youtubeProgressTimer
+      ) {
+
 
         clearInterval(
           youtubeProgressTimer
         );
 
-        youtubeProgressTimer = null;
+
+        youtubeProgressTimer =
+          null;
+
 
       }
 
 
-      wapPlay.classList.remove(
-        "playing"
-      );
+      wapPlay
+        .classList
+        .remove(
+          "playing"
+        );
+
 
     }
 
 
     /* =========================================================
-       OPEN PLAYER
+       OPEN SET
     ========================================================= */
 
     function openPlayer(card) {
@@ -1993,16 +2259,18 @@
         "WeAreParty";
 
 
-      wapPlayer.classList.remove(
-        "hidden"
-      );
+      wapPlayer
+        .classList
+        .remove(
+          "hidden"
+        );
 
 
       /* =======================================================
          YOUTUBE
 
-         Todos los vídeos WAP comienzan desde 0:00.
-         No se utiliza ningún timestamp del enlace original.
+         REGLA WAP:
+         todos los sets comienzan desde 0:00.
       ======================================================= */
 
 
@@ -2016,15 +2284,18 @@
           function () {
 
 
-            youtubePlayer.loadVideoById(
-              {
-                videoId:
-                  currentVideoId,
+            youtubePlayer
+              .loadVideoById(
+                {
 
-                startSeconds:
-                  0
-              }
-            );
+                  videoId:
+                    currentVideoId,
+
+                  startSeconds:
+                    0
+
+                }
+              );
 
 
           };
@@ -2043,9 +2314,14 @@
                   youtubePlayer
                 ) {
 
-                  clearInterval(wait);
+
+                  clearInterval(
+                    wait
+                  );
+
 
                   playYouTube();
+
 
                 }
 
@@ -2063,49 +2339,145 @@
 
         }
 
+
       }
+
 
     }
 
 
     /* =========================================================
-       CARD EVENTS
+       SET EVENTS
+
+       Esta función está separada porque después podremos
+       volver a ejecutarla cada vez que #app cargue una página.
     ========================================================= */
 
-    document
-      .querySelectorAll(
-        ".set-card.playable"
-      )
-      .forEach(
-        function (card) {
+    function initializeSetCards() {
 
 
-          const playButton =
-            card.querySelector(
-              ".card-play"
-            );
+      document
+        .querySelectorAll(
+          ".set-card.playable"
+        )
+        .forEach(
+          function (card) {
 
 
-          playButton.addEventListener(
-            "click",
-            function (event) {
+            if (
+              card.dataset.initialized ===
+              "true"
+            ) {
 
-              event.stopPropagation();
-
-              openPlayer(card);
+              return;
 
             }
-          );
 
 
-          card.addEventListener(
-            "click",
-            function () {
+            card.dataset.initialized =
+              "true";
 
-              openPlayer(card);
+
+            const playButton =
+              card.querySelector(
+                ".card-play"
+              );
+
+
+            if (playButton) {
+
+
+              playButton
+                .addEventListener(
+                  "click",
+                  function (event) {
+
+
+                    event
+                      .stopPropagation();
+
+
+                    openPlayer(
+                      card
+                    );
+
+
+                  }
+                );
+
 
             }
-          );
+
+
+            card
+              .addEventListener(
+                "click",
+                function () {
+
+
+                  openPlayer(
+                    card
+                  );
+
+
+                }
+              );
+
+
+          }
+        );
+
+
+    }
+
+
+    initializeSetCards();
+
+
+    /* =========================================================
+       PLAY / PAUSE
+    ========================================================= */
+
+    wapPlay
+      .addEventListener(
+        "click",
+        function () {
+
+
+          if (
+            currentPlatform ===
+            "youtube" &&
+            youtubeReady &&
+            youtubePlayer
+          ) {
+
+
+            const state =
+              youtubePlayer
+                .getPlayerState();
+
+
+            if (
+              state ===
+              YT.PlayerState.PLAYING
+            ) {
+
+
+              youtubePlayer
+                .pauseVideo();
+
+
+            } else {
+
+
+              youtubePlayer
+                .playVideo();
+
+
+            }
+
+
+          }
 
 
         }
@@ -2113,129 +2485,97 @@
 
 
     /* =========================================================
-       PLAY / PAUSE
-    ========================================================= */
-
-    wapPlay.addEventListener(
-      "click",
-      function () {
-
-
-        if (
-          currentPlatform ===
-          "youtube" &&
-          youtubeReady &&
-          youtubePlayer
-        ) {
-
-
-          const state =
-            youtubePlayer.getPlayerState();
-
-
-          if (
-            state ===
-            YT.PlayerState.PLAYING
-          ) {
-
-
-            youtubePlayer.pauseVideo();
-
-
-          } else {
-
-
-            youtubePlayer.playVideo();
-
-
-          }
-
-        }
-
-      }
-    );
-
-
-    /* =========================================================
        SEEK
     ========================================================= */
 
-    wapProgress.addEventListener(
-      "click",
-      function (event) {
+    wapProgress
+      .addEventListener(
+        "click",
+        function (event) {
 
 
-        if (
-          currentPlatform !==
-          "youtube" ||
-          !youtubeReady ||
-          !youtubePlayer
-        ) {
-          return;
+          if (
+            currentPlatform !==
+            "youtube" ||
+            !youtubeReady ||
+            !youtubePlayer
+          ) {
+
+            return;
+
+          }
+
+
+          const rect =
+            wapProgress
+              .getBoundingClientRect();
+
+
+          let percentage =
+            (
+              event.clientX -
+              rect.left
+            ) /
+            rect.width;
+
+
+          percentage =
+            Math.max(
+              0,
+              Math.min(
+                1,
+                percentage
+              )
+            );
+
+
+          const duration =
+            youtubePlayer
+              .getDuration();
+
+
+          if (!duration) {
+
+            return;
+
+          }
+
+
+          youtubePlayer
+            .seekTo(
+              duration *
+              percentage,
+              true
+            );
+
+
         }
-
-
-        const rect =
-          wapProgress.getBoundingClientRect();
-
-
-        let percentage =
-          (
-            event.clientX -
-            rect.left
-          ) /
-          rect.width;
-
-
-        percentage =
-          Math.max(
-            0,
-            Math.min(
-              1,
-              percentage
-            )
-          );
-
-
-        const duration =
-          youtubePlayer.getDuration();
-
-
-        if (!duration) {
-          return;
-        }
-
-
-        youtubePlayer.seekTo(
-          duration *
-          percentage,
-          true
-        );
-
-
-      }
-    );
+      );
 
 
     /* =========================================================
        CLOSE PLAYER
     ========================================================= */
 
-    wapClose.addEventListener(
-      "click",
-      function () {
+    wapClose
+      .addEventListener(
+        "click",
+        function () {
 
 
-        stopEverything();
+          stopEverything();
 
 
-        wapPlayer.classList.add(
-          "hidden"
-        );
+          wapPlayer
+            .classList
+            .add(
+              "hidden"
+            );
 
 
-      }
-    );
+        }
+      );
+
 
   </script>
 
