@@ -351,7 +351,6 @@
 
     .set-card {
       position: relative;
-
       overflow: hidden;
 
       border: 1px solid var(--border);
@@ -376,7 +375,7 @@
 
 
     /* =========================================================
-       ARTIST VISUAL
+       SET VISUAL / ARTIST IMAGE
     ========================================================= */
 
     .set-visual {
@@ -393,7 +392,7 @@
       background:
         radial-gradient(
           circle at 50% 100%,
-          rgba(123,44,255,.22),
+          rgba(123,44,255,.25),
           transparent 60%
         ),
         #09090d;
@@ -433,9 +432,7 @@
 
       z-index: 1;
 
-      transition:
-        transform .6s ease,
-        filter .6s ease;
+      transition: transform .6s ease;
     }
 
     .set-card:hover .artist-image {
@@ -455,13 +452,14 @@
       background:
         linear-gradient(
           to bottom,
-          rgba(0,0,0,.04) 45%,
-          rgba(0,0,0,.25) 100%
+          rgba(0,0,0,.04) 35%,
+          rgba(0,0,0,.28) 100%
         );
     }
 
     .set-number {
       position: absolute;
+
       top: 21px;
       left: 21px;
 
@@ -470,7 +468,7 @@
       font-size: 9px;
       letter-spacing: .16em;
 
-      color: rgba(255,255,255,.40);
+      color: rgba(255,255,255,.50);
     }
 
     .genre-badge {
@@ -493,7 +491,7 @@
       letter-spacing: .15em;
       text-transform: uppercase;
 
-      color: rgba(255,255,255,.75);
+      color: rgba(255,255,255,.78);
     }
 
 
@@ -605,8 +603,6 @@
 
     .set-description {
       margin-top: 8px;
-
-      max-width: 310px;
 
       font-size: 11px;
       line-height: 1.7;
@@ -775,7 +771,7 @@
       display: grid;
 
       grid-template-columns:
-        52px 270px 1fr 100px 38px;
+        52px 270px 1fr 38px;
 
       align-items: center;
 
@@ -880,7 +876,7 @@
 
 
     /* =========================================================
-       PROGRESS
+       PLAYER PROGRESS
     ========================================================= */
 
     .wap-progress-area {
@@ -957,17 +953,8 @@
 
 
     /* =========================================================
-       PLATFORM / CLOSE
+       CLOSE
     ========================================================= */
-
-    .wap-platform {
-      font-size: 8px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      text-align: right;
-
-      color: var(--muted);
-    }
 
     .wap-close {
       width: 34px;
@@ -1024,10 +1011,6 @@
       .wap-player-inner {
         grid-template-columns:
           50px 220px 1fr 38px;
-      }
-
-      .wap-platform {
-        display: none;
       }
 
     }
@@ -1113,8 +1096,7 @@
         height: 40px;
       }
 
-      .wap-progress-area,
-      .wap-platform {
+      .wap-progress-area {
         display: none;
       }
 
@@ -1161,7 +1143,10 @@
 
   <nav>
 
-    <a href="index.html" class="logo">
+    <a
+      href="index.html"
+      class="logo"
+    >
       <img
         src="logo.png"
         alt="WeAreParty"
@@ -1309,17 +1294,15 @@
 
         <!--
         ========================================================
-        IMPORTANTE:
-        LOS SETS NUEVOS SE AÑADEN ARRIBA.
+        ORDEN DE LOS SETS
 
-        Ejemplo futuro:
+        Los números son históricos y nunca cambian.
 
-        SET 003
-        SET 002
-        SET 001
+        Los sets nuevos se añaden ARRIBA:
 
-        El número nunca cambia.
-        Solo cambia la posición visual.
+        003
+        002
+        001
         ========================================================
         -->
 
@@ -1338,19 +1321,17 @@
 
             data-platform="youtube"
 
-            data-video-id="WASQWD4NaGQ"
+            data-video-id="42gByTukK4U"
 
             data-title="VICTOR OLIVA"
 
-            data-source="Minimal / Tech House · WeAreParty"
+            data-source="WeAreParty · Sunset @ Manresa"
 
             data-start="0"
           >
 
             <div class="set-visual">
 
-
-              <!-- IMAGEN DEL ARTISTA -->
 
               <img
                 src="victor-001.webp"
@@ -1360,21 +1341,15 @@
               >
 
 
-              <!-- NÚMERO HISTÓRICO DEL SET -->
-
               <span class="set-number">
                 001
               </span>
 
 
-              <!-- GÉNERO PRINCIPAL -->
-
               <span class="genre-badge">
                 MINIMAL
               </span>
 
-
-              <!-- PLAY -->
 
               <button
                 class="card-play"
@@ -1387,38 +1362,28 @@
             <div class="set-info">
 
 
-              <!-- GÉNERO PRINCIPAL -->
-
               <div class="set-genre">
                 MINIMAL
               </div>
 
-
-              <!-- ARTISTA -->
 
               <h3 class="set-name">
                 VICTOR OLIVA
               </h3>
 
 
-              <!-- FECHA -->
-
               <p class="set-date">
-                31 04 2023
+                30/04/2023
               </p>
 
 
-              <!-- GÉNERO SECUNDARIO -->
-
               <div class="set-secondary">
-                Minimal / Tech House
+                MINIMAL / HOUSE
               </div>
 
 
-              <!-- DESCRIPCIÓN -->
-
               <p class="set-description">
-                Groove, percusión y minimal.
+                Sunset @ Manresa
               </p>
 
 
@@ -1607,14 +1572,6 @@
       </div>
 
 
-      <div
-        id="wapPlatform"
-        class="wap-platform"
-      >
-        —
-      </div>
-
-
       <button
         id="wapClose"
         class="wap-close"
@@ -1626,7 +1583,7 @@
     </div>
 
 
-    <!-- MOTOR YOUTUBE -->
+    <!-- YOUTUBE: MOTOR OCULTO -->
 
     <div
       id="youtubeEngine"
@@ -1637,7 +1594,7 @@
 
 
   <!-- =======================================================
-       YOUTUBE API
+       YOUTUBE IFRAME API
   ======================================================== -->
 
   <script src="https://www.youtube.com/iframe_api"></script>
@@ -1660,9 +1617,6 @@
     const wapSource =
       document.getElementById("wapSource");
 
-    const wapPlatform =
-      document.getElementById("wapPlatform");
-
     const wapCurrentTime =
       document.getElementById("wapCurrentTime");
 
@@ -1680,8 +1634,6 @@
 
 
     let currentPlatform = null;
-
-    let currentStart = 0;
 
     let currentVideoId = null;
 
@@ -1732,11 +1684,9 @@
         return (
           hours +
           ":" +
-          String(minutes)
-            .padStart(2,"0") +
+          String(minutes).padStart(2,"0") +
           ":" +
-          String(secs)
-            .padStart(2,"0")
+          String(secs).padStart(2,"0")
         );
 
       }
@@ -1745,8 +1695,7 @@
       return (
         minutes +
         ":" +
-        String(secs)
-          .padStart(2,"0")
+        String(secs).padStart(2,"0")
       );
 
     }
@@ -1826,6 +1775,7 @@
     window.onYouTubeIframeAPIReady =
       function () {
 
+
         youtubePlayer =
           new YT.Player(
             "youtubeEngine",
@@ -1835,7 +1785,7 @@
               width: "1",
 
               videoId:
-                "WASQWD4NaGQ",
+                "42gByTukK4U",
 
               playerVars: {
 
@@ -1847,7 +1797,10 @@
 
                 playsinline: 1,
 
-                start: 0
+                start: 0,
+
+                origin:
+                  window.location.origin
 
               },
 
@@ -1943,6 +1896,7 @@
         setInterval(
           function () {
 
+
             if (
               !youtubePlayer ||
               !youtubeReady ||
@@ -1954,19 +1908,18 @@
 
 
             const current =
-              youtubePlayer
-                .getCurrentTime();
+              youtubePlayer.getCurrentTime();
 
 
             const duration =
-              youtubePlayer
-                .getDuration();
+              youtubePlayer.getDuration();
 
 
             updateProgress(
               current,
               duration
             );
+
 
           },
           500
@@ -1976,10 +1929,11 @@
 
 
     /* =========================================================
-       STOP
+       STOP EVERYTHING
     ========================================================= */
 
     function stopEverything() {
+
 
       if (
         youtubePlayer &&
@@ -2020,20 +1974,6 @@
         card.dataset.platform;
 
 
-      /*
-      IMPORTANTE:
-
-      WeAreParty siempre comienza
-      los sets desde 0:00.
-
-      Aunque el enlace original tenga
-      ?t=2942 o cualquier otro timestamp,
-      aquí siempre usamos 0.
-      */
-
-      currentStart = 0;
-
-
       currentVideoId =
         card.dataset.videoId;
 
@@ -2053,13 +1993,17 @@
         "WeAreParty";
 
 
-      wapPlatform.textContent =
-        currentPlatform.toUpperCase();
-
-
       wapPlayer.classList.remove(
         "hidden"
       );
+
+
+      /* =======================================================
+         YOUTUBE
+
+         Todos los vídeos WAP comienzan desde 0:00.
+         No se utiliza ningún timestamp del enlace original.
+      ======================================================= */
 
 
       if (
@@ -2081,6 +2025,7 @@
                   0
               }
             );
+
 
           };
 
@@ -2185,8 +2130,7 @@
 
 
           const state =
-            youtubePlayer
-              .getPlayerState();
+            youtubePlayer.getPlayerState();
 
 
           if (
@@ -2195,15 +2139,13 @@
           ) {
 
 
-            youtubePlayer
-              .pauseVideo();
+            youtubePlayer.pauseVideo();
 
 
           } else {
 
 
-            youtubePlayer
-              .playVideo();
+            youtubePlayer.playVideo();
 
 
           }
@@ -2234,8 +2176,7 @@
 
 
         const rect =
-          wapProgress
-            .getBoundingClientRect();
+          wapProgress.getBoundingClientRect();
 
 
         let percentage =
@@ -2257,8 +2198,12 @@
 
 
         const duration =
-          youtubePlayer
-            .getDuration();
+          youtubePlayer.getDuration();
+
+
+        if (!duration) {
+          return;
+        }
 
 
         youtubePlayer.seekTo(
