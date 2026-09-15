@@ -4279,5 +4279,115 @@
 
   </script>
 
+<!-- WAP Analytics: consent-controlled loading -->
+<style>
+#wap-consent{position:fixed;top:16px;right:16px;z-index:10000;width:min(400px,calc(100vw - 32px));padding:20px;background:#141414;color:#fff;border:1px solid #555;border-radius:14px;box-shadow:0 8px 30px #0006;font:14px/1.5 Arial,sans-serif}
+#wap-consent[hidden]{display:none}
+#wap-consent h2{font-size:18px;margin:0 0 10px}
+#wap-consent p{margin:0 0 14px}
+#wap-consent a{color:#fff;text-decoration:underline}
+#wap-consent .wap-consent-actions{display:flex;gap:10px}
+#wap-consent button,#wap-consent-settings{font:inherit;cursor:pointer;border:1px solid #aaa;border-radius:6px;background:#222;color:#fff;padding:10px 14px}
+#wap-consent .wap-consent-actions button{flex:1}
+#wap-consent button:focus-visible,#wap-consent-settings:focus-visible{outline:3px solid #67dbff;outline-offset:3px}
+#wap-consent-settings{display:block;margin:16px auto;font:12px Arial,sans-serif}
+</style>
+<section id="wap-consent" role="region" aria-labelledby="wap-consent-title" hidden>
+<h2 id="wap-consent-title">Medición de visitas</h2>
+<p>Con tu permiso, usamos Google Analytics y sus cookies para conocer las visitas y cómo se utiliza WeAreParty. Puedes aceptar o rechazar esta medición y cambiar tu elección en «Preferencias de medición».</p>
+<p><a href="https://policies.google.com/technologies/partner-sites?hl=es" target="_blank" rel="noopener noreferrer">Cómo utiliza Google los datos</a></p>
+<div class="wap-consent-actions">
+<button type="button" id="wap-consent-reject">Rechazar</button>
+<button type="button" id="wap-consent-accept">Aceptar</button>
+</div>
+</section>
+<button type="button" id="wap-consent-settings" aria-controls="wap-consent" aria-expanded="false">Preferencias de medición</button>
+<script>
+(function () {
+  'use strict';
+  const id = 'G-65NB2YKW0D';
+  const key = 'wap-analytics-consent-v1';
+  const lifetime = 180 * 24 * 60 * 60 * 1000;
+  const banner = document.getElementById('wap-consent');
+  const settings = document.getElementById('wap-consent-settings');
+  let loaded = false;
+  let choice = null;
+  window['ga-disable-' + id] = true;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+  function clearCookies() {
+    document.cookie.split(';').forEach(function (item) {
+      const name = item.split('=')[0].trim();
+      if (!/^_ga($|_)/.test(name)) return;
+      ['', location.hostname, '.' + location.hostname, 'weareparty.live', '.weareparty.live'].forEach(function (domain) {
+        document.cookie = name + '=; Max-Age=0; path=/' + (domain ? '; domain=' + domain : '') + '; SameSite=Lax';
+      });
+    });
+  }
+  function enable() {
+    window['ga-disable-' + id] = false;
+    if (loaded) {
+      window.gtag('consent', 'update', {analytics_storage: 'granted'});
+      return;
+    }
+    loaded = true;
+    window.gtag('consent', 'default', {
+      analytics_storage: 'denied', ad_storage: 'denied',
+      ad_user_data: 'denied', ad_personalization: 'denied'
+    });
+    window.gtag('consent', 'update', {analytics_storage: 'granted'});
+    window.gtag('js', new Date());
+    window.gtag('config', id, {allow_google_signals: false, allow_ad_personalization_signals: false});
+    const tag = document.createElement('script');
+    tag.async = true;
+    tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+    document.head.appendChild(tag);
+  }
+  function show(open) {
+    banner.hidden = !open;
+    settings.setAttribute('aria-expanded', String(open));
+  }
+  function apply(value) {
+    choice = value;
+    if (value === 'accepted') enable();
+    else {
+      window['ga-disable-' + id] = true;
+      if (loaded) window.gtag('consent', 'update', {analytics_storage: 'denied'});
+      clearCookies();
+    }
+  }
+  function save(value) {
+    try { localStorage.setItem(key, JSON.stringify({value: value, time: Date.now()})); } catch (_) {}
+    apply(value);
+    show(false);
+    settings.focus();
+  }
+  try {
+    const stored = JSON.parse(localStorage.getItem(key));
+    if (stored && ['accepted', 'rejected'].includes(stored.value) &&
+        typeof stored.time === 'number' && Date.now() >= stored.time &&
+        Date.now() - stored.time < lifetime) choice = stored.value;
+  } catch (_) {}
+  apply(choice);
+  show(choice === null);
+  document.getElementById('wap-consent-accept').addEventListener('click', function () { save('accepted'); });
+  document.getElementById('wap-consent-reject').addEventListener('click', function () { save('rejected'); });
+  settings.addEventListener('click', function () {
+    show(true);
+    document.getElementById('wap-consent-reject').focus();
+  });
+  window.addEventListener('storage', function (event) {
+    if (event.key !== key) return;
+    let value = null;
+    try {
+      const stored = JSON.parse(event.newValue);
+      if (stored && ['accepted', 'rejected'].includes(stored.value)) value = stored.value;
+    } catch (_) {}
+    apply(value);
+    show(value === null);
+  });
+})();
+</script>
+<!-- End WAP Analytics -->
 </body>
 </html>
