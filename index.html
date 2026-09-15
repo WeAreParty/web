@@ -173,7 +173,6 @@
       display: flex;
       align-items: center;
       gap: 28px;
-
       list-style: none;
     }
 
@@ -192,6 +191,25 @@
     .nav-links a:hover,
     .nav-links a.active {
       color: var(--white);
+    }
+
+    .nav-links a.active::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: -12px;
+
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--violet)
+        );
     }
 
     .nav-button {
@@ -604,7 +622,6 @@
 
     .connection-content {
       position: relative;
-
       text-align: center;
     }
 
@@ -1031,7 +1048,6 @@
 
     .socials {
       display: flex;
-
       gap: 22px;
     }
 
@@ -1085,9 +1101,7 @@
 
     .wap-player.hidden {
       transform: translateY(110%);
-
       opacity: 0;
-
       pointer-events: none;
     }
 
@@ -1219,7 +1233,6 @@
       margin-bottom: 9px;
 
       font-size: 8px;
-
       color: var(--muted);
     }
 
@@ -1376,7 +1389,6 @@
 
       .manifesto-grid {
         grid-template-columns: 1fr;
-
         gap: 35px;
       }
 
@@ -1478,7 +1490,6 @@
 
       .hero-actions {
         flex-direction: column;
-
         align-items: stretch;
       }
 
@@ -1511,7 +1522,6 @@
 
       .socials {
         flex-wrap: wrap;
-
         justify-content: center;
       }
 
@@ -1527,7 +1537,7 @@
 
 
   <!-- =======================================================
-       FIXED NAVIGATION
+       BARRA DE NAVEGACIÓN FIJA
   ======================================================== -->
 
   <nav>
@@ -1547,23 +1557,20 @@
 
       <ul class="nav-links">
 
+
+        <!-- INICIO -->
+
         <li>
-          <a href="sets.html">
-            Sets
+          <a
+            href="index.html"
+            class="active"
+          >
+            Inicio
           </a>
         </li>
 
-        <li>
-          <a href="#eventos">
-            Eventos
-          </a>
-        </li>
 
-        <li>
-          <a href="#comunidad">
-            Comunidad
-          </a>
-        </li>
+        <!-- FILOSOFÍA -->
 
         <li>
           <a href="filosofia.html">
@@ -1571,14 +1578,38 @@
           </a>
         </li>
 
+
+        <!-- SETS -->
+
+        <li>
+          <a href="sets.html">
+            Sets
+          </a>
+        </li>
+
+
+        <!-- EVENTOS -->
+
+        <li>
+          <a href="index.html#eventos">
+            Eventos
+          </a>
+        </li>
+
+
+        <!-- CONTACTO -->
+
         <li>
           <a href="contacto.html">
             Contacto
           </a>
         </li>
 
+
       </ul>
 
+
+      <!-- BOTÓN ENTRAR -->
 
       <a
         href="contacto.html"
@@ -1587,6 +1618,7 @@
         Entrar
       </a>
 
+
     </div>
 
   </nav>
@@ -1594,9 +1626,6 @@
 
   <!-- =======================================================
        APP
-
-       Este contenido será reemplazable cuando terminemos
-       la navegación persistente.
   ======================================================== -->
 
   <div id="app">
@@ -2334,10 +2363,7 @@
 
 
   <!-- =======================================================
-       PERMANENT WAP PLAYER
-
-       Fuera de #app para que posteriormente podamos
-       cambiar el contenido sin destruir el reproductor.
+       WAP PLAYER
   ======================================================== -->
 
   <div
@@ -2448,6 +2474,10 @@
   </div>
 
 
+  <!-- =======================================================
+       YOUTUBE API
+  ======================================================== -->
+
   <script src="https://www.youtube.com/iframe_api"></script>
 
 
@@ -2485,11 +2515,9 @@
 
 
     let currentPlatform = null;
-
     let currentVideoId = null;
 
     let youtubeReady = false;
-
     let youtubePlayer = null;
 
     let youtubeProgressTimer = null;
@@ -2553,7 +2581,7 @@
 
 
     /* =========================================================
-       RESET
+       RESET PROGRESS
     ========================================================= */
 
     function resetProgress() {
@@ -2619,7 +2647,7 @@
 
 
     /* =========================================================
-       YOUTUBE
+       YOUTUBE READY
     ========================================================= */
 
     window.onYouTubeIframeAPIReady =
@@ -2806,7 +2834,7 @@
 
 
     /* =========================================================
-       OPEN SET
+       OPEN PLAYER
     ========================================================= */
 
     function openPlayer(card) {
@@ -2909,7 +2937,7 @@
 
 
     /* =========================================================
-       INITIALIZE SETS
+       INITIALIZE SET CARDS
     ========================================================= */
 
     function initializeSetCards() {
@@ -3057,7 +3085,7 @@
 
 
     /* =========================================================
-       CLOSE
+       CLOSE PLAYER
     ========================================================= */
 
     wapClose.addEventListener(
