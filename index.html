@@ -4352,7 +4352,7 @@
     try { localStorage.setItem(key, JSON.stringify({value: value, time: Date.now()})); } catch (_) {}
     apply(value);
     show(false);
-    settings.focus();
+    settings.focus({ preventScroll: true });
   }
   try {
     const stored = JSON.parse(localStorage.getItem(key));
