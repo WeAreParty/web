@@ -3177,7 +3177,7 @@
               <input
                 type="text"
                 id="nombre"
-                name="nombre"
+                name="name"
                 class="form-control"
                 autocomplete="name"
                 required
@@ -3215,7 +3215,7 @@
 
             <select
               id="perfil"
-              name="perfil"
+              name="type"
               class="form-control"
               required
             >
@@ -3253,13 +3253,18 @@
 
             <textarea
               id="mensaje"
-              name="mensaje"
+              name="message"
               class="form-control"
               required
             ></textarea>
 
           </div>
 
+
+          <div hidden aria-hidden="true">
+            <label for="contactWebsite">Website</label>
+            <input type="text" id="contactWebsite" name="website" tabindex="-1" autocomplete="off">
+          </div>
 
           <button
             type="submit"
@@ -3272,6 +3277,9 @@
           <p
             class="form-note"
             id="formNote"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
           >
 
             Cuéntanos brevemente quién eres
@@ -4243,31 +4251,90 @@
        Después conectaremos el envío real.
     ========================================================= */
 
-    const contactForm =
-      document.getElementById(
-        "contactForm"
-      );
+    const contactForm = document.getElementById("contactForm");
+    const formNote = document.getElementById("formNote");
+    const contactPhrases = [
+      "Recuerda que mover el cuerpo también puede despertar la creatividad.",
+      "Recuerda beber agüita. Tu cuerpo también forma parte de la experiencia.",
+      "Hoy no bajes los brazos. Y mañana vuelve a leer esto.",
+      "No dejes para mañana lo que te puedas reír hoy.",
+      "Recuerda que un abrazo puede cambiar el tono de un día.",
+      "Si miras al pasado, hay una versión tuya que soñaba con llegar hasta donde estás hoy.",
+      "Si se te eriza la piel, quizá haya algo ahí que merece ser explorado.",
+      "Escucha música nueva. La próxima canción que te cambie la vida todavía puede estar por descubrir.",
+      "Sal un momento afuera. A veces las mejores ideas necesitan un poco de aire.",
+      "Crea algo aunque nadie vaya a verlo. La creatividad también existe para ti.",
+      "Rodéate de personas con las que puedas ser tú sin bajar el volumen.",
+      "No todo tiene que convertirse en contenido. Algunos momentos solo necesitan ser vividos.",
+      "Descansa. Hasta la música necesita silencios para tener sentido.",
+      "Un mal día no tiene por qué escribir el resto de la historia.",
+      "Atrévete a escuchar fuera de los charts. La curiosidad también tiene ritmo.",
+      "Comparte lo que sabes. La creatividad crece cuando circula.",
+      "Cuida los lugares que te rodean. También forman parte de nuestras experiencias.",
+      "Preguntar “¿cómo estás?” está bien. Quedarse a escuchar la respuesta está aún mejor.",
+      "Si hoy todo pesa demasiado, hablar con alguien y pedir ayuda también es avanzar.",
+      "Sigue buscando tu frecuencia. No tiene por qué ser la misma que la de los demás."
+];
+    let contactSending = false;
 
-    const formNote =
-      document.getElementById(
-        "formNote"
-      );
+    contactForm.addEventListener("submit", async function(event) {
+      event.preventDefault();
+      if (contactSending || !contactForm.reportValidity()) return;
 
-
-    contactForm.addEventListener(
-      "submit",
-      function(event) {
-
-        event.preventDefault();
-
-        formNote.textContent =
-          "Formulario preparado. El siguiente paso será conectar el envío real de los mensajes.";
-
-        formNote.style.color =
-          "var(--cyan)";
-
+      const fields = new FormData(contactForm);
+      const payload = {
+        name: String(fields.get("name") || "").trim(),
+        email: String(fields.get("email") || "").trim(),
+        type: String(fields.get("type") || "").trim(),
+        message: String(fields.get("message") || "").trim(),
+        website: String(fields.get("website") || "")
+      };
+      if (!payload.name || !payload.email || !payload.type || !payload.message) {
+        formNote.textContent = "Completa todos los campos obligatorios antes de enviar.";
+        formNote.style.color = "#ffb4ab";
+        return;
       }
-    );
+
+      const button = contactForm.querySelector('button[type="submit"]');
+      const originalButtonText = button.textContent;
+      contactSending = true;
+      button.disabled = true;
+      button.textContent = "ENVIANDO...";
+      contactForm.setAttribute("aria-busy", "true");
+      formNote.textContent = "Enviando tu mensaje...";
+      formNote.style.color = "var(--cyan)";
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 30000);
+
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify(payload),
+          signal: controller.signal
+        });
+        const result = await response.json().catch(() => null);
+        if (!response.ok || !result || result.ok !== true) {
+          const detail = result && typeof result.error === "string" ? result.error : "No se pudo enviar el mensaje.";
+          throw new Error(detail);
+        }
+        contactForm.reset();
+        const phrase = contactPhrases[Math.floor(Math.random() * contactPhrases.length)];
+        formNote.textContent = "Gracias por comunicarse con nosotros. " + phrase;
+        formNote.style.color = "var(--cyan)";
+      } catch (error) {
+        formNote.textContent = error.name === "AbortError"
+          ? "El envío tardó demasiado y no se pudo confirmar. Tus datos se conservan; puedes volver a intentarlo."
+          : "No se pudo enviar tu mensaje. " + (error.message || "Comprueba tu conexión.") + " Tus datos se conservan; vuelve a intentarlo.";
+        formNote.style.color = "#ffb4ab";
+      } finally {
+        clearTimeout(timeout);
+        contactSending = false;
+        button.disabled = false;
+        button.textContent = originalButtonText;
+        contactForm.removeAttribute("aria-busy");
+      }
+    });
 
   </script>
 
