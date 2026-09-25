@@ -2101,7 +2101,12 @@
       }
 
       body.player-visible {
-        padding-bottom: 100px;
+        padding-bottom: calc(144px + env(safe-area-inset-bottom, 0px));
+      }
+
+      .wap-player {
+        height: calc(132px + env(safe-area-inset-bottom, 0px));
+        padding-bottom: env(safe-area-inset-bottom, 0px);
       }
 
       .wap-player-inner {
@@ -2110,10 +2115,12 @@
 
         grid-template-columns:
           44px
-          1fr
+          minmax(0, 1fr)
           34px;
 
-        gap: 12px;
+        grid-template-rows: 64px 60px;
+        column-gap: 12px;
+        row-gap: 0;
       }
 
       .wap-play {
@@ -2121,8 +2128,39 @@
         height: 40px;
       }
 
+      .wap-close {
+        grid-column: 3;
+        grid-row: 1;
+      }
+
       .wap-progress-area {
-        display: none;
+        display: block;
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+        min-width: 0;
+        padding: 0 6px;
+      }
+
+      .wap-times {
+        margin-bottom: 0;
+      }
+
+      .wap-progress {
+        height: 44px;
+        touch-action: none;
+        background: linear-gradient(rgba(255,255,255,.18), rgba(255,255,255,.18)) center / 100% 4px no-repeat;
+      }
+
+      .wap-progress-fill {
+        top: 20px;
+        height: 4px;
+      }
+
+      .wap-progress-dot {
+        width: 12px;
+        height: 12px;
+        opacity: 1;
       }
 
     }
@@ -2879,11 +2917,15 @@
 
           data-platform="youtube"
 
-          data-video-id="42gByTukK4U"
+          data-url="https://youtube.com/live/ONZ5pOQJDf8"
+
+          data-status="disponible"
+
+          data-video-id="ONZ5pOQJDf8"
 
           data-title="VICTOR OLIVA"
 
-          data-source="WeAreParty · Sunset @ Manresa"
+          data-source="WeAreParty · Sonidos orgánicos @ Manresa"
 
           data-start="0"
         >
@@ -2894,7 +2936,7 @@
 
             <img
               src="victor-001.webp"
-              alt="Victor Oliva — Minimal"
+              alt="Victor Oliva — Organic House"
               class="artist-image"
               loading="lazy"
             >
@@ -2906,7 +2948,7 @@
 
 
             <span class="genre-badge">
-              MINIMAL
+              HOUSE
             </span>
 
 
@@ -2923,7 +2965,7 @@
 
 
             <div class="set-genre">
-              MINIMAL
+              HOUSE
             </div>
 
 
@@ -2933,17 +2975,17 @@
 
 
             <p class="set-date">
-              30/04/2023
+              24/09/2026
             </p>
 
 
             <div class="set-secondary">
-              MINIMAL / HOUSE
+              ORGANIC HOUSE
             </div>
 
 
             <p class="set-description">
-              Sunset @ Manresa
+              Sonidos orgánicos @ Manresa
             </p>
 
 
@@ -3818,7 +3860,7 @@
               height: "180",
 
               videoId:
-                "42gByTukK4U",
+                "ONZ5pOQJDf8",
 
               playerVars: {
 
@@ -4069,6 +4111,32 @@
     /* =========================================================
        SEEK
     ========================================================= */
+
+    // Mobile drag uses the same seek calculation as a tap.
+    let mobileSeekPointer = null;
+    wapProgress.addEventListener("pointerdown", function(event) {
+      if (!window.matchMedia("(max-width: 900px)").matches ||
+          !event.isPrimary || event.button !== 0) return;
+      mobileSeekPointer = event.pointerId;
+      wapProgress.setPointerCapture(event.pointerId);
+      event.preventDefault();
+      wapProgress.dispatchEvent(new MouseEvent("click", {clientX: event.clientX}));
+    });
+    wapProgress.addEventListener("pointermove", function(event) {
+      if (mobileSeekPointer !== event.pointerId) return;
+      wapProgress.dispatchEvent(new MouseEvent("click", {clientX: event.clientX}));
+    });
+    wapProgress.addEventListener("pointerup", function(event) {
+      if (mobileSeekPointer !== event.pointerId) return;
+      wapProgress.dispatchEvent(new MouseEvent("click", {clientX: event.clientX}));
+      mobileSeekPointer = null;
+    });
+    wapProgress.addEventListener("pointercancel", function() {
+      mobileSeekPointer = null;
+    });
+    wapProgress.addEventListener("lostpointercapture", function() {
+      mobileSeekPointer = null;
+    });
 
     wapProgress.addEventListener(
       "click",
